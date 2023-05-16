@@ -8,9 +8,10 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 15px 25px 10px 10px;
-  position: fixed;
+  /* position: fixed; */
 box-shadow: 0 0 3px 0.3px;
   font-weight: 4px;
+  background-color: #eee7e7 ;
   }
   
   .right-nav-links{

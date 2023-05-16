@@ -1,13 +1,18 @@
 .App {
   text-align: center;
- 
+  /* box-sizing: border-box; */
  
 }
 
 *{
   margin: 0;
   padding: 0;
-  /* background-color: #eee7e7 ; */
+  
+
+}
+
+body{
+  background-color: #eee7e7 ;
 }
 
 .App-logo {
@@ -64,9 +69,11 @@
 
   width: 100%;
   height: 450px;
-  margin-top: 67px;
+  /* margin-top: 67px; 
+   later add this when u do nav positon fixed */
   object-fit: cover;
   position: relative;
+  z-index: -1;
 }
 
 .browse-btn{
@@ -86,58 +93,294 @@
   border-radius: 5px;
 }
 
-.game-genres{
-  font-size: 24px;
+.genres-title{
+  font-size: 34px;
   font-weight: bold;
   line-height: 1.125;
   color: rgb(33, 33, 33);
+  /* color: black; */
   font-family: Open Sans;
-  margin: 30px;
+  /* margin: 30px; */
   display: flex;
  align-items: flex-start;
+box-sizing: border-box;
+/* margin-left: 45px; */
+margin: 25px 0px 20px 30px;
 
+}
+
+
+
+.scroll-title{
+  font-size: 34px;
+  font-weight: bold;
+  line-height: 1.125;
+  color: rgb(33, 33, 33);
+  /* color: black; */
+  font-family: Open Sans;
+  margin: 50px 0px 0px 155px;
+  display: flex;
+ /* align-items: flex-start; */
+box-sizing: border-box;
 }
 
 .genre-category{
   /* border: 1px solid; */
   display: flex;
+  
 }
 
-.first-category{
+.all-categories{
   border: 1px solid silver;
-  padding: 20px;
-  margin: 10px;
-height: 80px;
-width: 80px;
+  /* padding: 20px; */
+  
+  margin: 30px;
+  height: 300px;
+width: 200px;
+object-fit: cover;
+cursor: pointer;
+box-sizing: border-box;
+
+/* position: relative;
+    z-index: -1; */
+    /* if this works the hover dont work */
+
+}
+.all-categories:hover{
+
+  filter: alpha(opacity=80);
+    opacity: .8;
+    border: 0.5px solid seashell;
+
+   
+
+ 
 }
 
-.second-category{
-  border: 1px solid silver;
-  padding: 20px;
-  margin: 10px;
-  height: 80px;
-width: 80px;
+.single-genre-category {
+ position: relative;
+
+
 }
 
-.third-category{
-  border: 1px solid silver;
-  padding: 20px;
-  margin: 10px;
-  height: 80px;
-width: 80px;
+
+
+
+
+
+
+.category-title{
+  position: absolute;
+  top: 230px;
+  left: 80px;
+
+  font-size: 30px;
+  font-weight: bolder;
+  color: white;
+
+  line-height: 2.8;
+  
 }
 
-.fourth-category{
-  border: 1px solid silver;
-  padding: 20px;
-  margin: 10px;
-  height: 80px;
-width: 80px;
-}
+
+
 
 .total-category-card{
   display: flex;
   flex-direction: column;
   align-items: center;
   /* justify-content: center ; */
+
 }
+
+
+/* 
+.all-categories :hover{
+  border: 5px solid #6E1D72;
+} */
+
+
+ /* old games */
+
+ .old-game-products{
+  display: flex;
+
+flex-wrap: nowrap;
+overflow-x: auto;
+/* scrollbar-width: thin;
+scrollbar-color: gray; */
+  /* border: 1px solid red; */
+/* object-fit: cover; */
+
+/* margin: 40px; */
+margin-left: 150px;
+margin-top: 20px;
+ }
+
+
+
+ .old-game-products::-webkit-scrollbar {
+  width: 120px;
+}
+
+
+.old-game-products::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
+
+.old-game-products::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.old-game-products::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+
+
+ .old-game-individual-products{
+  margin: 10px;
+
+
+  /* lets-check */
+
+  position: relative;
+  width: 256px;
+  height: 286.98px;
+/* height: 100%; */
+  
+  background: #EDEDED;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+
+
+
+
+
+ }
+
+ .image-old{
+
+  position: relative;
+  width: 256px;
+  /* height: 116.98px; */
+  height: 206.98px;
+  background: #000000;
+
+
+    /* lets check */
+    /* position: relative;
+    width: 256px;
+    height: 116.98px;
+    
+    background: #000000; */
+ }
+
+ .old-game-image-individual{
+
+  position: absolute;
+/* width: 256px;
+height: 116.98px; */
+
+
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+right: 0px;
+bottom: 0px;
+ 
+  /* object-fit: cover;   */
+
+
+
+/* background: url(.png); */
+
+ }
+
+ /* .section-title{
+
+box-sizing: border-box;
+
+position: absolute;
+width: 1096px;
+height: 33px;
+left: 153px;
+top: 2414px;
+
+border-bottom: 1px solid #B8B8B8;
+
+
+not working
+ } */
+
+
+
+ /* footer */
+ .footer{
+  color: white;
+  background-color: #262626 ;
+  padding: 4rem;
+  box-sizing: border-box;
+  margin-top: 60px;
+ }
+
+
+ .footer-contaier{
+  max-width: 1440px;
+  margin: auto;
+ }
+
+
+
+ .footer-row{
+  display: flex;
+  flex-direction: row;
+  
+ }
+
+ .footer-column{
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-right: 20px;
+ }
+
+ .list-style-none{
+  list-style: none;
+  text-decoration: none;
+  margin-top: 20px;
+
+ }
+
+
+ .text-decoration{
+  text-decoration: none;
+  color: white;
+
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
