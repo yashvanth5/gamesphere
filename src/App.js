@@ -4,6 +4,7 @@ import logo from "./logo.png";
 import { Navbar } from "./components/Navigation/Navbar";
 import { Home } from "./pages/HomePage/Home";
 import { Footer } from "./components/Footer/Footer";
+import { ProductList } from "./pages/ProductListPage/ProductList";
 // import {Home} from "./pages/"
 
 
@@ -15,8 +16,9 @@ function App() {
      <Navbar/>
  <Routes>
   <Route  path="/" element={<Home/>}/>
+  <Route path="/store" element={<ProductList/>}/>
  </Routes>
- <Footer/>
+ {/* <Footer/> */}
     </div>
   );
 }

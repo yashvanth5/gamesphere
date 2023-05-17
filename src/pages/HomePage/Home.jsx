@@ -6,9 +6,11 @@ import horrorimg from "../images/category-images/horror-category-photo-one.avif"
 import strategyimg from "../images/category-images/strategy-category-photo-one.avif"
 import { useContext } from "react"
 import { DummyDataContext } from "../../context/DummyDataContext/DummyDataContext"
+import "./Home.css";
 
 export const Home=()=>{
 const {getData} = useContext(DummyDataContext)
+
     return(
         <>
      
@@ -17,41 +19,44 @@ const {getData} = useContext(DummyDataContext)
        
         </div>
         
+        <button className="banner-btn"> <Link className="banner-btn-link" to="/store" >Browse deals </Link></button>
 
-        <button className="browse-btn"> <Link className="browse-btn-link" > </Link>Browse deals</button>
+
         
-      <div className="total-category-card">
+        
+      <div className="homepage-categories">
       <div>
       <p className="genres-title"> POPULAR GENRES</p>
 
       </div>
-      <div className="genre-category" >
+      <div className="genres-section" >
    <div className="single-genre-category" >
-   <img src={actionimg} alt="Action Image" className="all-categories  " />
-   <p className="category-title">Action</p>
+   <img src={actionimg} alt="Action Image" className="all-categories-image" />
+   <p className="category-names">Action</p>
    </div>
  
+
 
     
 
    <div className="single-genre-category">
-   <img src={horrorimg} alt="Horror Image" className="all-categories "/>
-   <p className="category-title" > Horror</p>
+   <img src={horrorimg} alt="Horror Image" className="all-categories-image"/>
+   <p className="category-names" > Horror</p>
    </div>
         
 
 
 
 <div className="single-genre-category">
-<img alt="Shooter Image"  src={shooterimg} className=" all-categories "/>
-<p  className="category-title">Shooter</p>
+<img alt="Shooter Image"  src={shooterimg} className=" all-categories-image"/>
+<p  className="category-names">Shooter</p>
 </div>
 
 
 
 <div className="single-genre-category">
-<img  alt="Strategy Image"  src={strategyimg} className=" all-categories "/>
-<p className="category-title">Strategy</p>
+<img  alt="Strategy Image"  src={strategyimg} className=" all-categories-image"/>
+<p className="category-names">Strategy</p>
 </div>
 
 
@@ -62,13 +67,14 @@ const {getData} = useContext(DummyDataContext)
 
 <div>
     {/* <div> */}
-    <p className="scroll-title" >Featured</p>
+    <p className="section-title" >Featured</p>
+    
     {/* </div> */}
-    <div className="old-game-products">
-      {getData?.map(({title,price,thumbnailImage})=>(
-        <div className="old-game-individual-products" >
-            <div className="image-old">
-            <img src={thumbnailImage} className="old-game-image-individual" alt="old games images"/>
+    <div className="all-products-section">
+      {getData?.map(({title,price,image})=>(
+        <div className="sections-individual-product" >
+            <div className="sections-all-images">
+            <img src={image} className="sections-image-individual" alt="old games images"/>
          </div>
             <p>{title}</p>
             <p>{price}</p>
@@ -89,13 +95,13 @@ const {getData} = useContext(DummyDataContext)
 
 <div>
     {/* <div> */}
-    <p className="scroll-title" >Best Sellers</p>
+    <p className="section-title" >Best Sellers</p>
     {/* </div> */}
-    <div className="old-game-products">
-      {getData?.map(({title,price,thumbnailImage})=>(
-        <div className="old-game-individual-products" >
-            <div className="image-old">
-            <img src={thumbnailImage} className="old-game-image-individual" alt="old games images"/>
+    <div className="all-products-section">
+      {getData?.map(({title,price,image})=>(
+        <div className="sections-individual-product" >
+            <div className="sections-all-images">
+            <img src={image} className="sections-image-individual" alt="old games images"/>
          </div>
             <p>{title}</p>
             <p>{price}</p>
@@ -111,13 +117,13 @@ const {getData} = useContext(DummyDataContext)
 
 <div>
     {/* <div> */}
-    <p className="scroll-title" >Coming Soon</p>
+    <p className="section-title" >Coming Soon</p>
     {/* </div> */}
-    <div className="old-game-products">
-      {getData?.map(({title,price,thumbnailImage})=>(
-        <div className="old-game-individual-products" >
-            <div className="image-old">
-            <img src={thumbnailImage} className="old-game-image-individual" alt="old games images"/>
+    <div className="all-products-section">
+      {getData?.map(({title,price,image})=>(
+        <div className="sections-individual-product" >
+            <div className="sections-all-images">
+            <img src={image} className="sections-image-individual" alt="old games images"/>
          </div>
             <p>{title}</p>
             <p>{price}</p>
@@ -127,60 +133,9 @@ const {getData} = useContext(DummyDataContext)
 
 
 </div>
-     
-     
-
-     
-
-     {/* <footer className="footer">
-<div className="footer-container">
-    <div className="footer-row">
-        <div className="footer-column">
-<h4>Categories</h4>
-<ul className="list-style-none">
-    <li><Link className="text-decoration">Action</Link></li>
-    <li><Link className="text-decoration">Horror</Link></li>
-    <li><Link className="text-decoration">Shooter</Link></li>
-    <li><Link className="text-decoration"> Strategy</Link></li>
-</ul>
-
-        </div>
-        <div className="footer-column">
-        <h4>Our Shop</h4>
-        <ul  className="list-style-none">
-    <li><Link className="text-decoration">Orders</Link></li>
-    <li><Link className="text-decoration">Wishlist</Link></li>
-    <li><Link className="text-decoration">Profile</Link></li>
-   
-</ul>
-        </div>
-        <div className="footer-column">
-        <h4>Follow Us</h4>
-        <ul  className="list-style-none">
-    <li ><Link className="text-decoration">Tweet</Link></li>
-    <li><Link className="text-decoration">Linkedin</Link></li>
-    <li><Link className="text-decoration">Github</Link></li>
-    <li><Link className="text-decoration">Haashnode</Link></li>
-</ul>
-        </div>
-
-    </div>
-
-</div>
-
-     </footer> */}
 
 
-   
-
-    
-
-  
-  
-
-      
-
-        </>
+    </>
     )
 }
 

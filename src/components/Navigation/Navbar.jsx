@@ -28,7 +28,7 @@ export const Navbar = ()=>{
                         <ul className="right-nav-links">
                             <li >  <Link to="/search" className=" navlinks-decoration nav-search">Search</Link></li>
                             <li>  <Link className=" navlinks-decoration nav-login" > Login</Link></li>
-                            <li> <Link to="/shop"  className=" navlinks-decoration nav-shop" > Shop</Link></li>
+                            <li> <Link to="/store"  className=" navlinks-decoration nav-store" > Store</Link></li>
                             <li>  <Link className=" navlinks-decoration nav-wishlist"> Wishlist</Link></li>
                             <li>    <Link className=" navlinks-decoration nav-cart">Cart</Link></li>
 

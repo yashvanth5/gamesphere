@@ -6,13 +6,34 @@ import { v4 as uuid } from "uuid";
  * */
 
 export const products = [
-//  try from gog
 
-
-  // dummy data
 
   {
-    _id: '20b93e06-77e6-45e5-90b2-f0d6f45f292b',
+    _id: '1',
+    title:'The Lord of the Rings - Gollum',
+    description:'Play as Gollum on his quest to retrieve his Precious. You will need to climb the mountains of Mordor, sneak around Mirkwood and make difficult choices.',
+    price: 2399,
+    discount:10,
+    platform: ['windows'],
+    releaseDate:  '05/25/23',
+    categoryName: ['Action', 'Adventure' ,'Stealth'],
+    image: 'https://cdn1.epicgames.com/spt-assets/d20026139e774e57ab451e2a1b94c6e2/download-the-lord-of-the-rings--gollum-offer-clg3r.png?h=480&quality=medium&resize=1&w=360',
+  comingSoon: true,
+  bestSeller:false,
+  featured:true,
+  topSellers:false,
+  specials:true,
+  onSale:false,
+  starRatings: 4,
+  
+  }
+,
+
+
+
+
+  {
+    _id: '2',
     title: 'Far Cry® 6',
     description:
       'Welcome to Yara, a tropical paradise frozen in time. As the dictator of Yara, Antón Castillo is intent on restoring his nation back to its former glory by any means, with his son, Diego, following in his bloody footsteps. Their oppressive rule has ignited a revolution. Play as Dani Rojas, a local Yaran, as you fight alongside a modern-day guerrilla revolution to liberate Yara! Fight against Castillo’s regime in the most expansive Far Cry® to date, through jungles, beaches, and Esperanza, the capital city of Yara. Employ an arsenal of resolver weapons, backpacks, and vehicles to take down Castillo’s ruthless regime.',
@@ -23,16 +44,8 @@ export const products = [
     platform: ['windows'],
     releaseDate: '10/07/21',
     categoryName: ['Open World', 'Shooter', 'Action', 'Adventure'],
-    logoImage:
-      'https://cdn2.unrealengine.com/fc6-logo-400x150-7808789f6a13.png?h=270&resize=1&w=480',
-    thumbnailImage:
+    image:
       'https://cdn1.epicgames.com/b4565296c22549e4830c13bc7506642d/offer/TETRA_PREORDER_STANDARD%20EDITION_EPIC_Store_Portrait_1200x1600-1200x1600-ca8b802ff13813c37a44ebf68d0946a2.png?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/uk-uk-fc6-ksp-scr-01-1920x1080-uk---1920x1080-396a1c2237d3.png?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/uk-fc6-ksp-scr-04-1920x1080-uk--1920x1080-1f8e460aaf46.png?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/uk-fc6-ksp-scr-07-1920x1080-uk--1920x1080-29b3a30c7b0c.png?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/sp-pc-specs-fc6-sp-3840x2160-129373a2296c.png?h=720&resize=1&w=1280',
-    ],
   },
   {
     _id: '73be75cc-c2b5-468f-928f-aa995b57d7bd',
@@ -46,21 +59,14 @@ export const products = [
     platform: ['windows'],
     releaseDate: '11/17/20',
     categoryName: ['Open World', 'RPG', 'Action'],
-    logoImage:
-      'https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fassassins-creed-valhalla%2Fhome%2FAC-KINGDOM-PREORDER_STANDARD-EDITION_EPIC_Game_Logo_whiteblue_1000x375-1000x375-baa332e9500ef71697f4a31924488fe309c4784d.png?h=270&resize=1&w=480',
-    thumbnailImage:
+    
+    image:
       'https://cdn1.epicgames.com/400347196e674de89c23cc2a7f2121db/offer/AC%20KINGDOM%20PREORDER_STANDARD%20EDITION_EPIC_Key_Art_Portrait_640x854-640x854-288120c5573756cb988b6c1968cebd86.png?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/acv-102-fenririncave-3840x2160-277663542.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/acv-101-urbanstealth-emea-3840x2160-277668968.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/acv-57-jotunheim-3840x2160-277664573.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/acv-17-drinking-contest-3840x2160-277668884.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/acv-18-encampment-3840x2160-277669750.jpg?h=720&resize=1&w=1280',
-    ],
+
   },
   {
     _id: '7bd1c5e6-9ca3-4780-ac93-1cd840377f61',
-    title: 'The Witcher 3: Wild Hunt - Game of the Year Edition',
+    title: 'The Witcher 3: Wild Hunt',
     description:
       'Become a professional monster slayer and embark on an adventure of epic proportions! Upon its release, The Witcher 3: Wild Hunt became an instant classic, claiming over 250 Game of the Year awards. Now you can enjoy this huge, over 100-hour long, open-world adventure along with both its story-driven expansions worth an extra 50 hours of gameplay. This edition includes all additional content - new weapons, armor, companion outfits, new game mode and side quests.',
     publisher: 'CD PROJEKT S.A.',
@@ -70,16 +76,9 @@ export const products = [
     platform: ['windows'],
     releaseDate: '10/07/21',
     categoryName: ['Open World', 'RPG', 'Adventure'],
-    logoImage:
-      'https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fthe-witcher-3-wild-hunt%2Fhome%2FEN_The-Witcher-3_Logo-White_RGB-2174x1069-a29d34d0021955e894b81743c1a296e45d77658f.png?h=270&resize=1&w=480',
-    thumbnailImage:
+    image:
       'https://cdn1.epicgames.com/14ee004dadc142faaaece5a6270fb628/offer/EGS_TheWitcher3WildHuntGameoftheYear_CDPROJEKTRED_S2-1200x1600-d887e1b749d11e8876996227e4de5c89.jpg?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fthe-witcher-3%2Fhome%2FEGS_TheWitcher3WildHuntGameoftheYear_CDPROJEKTRED_S1-2560x1440-8098a14981896e323a67fb85f1ca9967110f033f.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fthe-witcher-3%2Fhome%2FEGS_TheWitcher3WildHuntGameoftheYear_CDPROJEKTRED_G1A_01-1920x1080-0dcab8f813a9bd98e921a8ba3e6ca62daf9c907b.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fthe-witcher-3%2Fhome%2FEGS_TheWitcher3WildHuntGameoftheYear_CDPROJEKTRED_G1A_06-1920x1080-ec19615ab100f2a4ffc82a289da47b12b10f3cb0.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fthe-witcher-3%2Fhome%2FEGS_TheWitcher3WildHuntGameoftheYear_CDPROJEKTRED_G1A_07-1920x1080-0472c19e3496fa3b88ea9edf1f3f1aeac110bb86.jpg?h=720&resize=1&w=1280',
-    ],
+    
   },
   {
     _id: '1da65729-0524-4f6d-bae0-6584f15bb67d',
@@ -93,16 +92,10 @@ export const products = [
     platform: ['windows'],
     releaseDate: '12/10/20',
     categoryName: ['Open World', 'Shooter', 'Action', 'Adventure'],
-    logoImage:
-      'https://cdn2.unrealengine.com/egs-cyberpunk2077-cdprojektred-ic1-400x400-82b90aa9a275.png?h=270&resize=1&w=480',
-    thumbnailImage:
+    
+    image:
       'https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077_CDPROJEKTRED_S2_03_1200x1600-b1847981214ac013383111fc457eb9c5?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/egs-cyberpunk2077-cdprojektred-g1a-03-1920x1080-c25ac94167df.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-cyberpunk2077-cdprojektred-g1a-15-02-24-22-1920x1080-16b1ecf631c4.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-cyberpunk2077-cdprojektred-g1a-11-02-24-22-1920x1080-7e8b54fe2fbd.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-cyberpunk2077-cdprojektred-g1a-05-02-24-22-1920x1080-4dd0bff6a6c0.jpg?h=720&resize=1&w=1280',
-    ],
+    
   },
   {
     _id: '6e5066d5-7398-46e6-855b-f6fa6ac64fc1',
@@ -116,16 +109,10 @@ export const products = [
     platform: ['windows'],
     releaseDate: '10/29/20',
     categoryName: ['Open World', 'Action', 'Adventure'],
-    logoImage:
-      'https://cdn2.unrealengine.com/Diesel%2Fproduct%2Fhawk%2Fhome%2FGame_Logo_Color_1000x375-1000x375-94f2d7f7fd84d184525764206e17b9da99570029.png?h=270&resize=1&w=480',
-    thumbnailImage:
+
+    image:
       'https://cdn1.epicgames.com/0a84818055e740a7be21a2e5b6162703/offer/WatchDogs_Legion_Store_Portrait_1200x1600-1200x1600-a6b2d4cce489aeeb87bad4a6db168bed.jpg?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/Diesel%2Fproduct%2Fhawk%2Fhome%2FOrwell-co-op_EPIC_1920x1080-1920x1080-e58989922d5ddd220a3a855e4ec37cba0ae52559.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/Diesel%2Fproduct%2Fhawk%2Fhome%2FOrwell-action2_EPIC_1920x1080-1920x1080-edfece048d5a2457c75ccd4660afba623217890e.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/Diesel%2Fproduct%2Fhawk%2Fhome%2FOrwell-drone2_EPIC_1920x1080-1920x1080-817dd3baca1a19f62c88fb326ed5f1bc4a0a5a11.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/Diesel%2Fproduct%2Fhawk%2Fhome%2FOrwell-spiderbot_EPIC_1920x1080-1920x1080-5ee0488b29db71252a19752bfe7594a11e95c470.jpg?h=720&resize=1&w=1280',
-    ],
+    
   },
   {
     _id: '5e51f6e5-4dfa-4420-a5fc-eddb1bf6b341',
@@ -139,16 +126,10 @@ export const products = [
     platform: ['windows'],
     releaseDate: '10/04/19',
     categoryName: ['Open World', 'Shooter'],
-    logoImage:
-      'https://cdn2.unrealengine.com/grt-std-edition-game-logo-color-400x150-400x150-67b1b4dce1f4.png?h=270&resize=1&w=480',
-    thumbnailImage:
+ 
+    image:
       'https://cdn1.epicgames.com/salesEvent/salesEvent/GRT_STD_Edition_Store_Portrait_1200x1600_1200x1600-b08ee70d85ee2649b6e9c575d9192e66?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/Diesel%2Fproduct%2Fsaffron%2Fhome%2FTGT_Screenshot_1-1920x1080-91911d29f01d47b8c225fab78e2134a1e6179076.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/Diesel%2Fproduct%2Fsaffron%2Fhome%2FTGT_Screenshot_3-1920x1080-e308a7e2c94bdb2fe52e9050723b22fc75b84c0c.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/Diesel%2Fproduct%2Fsaffron%2Fhome%2FTGT_Screenshot_4-1920x1080-49779d3913305c6aecd6cf9fd13678c89050cee0.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/Diesel%2Fproduct%2Fsaffron%2Fhome%2FTGT_Screenshot_2-1920x1080-2b8a2f108327f5677d30b448a13dc11683b76bef.jpg?h=720&resize=1&w=1280',
-    ],
+ 
   },
   {
     _id: 'a2c826b3-3b87-4b77-8731-d4ee16328033',
@@ -162,16 +143,10 @@ export const products = [
     platform: ['windows'],
     releaseDate: '06/09/21',
     categoryName: ['Open World', 'Adventure', 'RPG', 'Multiplayer'],
-    logoImage:
-      'https://cdn2.unrealengine.com/egs-genshinimpact-mihoyolimited-ic1-400x400-0a1ff1b6cf40.png?h=270&resize=1&w=480',
-    thumbnailImage:
+ 
+    image:
       'https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_GenshinImpact_miHoYoLimited_S2_1200x1600-c12cdcc2cac330df2185aa58c508e820?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/egs-genshinimpact-cognospherepteltd-g1c-00-1920x1080-a8c98741c83e.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-genshinimpact-mihoyolimited-g1a-01-1920x1080-5c9acf36d478.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-genshinimpact-mihoyolimited-g1a-02-1920x1080-2c1a26ee7c39.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-genshinimpact-mihoyolimited-g1a-04-1920x1080-5840067076d3.jpg?h=720&resize=1&w=1280',
-    ],
+ 
   },
   //Catergory 2: Shooter
   {
@@ -186,16 +161,10 @@ export const products = [
     platform: ['windows'],
     releaseDate: '01/14/21',
     categoryName: ['Shooter', 'Action', 'Adventure'],
-    logoImage:
-      'https://cdn2.unrealengine.com/egs-starwarsbattlefrontiicelebrationedition-dice-ic1-400x400-664fe15f870c.png?h=270&resize=1&w=480',
-    thumbnailImage:
+  
+    image:
       'https://cdn1.epicgames.com/b156c3365a5b4cb9a01a5e1108b4e3f4/offer/EGS_STARWARSBattlefrontIICelebrationEdition_DICE_S2-1200x1600-11d040719a8457bbf36cabbe89b200db.jpg?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/egs-starwarsbattlefrontiicelebrationedition-dice-g1a-01-1920x1080-87971829e831.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-starwarsbattlefrontiicelebrationedition-dice-g1a-07-1920x1080-d436e270e917.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-starwarsbattlefrontiicelebrationedition-dice-g1a-08-1920x1080-808f9d16e35a.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-starwarsbattlefrontiicelebrationedition-dice-g1a-06-1920x1080-4783ce81715a.jpg?h=720&resize=1&w=1280',
-    ],
+   
   },
   {
     _id: '8479a2ca-9180-47eb-9b35-630985d30d96',
@@ -209,16 +178,10 @@ export const products = [
     platform: ['windows'],
     releaseDate: '12/11/20',
     categoryName: ['Shooter', 'Action', 'Multiplayer'],
-    logoImage:
-      'https://cdn2.unrealengine.com/egs-warframe-digitalextremes-ic1-400x149-daea26b82987.png?h=270&resize=1&w=480',
-    thumbnailImage:
+
+    image:
       'https://cdn1.epicgames.com/offer/244aaaa06bfa49d088205b13b9d2d115/spooky_1200x1600-9336f380a588ac37ced9b7be029ab666?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/egs-warframe-digitalextremes-g1a-02-1920x1080-741f00f76d6d.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-warframe-digitalextremes-g1a-03-1920x1080-119c4db10175.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-warframe-digitalextremes-g1a-05-1920x1080-474caec4caad.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-warframe-digitalextremes-g1a-01-1920x1080-2d1069a28637.jpg?h=720&resize=1&w=1280',
-    ],
+  
   },
   {
     _id: 'ae5049a2-ba2c-4f7a-ad3f-9922a3ebfbfa',
@@ -232,16 +195,10 @@ export const products = [
     platform: ['windows'],
     releaseDate: '09/09/21',
     categoryName: ['Shooter', 'Action'],
-    logoImage:
-      'https://cdn2.unrealengine.com/egs-wolfensteintheneworder-machinegames-ic1-400x400-c154a2c7fd20.png?h=270&resize=1&w=480',
-    thumbnailImage:
+  
+    image:
       'https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_WolfensteinTheNewOrder_MachineGames_S2_1200x1600-0f70ad56e210812c26a9dde1a8143a58?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/egs-wolfensteintheneworder-machinegames-g1a-07-1920x1080-75e96831363a.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-wolfensteintheneworder-machinegames-g1a-08-1920x1080-ed79f030c810.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-wolfensteintheneworder-machinegames-g1a-09-1920x1080-1c54be914fdc.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-wolfensteintheneworder-machinegames-g1a-10-1920x1080-b73d1b85dc41.jpg?h=720&resize=1&w=1280',
-    ],
+ 
   },
   {
     _id: 'b53a946e-6926-4921-910a-1300b22356a1',
@@ -255,15 +212,10 @@ export const products = [
     platform: ['windows'],
     releaseDate: '10/15/21',
     categoryName: ['Shooter', 'Action'],
-    logoImage:
-      'https://cdn2.unrealengine.com/egs-crysis3remastered-crytek-ic1-400x400-9f7e1c6893e1.png?h=270&resize=1&w=480',
-    thumbnailImage:
+ 
+    image:
       'https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_Crysis3Remastered_Crytek_S2_1200x1600-a98a0e5a8215ee2f2b768ec2140f5fd4?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/egs-crysis3remastered-crytek-g1a-01-1920x1080-574500cb68ea.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-crysis3remastered-crytek-g1a-02-1920x1080-e11460ba9c26.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-crysis3remastered-crytek-g1a-03-1920x1080-d69ec2c925c5.jpg?h=720&resize=1&w=1280',
-    ],
+
   },
   {
     _id: '6391c241-0e89-42d0-9dca-096d3e29cae1',
@@ -277,16 +229,10 @@ export const products = [
     platform: ['windows'],
     releaseDate: '11/19/21',
     categoryName: ['Shooter', 'Multiplayer', 'First Person'],
-    logoImage:
-      'https://cdn2.unrealengine.com/egs-battlefield2042-dice-ic1-400x400-9d42aed4f59b.png?h=270&resize=1&w=480',
-    thumbnailImage:
+  
+    image:
       'https://cdn1.epicgames.com/offer/52f57f57120c440fad9bfa0e6c279317/EGS_Battlefield2042_DICE_S2_1200x1600-331f59b6877d2bf2194943fcf7a68048_1200x1600-331f59b6877d2bf2194943fcf7a68048?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/egs-battlefield2042-dice-g1a-00-1920x1080-6df5e06b3dd3.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-battlefield2042-dice-g1a-03-1920x1080-b0b450414f67.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-battlefield2042-dice-g1a-06-1920x1080-01aaf2d4ed32.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-battlefield2042-dice-g1a-11-1920x1080-ea61f3444621.jpg?h=720&resize=1&w=1280',
-    ],
+
   },
   {
     _id: 'ee13d35b-05ad-4289-b2af-43d8b8d0b622',
@@ -300,16 +246,10 @@ export const products = [
     platform: ['windows'],
     releaseDate: '01/20/22',
     categoryName: ['Multiplayer', 'Shooter', 'First Person'],
-    logoImage:
-      'https://cdn2.unrealengine.com/en-r6e-std-epic-edition-capsule---hero-carrousel-1920x1080-uk-1920x1080-4e6c8c92082c.jpg?h=270&resize=1&w=480',
-    thumbnailImage:
+    
+    image:
       'https://cdn1.epicgames.com/salesEvent/salesEvent/EN_R6E_STD_EPIC_Store%20Portrait_1200x1600_UK_1200x1600-9859512196094e740761af80c09a41d6?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/r6e-screenshot-026-customization-vf20210813-3840x2160-8d64235aec1b.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/r6e-screenshot-028-tactical-crossbow-vf20210813-3840x2160-dd7f7d455276.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/r6e-screenshot-024-protean-vf20210813-3840x2160-7f02fa1509e4.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/r6e-screenshot-022-extraction-vf20210813-3840x2160-ee46c7f58c16.jpg?h=720&resize=1&w=1280',
-    ],
+   
   },
   {
     _id: 'db9e67cf-720e-4ada-be71-bd246be8a787',
@@ -323,16 +263,10 @@ export const products = [
     platform: ['windows'],
     releaseDate: '09/03/20',
     categoryName: ['Action', 'Adventure', 'Shooter'],
-    logoImage:
-      'https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fhitman%2Fgame-of-the-year-edition%2FEGS_IOInteractiveAS_HITMANGameofTheYeardEdition_IC1-200x200-015b336a367d6c1059a94cfd77c0e947ef217439.png?h=270&resize=1&w=480',
-    thumbnailImage:
+
+    image:
       'https://cdn1.epicgames.com/3c06b15a8a2845c0b725d4f952fe00aa/offer/EGS_HITMANGameofTheYeardEdition_IOInteractiveAS_Bundles_S2-1200x1600-6add4f514900a2454ad226e6288df595.jpg?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/egs-genshinimpact-cognospherepteltd-g1c-00-1920x1080-a8c98741c83e.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-genshinimpact-mihoyolimited-g1a-01-1920x1080-5c9acf36d478.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-genshinimpact-mihoyolimited-g1a-02-1920x1080-2c1a26ee7c39.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-genshinimpact-mihoyolimited-g1a-04-1920x1080-5840067076d3.jpg?h=720&resize=1&w=1280',
-    ],
+ 
   },
   //Catergory 3: Action
   {
@@ -347,16 +281,10 @@ export const products = [
     platform: ['windows'],
     releaseDate: '12/30/21',
     categoryName: ['Action', 'Adventure'],
-    logoImage:
-      'https://cdn2.unrealengine.com/egs-shadowofthetombraiderdefinitiveedition-eidosmontralcrystaldynamicsnixxessoftware-ic1-400x400-1a101c6adcf1-400x132-564f4e1cc624.png?h=270&resize=1&w=480',
-    thumbnailImage:
+    
+    image:
       'https://cdn1.epicgames.com/offer/4b5461ca8d1c488787b5200b420de066/egs-shadowofthetombraiderdefinitiveedition-eidosmontralcrystaldynamicsnixxessoftware-s4-1200x1600-7ee40d6fa744_1200x1600-950cdb624cc75d04fe3c8c0b62ce98de?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/egs-shadowofthetombraiderdefinitiveedition-eidosmontralcrystaldynamicsnixxessoftware-g1a-06-1920x1080-daee577d64c3.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-shadowofthetombraiderdefinitiveedition-eidosmontralcrystaldynamicsnixxessoftware-g1a-05-1920x1080-ef8667fc37ad.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-shadowofthetombraiderdefinitiveedition-eidosmontralcrystaldynamicsnixxessoftware-g1a-01-1920x1080-508274bcd3fd.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-shadowofthetombraiderdefinitiveedition-eidosmontralcrystaldynamicsnixxessoftware-g1a-02-1920x1080-54a6af8c99d1.jpg?h=720&resize=1&w=1280',
-    ],
+
   },
   {
     _id: 'aed97a1c-1451-4640-b819-78ceb6bba30b',
@@ -379,16 +307,10 @@ export const products = [
       'Open World',
       'Multiplayer',
     ],
-    logoImage:
-      'https://cdn2.unrealengine.com/egs-dyinglight2stayhuman-techland-ic5-400x166-55b2799d56f3.png?h=270&resize=1&w=480',
-    thumbnailImage:
+ 
+    image:
       'https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_DyingLight2StayHuman_Techland_S4_1200x1600-b3d66b4576fd6488b674710e13493435?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/dl2-screenshot-egs-3-3840x2160-7794fc192b56.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/dl2-screenshot-egs-8-3840x2160-5a858ef4c0c3.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/dl2-screenshot-egs-10-3840x2160-551c6400c1fa.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/dl2-screenshot-egs-12-1920x1080-f54276ec765e.jpg?h=720&resize=1&w=1280',
-    ],
+
   },
   {
     _id: '1c0c3852-7dfd-440a-ac11-d86de9860945',
@@ -402,16 +324,10 @@ export const products = [
     platform: ['windows'],
     releaseDate: '02/08/22',
     categoryName: ['Fighting', 'Indie', 'Action'],
-    logoImage:
-      'https://cdn2.unrealengine.com/egs-greeneye-sloclap-ic1-400x400-7f5493d6af29.png?h=270&resize=1&w=480',
-    thumbnailImage:
+  
+    image:
       'https://cdn1.epicgames.com/offer/b7b42e2078524ab386a8b2a9856ef557/EGS_SIFUStandardEdition_Sloclap_S4_1200x1600-32aca69d756abfcc25f8581942a6162b_1200x1600-32aca69d756abfcc25f8581942a6162b?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/8b706185-62c2-40d4-a4b7-4d384bab547c-1920x1080-223edfdaba91.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-sifustandardedition-sloclap-g1a-04-1920x1080-325fe70a44cd.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-sifustandardedition-sloclap-g1a-09-1920x1080-48d70318fd3b.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-sifustandardedition-sloclap-g1a-06a-1920x1080-fd726ee5ffd7.jpg?h=720&resize=1&w=1280',
-    ],
+  
   },
   {
     _id: '971378a7-eb76-4534-903b-f618c3ca9649',
@@ -425,15 +341,10 @@ export const products = [
     platform: ['windows'],
     releaseDate: '02/08/22',
     categoryName: ['Fighting', 'Indie', 'Action'],
-    logoImage:
-      'https://cdn1.epicgames.com/spt-assets/05ebc558ea4b43c7a87443f1d56044b0/kawaii-deathu-desu-logo-1qi1c.png?h=270&resize=1&w=480',
-    thumbnailImage:
+
+    image:
       'https://cdn1.epicgames.com/spt-assets/05ebc558ea4b43c7a87443f1d56044b0/download-kawaii-deathu-desu-offer-ml2ea.png?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn1.epicgames.com/spt-assets/05ebc558ea4b43c7a87443f1d56044b0/kawaii-deathu-desu-4w6oi.jpg?h=720&resize=1&w=1280',
-      'https://cdn1.epicgames.com/spt-assets/05ebc558ea4b43c7a87443f1d56044b0/kawaii-deathu-desu-lx7ce.jpg?h=720&resize=1&w=1280',
-      'https://cdn1.epicgames.com/spt-assets/05ebc558ea4b43c7a87443f1d56044b0/kawaii-deathu-desu-urgwv.jpg?h=720&resize=1&w=1280',
-    ],
+ 
   },
   {
     _id: '0e559e60-81c8-41df-a737-465832a59dd7',
@@ -447,16 +358,10 @@ export const products = [
     platform: ['windows', 'mac'],
     releaseDate: '02/17/22',
     categoryName: ['Action', 'Multiplayer', 'Strategy'],
-    logoImage:
-      'https://cdn2.unrealengine.com/egs-totalwarwarhammeriii-creativeassembly-ic1-400x400-ba1aa2907cd1.png?h=270&resize=1&w=480',
-    thumbnailImage:
+   
+    image:
       'https://cdn1.epicgames.com/dda64c2956b54f1ba3cd97f6aaee775f/offer/EGS_TotalWarWARHAMMERIII_CreativeAssembly_S6-1200x1600-bf935f14317eaf51f4906079a2888ced.jpg?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/egs-totalwarwarhammeriii-creativeassembly-g1a-11-1920x1080-31dd40b86638.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-totalwarwarhammeriii-creativeassembly-g1a-08-1920x1080-f47a15a06ee3.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-totalwarwarhammeriii-creativeassembly-g1a-06-1920x1080-81060bdbea5d.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-totalwarwarhammeriii-creativeassembly-g1a-03-1920x1080-0e25547d2f96.jpg?h=720&resize=1&w=1280',
-    ],
+  
   },
   {
     _id: '06baec52-05a2-4bb5-ad9b-7acc2fcabee1',
@@ -470,16 +375,10 @@ export const products = [
     platform: ['windows'],
     releaseDate: '03/25/22',
     categoryName: ['Action', 'Adventure'],
-    logoImage:
-      'https://cdn2.unrealengine.com/egs-ghostwiretokyo-tangogameworks-ic1-400x400-202bb6e2e07a.png?h=270&resize=1&w=480',
-    thumbnailImage:
+
+    image:
       'https://cdn1.epicgames.com/offer/a93cd6111251461c953776a0c4ea4d80/EGS_GhostwireTokyoTall_1200x1600-7b8a36d1dfe782ed625e6c6bba487df9?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/egs-ghostwiretokyo-tangogameworks-g1a-05-1920x1080-460483e074fb.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-ghostwiretokyo-tangogameworks-g1a-08-1920x1080-e0ae1d9c1dd4.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-ghostwiretokyo-tangogameworks-g1a-12-1920x1080-097cf0067738.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/egs-ghostwiretokyo-tangogameworks-g1a-10-1920x1080-e42e74b63be5.jpg?h=720&resize=1&w=1280',
-    ],
+
   },
   {
     _id: 'd98fe06a-d74c-485c-843e-b25e47165ea8',
@@ -493,16 +392,10 @@ export const products = [
     platform: ['windows'],
     releaseDate: '03/25/22',
     categoryName: ['Action', 'Adventure'],
-    logoImage:
-      'https://cdn2.unrealengine.com/daffodil-1p-awareness-int-epic-logo-400x400-400x400-d838fc4222b5.png?h=270&resize=1&w=480',
-    thumbnailImage:
+ 
+    image:
       'https://cdn1.epicgames.com/salesEvent/salesEvent/Daffodil_1P_Awareness_INT_Epic_1200x1600_1200x1600-356dd4965bde4c5dbd1000f9c97ac4b4?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn2.unrealengine.com/ttwl-gameplay-reveal-screenshots-banshee-1080-1mb-1920x1080-bf235e1791e1.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/ttwl-gameplay-reveal-screenshots-mushroom-forest-1080-1mb-1920x1080-9f8ebad39534.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/ttwl-gameplay-reveal-screenshots-pirate-1080-1mb-1920x1080-44f05e3211d0.jpg?h=720&resize=1&w=1280',
-      'https://cdn2.unrealengine.com/crypt-01-3840x2160-4fd5e57cdc50.jpg?h=720&resize=1&w=1280',
-    ],
+  
   },
   {
     _id: '420d7cf0-e4fb-4b44-b676-107bb566ac78',
@@ -516,15 +409,9 @@ export const products = [
     platform: ['windows'],
     releaseDate: '02/17/22',
     categoryName: ['Comedy', 'Adventure', 'Indie'],
-    logoImage:
-      'https://cdn1.epicgames.com/spt-assets/7b69aea9b3404faaa461911f99b6cbbc/henchman-story-logo-1vmu1.png?h=270&resize=1&w=480',
-    thumbnailImage:
+  
+    image:
       'https://cdn1.epicgames.com/spt-assets/7b69aea9b3404faaa461911f99b6cbbc/download-henchman-story-offer-iq9jq.png?h=854&resize=1&w=640',
-    largeImages: [
-      'https://cdn1.epicgames.com/spt-assets/7b69aea9b3404faaa461911f99b6cbbc/henchman-story-ccy4q.png?h=720&resize=1&w=1280',
-      'https://cdn1.epicgames.com/spt-assets/7b69aea9b3404faaa461911f99b6cbbc/henchman-story-lpfzl.png?h=720&resize=1&w=1280',
-      'https://cdn1.epicgames.com/spt-assets/7b69aea9b3404faaa461911f99b6cbbc/henchman-story-sg0a6.png?h=720&resize=1&w=1280',
-      'https://cdn1.epicgames.com/spt-assets/7b69aea9b3404faaa461911f99b6cbbc/henchman-story-yss72.png?h=720&resize=1&w=1280',
-    ],
+ 
   },
 ];
