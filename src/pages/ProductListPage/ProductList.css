@@ -14,7 +14,8 @@ body{
 
 
 .all-filters-aside{
-    width: 90%;
+    width: 130%;
+ /* min-width: 38%; this should set in media queries */
     height: 87vh;
     overflow: scroll;
     overflow-x: hidden;
@@ -96,7 +97,7 @@ box-sizing: border-box;
     height: 87vh;
     overflow: scroll;
     overflow-x: hidden;
-    width: 95%;
+    width: 99%;
     /* float: ; */
     margin: auto;
     flex-wrap: wrap;
