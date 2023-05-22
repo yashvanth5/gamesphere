@@ -7,20 +7,18 @@ import strategyimg from "../images/category-images/strategy-category-photo-one.a
 import { useContext, useState } from "react"
 import "./Home.css";
 import { ProductListingContext } from "../../context/ProductListingContext/ProductListingContext"
+import { Footer } from "../../components/Footer/Footer"
+
 
 export const Home=()=>{
   const {getProductData} = useContext(ProductListingContext)
-// const [startIndex, setStartIndex] = useState(0);
 
-// const handlePrevious = () => {
-//   setStartIndex((prevIndex) => Math.max(0, prevIndex - 4)); // Adjust the number of images to slide
-// };
 
-// const handleNext = () => {
-//   const maxStartIndex = Math.max(0, getProductData.length - 4); // Adjust the number of images to slide
-//   setStartIndex((prevIndex) => Math.min(prevIndex + 4, maxStartIndex));
-// };
+const featuredGames = getProductData.filter(({featured})=>featured);
 
+const bestSellerGames = getProductData.filter(({bestSeller})=>bestSeller);
+
+const commingSoonGames = getProductData.filter(( {comingSoon})=> comingSoon)
 
     return(
         <>
@@ -82,13 +80,13 @@ export const Home=()=>{
     
     {/* </div> */}
     <div className="all-products-section">
-      {getProductData?.map(({title,price,image})=>(
+      {featuredGames?.map(({title,price,image})=>(
         <div className="sections-individual-product" >
             <div className="sections-all-images">
             <img src={image} className="sections-image-individual" alt="old games images"/>
          </div>
-            <p>{title}</p>
-            <p>{price}</p>
+            <p className="sections-image-title">{title}</p>
+            {/* <p>{price}</p> */}
         </div>
       ))}
      </div>
@@ -109,49 +107,20 @@ export const Home=()=>{
     <p className="section-title" >Best Sellers</p>
     {/* </div> */}
     <div className="all-products-section">
-      {getProductData?.map(({title,price,image})=>(
+      {bestSellerGames?.map(({title,price,image})=>(
         <div className="sections-individual-product" >
             <div className="sections-all-images">
             <img src={image} className="sections-image-individual" alt="old games images"/>
          </div>
-            <p>{title}</p>
-            <p>{price}</p>
+            <p className="sections-image-title" >{title}</p>
+            {/* <p>{price}</p> */}
         </div>
       ))}
      </div>
 
 
 </div>
-{/* ----------------------------------------------------- */}
-{/* experiment */}
-{/* lol */}
-{/* <div>
-        <p className="section-title">Coming Soon</p>
-      </div>
-      <div className="arrows">
-        {startIndex > 0 && (
-          <button className="arrow left-arrow" onClick={handlePrevious}>
-            &lt;
-          </button>
-        )}
-        <div className="all-products-section">
-          {getProductData?.slice(startIndex, startIndex + 4).map(({ title, price, image }) => (
-            <div className="sections-individual-product" key={title}>
-              <div className="sections-all-images">
-                <img src={image} className="sections-image-individual" alt="old games images" />
-              </div>
-              <p>{title}</p>
-              <p>{price}</p>
-            </div>
-          ))}
-        </div>
-        {startIndex < getProductData.length - 4 && (
-          <button className="arrow right-arrow" onClick={handleNext}>
-            &gt;
-          </button>
-        )}
-      </div> */}
-{/* ------------------------------------------------- */}
+
 
 {/* card-3 */}
 
@@ -161,19 +130,23 @@ export const Home=()=>{
     <p className="section-title" >Coming Soon</p>
     {/* </div> */}
     <div className="all-products-section">
-      {getProductData?.map(({title,price,image})=>(
+      {commingSoonGames?.map(({title,price,image})=>(
         <div className="sections-individual-product" >
             <div className="sections-all-images">
             <img src={image} className="sections-image-individual" alt="old games images"/>
          </div>
-            <p>{title}</p>
-            <p>{price}</p>
+            <p className="sections-image-title" >{title}</p>
+            {/* <p>{price}</p> */}
         </div>
       ))}
      </div>
 
+     
+
 
 </div>
+
+ <Footer/>
 
 
     </>

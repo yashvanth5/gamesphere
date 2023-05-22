@@ -33,7 +33,7 @@ export const products = [
 
   {
     _id: '2',
-    title: 'Total War: WARHAMMER III',
+    title: 'Total War',
     description:
       'The cataclysmic conclusion to the Total War: WARHAMMER trilogy is coming. Rally your forces and step into the Realm of Chaos, a dimension of mind-bending horror where the very fate of the world will be decided. Will you conquer your Daemons… or command them? After a dying god breaks open a portal to the Realm of Chaos, four Ruinous Powers - Khorne, Nurgle, Tzeentch and Slaanesh - rise from this maelstrom. Will they reign victorious? Or can the kingdoms of Kislev and Grand Cathay turn the tide of war?',
     publisher: 'SEGA',
@@ -56,7 +56,7 @@ export const products = [
   },
   {
     _id: '3',
-    title: 'Wolfenstein: The New Order',
+    title: 'Wolfenstein',
     description:
       'Wolfenstein®: The New Order reignites the series that created the first-person shooter genre. Set against a backdrop of an alternate 1960s, discover an unfamiliar world ruled by a familiar enemy—one that has changed and twisted history as you know it.',
     publisher: 'Bethesda Softworks',
@@ -100,7 +100,7 @@ export const products = [
       topProductSellers: false,
       specials: false,
       onSale: true,
-      starRatings: 4.0,
+      starRatings: 3.9,
     },
   
   
@@ -127,78 +127,9 @@ export const products = [
       starRatings: 4.4,
     },
 
- 
-
-  // {
-  //   _id: '6',
-  //   title:'RoboCop: Rogue City',
-  //   description:'Become the iconic part man, part machine, all cop hero as you attempt to bring justice to the dangerous, crime-ridden streets of Old Detroit.',
-  //   // price: 'COMING SOON',
-  //   publisher:'Nacon',
-  //   discount:0,
-  //   platform: ['windows'],
-  //   releaseDate:  '09/05/23',      
-  //   categoryName: ['Action','Shooter'],
-  //   image: 'https://cdn1.epicgames.com/offer/3a5c77a536854024add2714cbd0fa865/EGS_RoboCopRogueCity_Teyon_S2_1200x1600-3e666124c2088c599e35700623bef464?h=480&quality=medium&resize=1&w=360',
-  // comingSoon: true,
-  // bestSeller:false,
-  // featured:false,
-  // topProductSellers:false,
-  // specials:false,
-  // onSale:false,
-
-  
-  // },
-
-
-
-  {
-    _id: '7',
-    title:'The Lord of the Rings - Gollum',
-    description:'Play as Gollum on his quest to retrieve his Precious. You will need to climb the mountains of Mordor, sneak around Mirkwood and make difficult choices.',
-    price: 2399,
-
-    discount:0,
-    platform: ['windows'],
-    releaseDate:  '05/25/23',
-    categoryName: ['Action', 'Adventure' ,'Stealth'],
-    image: 'https://cdn1.epicgames.com/spt-assets/d20026139e774e57ab451e2a1b94c6e2/download-the-lord-of-the-rings--gollum-offer-clg3r.png?h=480&quality=medium&resize=1&w=360',
-  comingSoon: true,
-  bestSeller:false,
-  featured:true,
-  topProductSellers:false,
-  specials:false,
-  onSale:false,
-
-  
-  }
-,
-
-
-// {
-//   _id: '8',
-//   title:'Miasma Chronicles',
-//   description:'From the creators of Mutant Year Zero: Road to Eden comes a beautifully crafted tactical adventure you wont forget. Embark on a quest across a post-apocalyptic wasteland torn apart by a savage force known only as the Miasma.',
-//   // price: 'COMING SOON',
-//   publisher:'505 Games',
-//   discount:10,
-//   platform: ['windows'],
-//   releaseDate:  '05/23/23',      
-//   categoryName: ['Action', 'Adventure' ,'Strategy'],
-//   image: 'https://cdn1.epicgames.com/offer/632b8c18774d480d978cb116518cd06b/Miasma_Portrait_Storefront_1200X1600_1200x1600-ffcbaca5bc9604b9c5d9db1e883f15ec?h=480&quality=medium&resize=1&w=360',
-// comingSoon: true,
-// bestSeller:false,
-// featured:true,
-// topProductSellers:false,
-// specials:false,
-// onSale:false,
-
-
-// },
-
 
 {
-  _id: '9',
+  _id: '6',
   title: 'League of Legends',
   description:
     'Become a legend. Find your champion, master their abilities, and outplay your opponents in an epic 5v5 battle to destroy the enemy base. ',
@@ -220,7 +151,7 @@ export const products = [
     starRatings: 4.2,
   },
 {
-  _id: '10',
+  _id: '7',
   title: 'F1® Manager 2022',
   description:
     'Make your mark on Formula 1® in the officially licensed F1® Manager 2022. Be the boss of your chosen constructor and pick from a roster of 2022 drivers and staff. ',
@@ -241,29 +172,10 @@ export const products = [
     onSale: false,
     starRatings: 4.6,
   },
-  // {
-  //   _id: '11',
-  //   title:'Last Remains',
-  //   description:'Last Remains is a 30-50 player zombie battle royale game where survivors compete in a PvPvE world and take risks on their journey to the extraction point by searching buildings to find food, water, and digital collectible skins such as equipment and weapons.',
-  //   // price: 'COMING SOON',
-  //   publisher:'Earn Alliance',
-  //   discount:0,
-  //   platform: ['windows','mac'],
-  //   releaseDate:  '12/20/23',      
-  //   categoryName: ['Horror','Survival'],
-  //   image: 'https://cdn1.epicgames.com/spt-assets/da7ace5380fc4b55bfa77d04eceb982e/last-remains-1lbkv.png?h=480&quality=medium&resize=1&w=360',
-  // comingSoon: true,
-  // bestSeller:false,
-  // featured:false,
-  // topProductSellers:false,
-  // specials:false,
-  // onSale:false,
 
-  
-  // },
 
 {
-  _id: '12',
+  _id: '8',
   title: 'Anno 1800',
   description:
     'Welcome to the dawn of the Industrial Age. Experience one of the most exciting & fast-changing periods of all time in a rich city-building experience.',
@@ -285,7 +197,7 @@ export const products = [
     starRatings: 4.8,
   },
 {
-  _id: '13',
+  _id: '9',
   title: 'Grim Nights',
   description:
     'A survival strategy indie-game. Gather resouces, expand your village, explore the underground for riches and train soldiers to defend against hordes of the undead.',
@@ -308,7 +220,7 @@ export const products = [
   },
 
 {
-  _id: '14',
+  _id: '10',
   title: 'Age Of Wonders 4',
   description:
     'Rule a fantasy realm of your own design! Explore new magical realms in Age of Wonders signature blend of 4X strategy and turn-based tactical combat. Control a faction that grows and changes as you expand your empire with each turn!',
@@ -330,54 +242,11 @@ export const products = [
     starRatings: 4.5,
   },
 
-  // {
-  //   _id: '15',
-  //   title:'Alliance of the Sacred Suns',
-  //   description:'Alliance of the Sacred Suns is a sci-fi grand-strategy RPG that begins with your coronation as the head of an interstellar Empire, and ends with your demise. Manage feuding noble houses and the schemes of would-be usurpers as you try to revive the glory of an Empire on the brink',
-  //   // price: 'COMING SOON',
-  //   publisher:'Hooded Horse',
-  //   discount:0,
-  //   platform: ['windows'],
-  //   releaseDate:  '10/28/23',      
-  //   categoryName: ['Simulation','Strategy'],
-  //   image: 'https://cdn1.epicgames.com/spt-assets/f77dd16bbd5c49fd8b6785ddb46b22da/download-alliance-of-the-sacred-suns-offer-daid9.jpg?h=480&quality=medium&resize=1&w=360',
-  // comingSoon: true,
-  // bestSeller:false,
-  // featured:false,
-  // topProductSellers:false,
-  // specials:false,
-  // onSale:false,
-
-  
-  // },
-  
-
-
-
-  // {
-  //   _id: '16',
-  //   title:'Immortals of Aveum™',
-  //   description:'Summon your power, stop the Everwar, save the realms. Pre-purchase* Immortals of Aveum™ and get the Purified Arclight, a unique blue sigil that will unleash more power!',
-  //   // price: 'COMING SOON',
-  //   publisher:'Electronic Arts',
-  //   discount:0,
-  //   platform: ['windows'],
-  //   releaseDate:  '07/20/23',      
-  //   categoryName: ['Shooter'],
-  //   image: 'https://cdn1.epicgames.com/offer/33a47f9b76374045b7da20af80c40aa1/EGS_ImmortalsofAveum_AscendantStudios_S2_1200x1600-14796260492bf93edbcdae1712efa64c?h=480&quality=medium&resize=1&w=360',
-  // comingSoon: true,
-  // bestSeller:false,
-  // featured:false,
-  // topProductSellers:false,
-  // specials:false,
-  // onSale:false,
-
-  
-  // },
+ 
 
 
 {
-  _id: '17',
+  _id: '11',
   title: 'At Eves Wake',
   description:
     'An interactive Lovecraftian horror story about surviving a family you never knew and their servitude to a dark patron. True to the genre, you retain all knowledge from every play-through. Shape your fate and that of the family. Will you embrace this gift or rid humanity of their taint? Your actions will shape your fate and that of the family.',
@@ -396,12 +265,12 @@ export const products = [
     topProductSellers: false,
     specials: false,
     onSale: true,
-    starRatings: 4,
+    starRatings:  4.2,
   },
 
 
 {
-  _id: '18',
+  _id: '12',
   title: 'SIMULACRA 3',
   description:
     'The town of Stonecreek is haunted. People keep disappearing into thin air, leaving nothing but an eerie symbol behind. With the townsfolk gripped with fear, use a missing victims phone to unlock the truth in the third entry of the acclaimed horror series, SIMULACRA.',
@@ -426,7 +295,7 @@ export const products = [
 
 
 {
-  _id: '19',
+  _id: '13',
   title: 'Mundaun',
   description:
     'Mundaun is a lovingly hand-penciled horror tale set in a dark, secluded valley of the alps. Explore various areas full of secrets to discover, survive hostile encounters, drive vehicles, fill your inventory and solve a variety of hand-crafted puzzles.',
@@ -449,7 +318,7 @@ export const products = [
   },
 
 {
-  _id: '20',
+  _id: '14',
   title: 'Tormented Souls',
   description:
     'Classic horror is back! Inspired by the original Resident Evil and Alone in the Dark, Tormented Souls modernises fixed perspective horror - as Caroline Walker investigates the mysterious disappearance of twin girls in a terrifying mansion-turned-hospital.',
@@ -472,7 +341,7 @@ export const products = [
   },
 
 {
-  _id: '21',
+  _id: '15',
   title: 'Im looking for 3024 people',
   description:
     'Can you run, swim and use a shotgun without your eyes?—Im looking for 3024 people is an ARG where you will have to solve complex puzzles in-game but also in real life. Participate in an AI voice-generated blind experiment; interact with websites and locations with other players.',
@@ -491,12 +360,12 @@ export const products = [
     topProductSellers: false,
     specials:false,
     onSale: true,
-    starRatings: 4,
+    starRatings: 4.1,
   },
 
 
 {
-  _id: '22',
+  _id: '16',
   title: 'EBOLA 2',
   description:
     'EBOLA 2 is created in the spirit of the great classics of survival horrors. In this game, you will control the main character with a first-person camera which makes you feel like you are in a real horror movie.',
@@ -522,7 +391,7 @@ export const products = [
 
 
 {
-  _id: '23',
+  _id: '17',
   title: 'Them and Us',
   description:
     'Them and Us is a classic, survival horror game with a focus on atmosphere and player immersion. Discover the truth of Alicia’s past as she descends further into her strange, unending nightmare.',
@@ -549,7 +418,7 @@ export const products = [
 
 
   {
-    _id: '24',
+    _id: '18',
     title: 'Far Cry® 6',
     description:
       'Welcome to Yara, a tropical paradise frozen in time. As the dictator of Yara, Antón Castillo is intent on restoring his nation back to its former glory by any means, with his son, Diego, following in his bloody footsteps. Their oppressive rule has ignited a revolution. Play as Dani Rojas, a local Yaran, as you fight alongside a modern-day guerrilla revolution to liberate Yara! Fight against Castillo’s regime in the most expansive Far Cry® to date, through jungles, beaches, and Esperanza, the capital city of Yara. Employ an arsenal of resolver weapons, backpacks, and vehicles to take down Castillo’s ruthless regime.',
@@ -571,7 +440,7 @@ export const products = [
       starRatings: 4.5,
     },
   {
-    _id: '25',
+    _id: '19',
     title: "Assassin's Creed® Valhalla",
     description:
       "In Assassin's Creed® Valhalla, become Eivor, a legendary Viking warrior on a quest for glory. Explore England's Dark Ages as you raid your enemies, grow your settlement, and build your political power. Lead epic Viking raids against Saxon troops and fortresses. Dual-wield powerful weapons and relive the visceral fighting style of the Vikings. Challenge yourself with the most varied collection of enemies ever in Assassin's Creed. Shape the growth of your character with each choice and carve a path to glory. Explore a Dark Age open world, from the shores of Norway to the kingdoms of England. Personalize your experience by growing your clan's settlement.",
@@ -594,7 +463,7 @@ export const products = [
       starRatings: 4.6,
   },
   {
-    _id: '26',
+    _id: '20',
     title: 'The Witcher 3: Wild Hunt',
     description:
       'Become a professional monster slayer and embark on an adventure of epic proportions! Upon its release, The Witcher 3: Wild Hunt became an instant classic, claiming over 250 Game of the Year awards. Now you can enjoy this huge, over 100-hour long, open-world adventure along with both its story-driven expansions worth an extra 50 hours of gameplay. This edition includes all additional content - new weapons, armor, companion outfits, new game mode and side quests.',
@@ -617,7 +486,7 @@ export const products = [
       
   },
   {
-    _id: '27',
+    _id: '21',
     title: 'Cyberpunk 2077',
     description:
       'Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary wrapped up in a do-or-die fight for survival. Improved and featuring all-new free additional content, customize your character and playstyle as you take on jobs, build a reputation, and unlock upgrades. The relationships you forge and the choices you make will shape the story and the world around you. Legends are made here. What will yours be?',
@@ -640,7 +509,7 @@ export const products = [
       starRatings: 4.6,
   },
   {
-    _id: '28',
+    _id: '22',
     title: 'Watch Dogs: Legion',
     description:
       'Build a resistance from virtually anyone you see as you hack, infiltrate, and fight to take back a near-future London that is facing its downfall. Welcome to the Resistance. Recruit and play as anyone in the city. Everyone you see has a unique backstory, personality, and skill set. Hack armed drones, deploy spider-bots, and take down enemies using an Augmented Reality Cloak. Explore a massive urban open world featuring London’s many iconic landmarks and fun side activities. Take your recruits online and team up with your friends as you complete missions and challenging endgame content.',
@@ -663,7 +532,7 @@ export const products = [
       starRatings: 4.4,
   },
   {
-    _id: '29',
+    _id: '23',
     title: 'Ghost Recon Breakpoint',
     description:
       'Become an elite spec ops soldier known as a Ghost, tasked with a special mission to Auroa. The remote archipelago somewhere in the South Pacific has lost contact with outside world due to Skell Technology turning hostile. The Wolves, a rogue spec ops team, led by your ex–brother-in-arms, have taken over and are hunting you down. Lead your team through the island landscape and save the civilians without being noticed.',
@@ -686,7 +555,7 @@ export const products = [
       starRatings: 4.5,
   },
   {
-    _id: '30',
+    _id: '24',
     title: 'Genshin Impact',
     description:
       'Embark on a journey across Teyvat to find your lost sibling and seek answers from The Seven — the gods of each element. Explore this wondrous world, join forces with a diverse range of characters, and unravel the countless mysteries that Teyvat holds',
@@ -702,7 +571,7 @@ export const products = [
       'https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_GenshinImpact_miHoYoLimited_S2_1200x1600-c12cdcc2cac330df2185aa58c508e820?h=854&resize=1&w=640',
       comingSoon: false,
       bestSeller:false,
-      featured:true,
+      featured:false,
       topProductSellers:false,
       specials:false,
       onSale: true,
@@ -710,8 +579,8 @@ export const products = [
   },
  
   {
-    _id: '31',
-    title: 'STAR WARS™ Battlefront™ II: Celebration Edition',
+    _id: '25',
+    title: 'STAR WARS™',
     description:
       'Be the hero in the ultimate STAR WARS™ battle fantasy with STAR WARS™ Battlefront™ II: Celebration Edition! Get STAR WARS Battlefront II and the complete collection of customization content acquirable through in-game purchase from launch up to – and including – items inspired by STAR WARS™: THE RISE OF SKYWALKER™.*',
     publisher: 'Electronic Arts',
@@ -733,7 +602,7 @@ export const products = [
       starRatings: 3.8,
   },
   {
-    _id: '32',
+    _id: '26',
     title: 'Warframe',
     description:
       'Confront warring factions throughout a sprawling interplanetary system as you follow the guidance of the mysterious Lotus and level up your Warframe, build an Arsenal of destructive firepower, and realize your true potential across massive open worlds in this thrilling, genre-defining third-person combat experience.',
@@ -749,35 +618,16 @@ export const products = [
       'https://cdn1.epicgames.com/offer/244aaaa06bfa49d088205b13b9d2d115/spooky_1200x1600-9336f380a588ac37ced9b7be029ab666?h=854&resize=1&w=640',
       comingSoon: false,
       bestSeller:false,
-      featured:true,
+      featured:false,
       topProductSellers:false,
       specials:false,
       onSale: true,
       starRatings: 4.6,
   },
-  // {
-  //   _id: '33',
-  //   title:'Xenonauts 2',
-  //   description:'Wage a global war of resistance against an alien invasion. Command turn-based tactical battles, build a network of covert bases, directly control your fighter wings, and achieve strategic victory in a simulation of asymmetric warfare against a technologically superior foe.',
-  //   // price: 'COMING SOON',
-  //   publisher:'Hooded Horse',
-  //   discount:0,
-  //   platform: ['windows'],
-  //   releaseDate:  '10/28/23',      
-  //   categoryName: ['Space','Strategy'],
-  //   image: 'https://cdn1.epicgames.com/spt-assets/839a9f6d64044fdca86536ddca222ebb/xenonauts-2-1bel4.jpg?h=480&quality=medium&resize=1&w=360',
-  // comingSoon: true,
-  // bestSeller:false,
-  // featured:false,
-  // topProductSellers:false,
-  // specials:false,
-  // onSale:false,
 
-  
-  // },
 
   {
-    _id: '34',
+    _id: '27',
     title: 'Crysis 3 Remastered',
     description:
       "In Crysis 3 Remastered, the fate of the world is once again in your hands. Returning to the fight as super-soldier Prophet, wielding a powerful auto-loading Predator Bow that fires electric, explosive, and carbon arrows, take on new and old enemies that threaten the peace you worked so hard to achieve. The search for the alien Alpha Ceph continues, but now you must also expose the truth behind the C.E.L.L. corporation, which has turned New York City into a sprawling urban rainforest sheltered by a giant nanodome. Equipped with your legendary Nanosuit, you must assess, adapt, and attack as you choose your path and fight through seven distinct districts. Decimate your opponents in a blaze of brute force using the Nanosuit's superior technology, or use stealth to achieve your goals and become humanity's silent savior. There's no wrong way to save the world.",
@@ -800,7 +650,7 @@ export const products = [
       starRatings: 4.7,
   },
   {
-    _id: '35',
+    _id: '28',
     title: 'Battlefield™ 2042',
     description:
       'Battlefield™ 2042 is a first-person shooter that marks the return to the iconic all-out warfare of the franchise. Adapt and overcome in a near-future world transformed by disorder. Squad up and bring a cutting-edge arsenal into dynamically-changing battlegrounds supporting 128 players, unprecedented scale, and epic destruction. The next generation of fan-favorites Conquest and Breakthrough features the largest Battlefield maps ever and up to 128 players. Experience the intensity of all-out warfare on maps filled with dynamic weather and spectacular world events.',
@@ -820,11 +670,11 @@ export const products = [
       topProductSellers:false,
       specials:false,
       onSale: true,
-      starRatings: 4.0,
+      starRatings: 4.2,
   },
   {
-    _id: '36',
-    title: "Tom Clancy's Rainbow Six® Extraction",
+    _id: '29',
+    title: "Rainbow Six® Extraction",
     description:
       'Team Rainbow now faces the greatest terror ever: a lethal, mutating alien invasion. For decades, Team Rainbow has been the shield against the worst global threats imaginable. Now, we face the greatest terror yet: a lethal, mutating alien parasite.',
     publisher: 'Ubisoft',
@@ -846,8 +696,8 @@ export const products = [
       starRatings: 3.7,
   },
   {
-    _id: '37',
-    title: 'HITMAN - Game of the Year Edition',
+    _id: '30',
+    title: 'HITMAN ',
     description:
       'The HITMAN - Game of The Year Edition includes: All missions & locations from the award-winning first season of HITMAN; "Patient Zero" Bonus campaign; 3 new Themed Escalation Contracts; 3 new Outfits; 3 new Weapons. Experiment and have fun in the ultimate playground as Agent 47 to become the master assassin. Travel around the globe to exotic locations and eliminate your targets with everything from a katana or a sniper rifle to an exploding golf ball or some expired spaghetti sauce.',
     publisher: 'IO Interactive A/S',
@@ -870,8 +720,8 @@ export const products = [
   },
 
   {
-    _id: '38',
-    title: 'Shadow of the Tomb Raider: Definitive Edition',
+    _id: '31',
+    title: 'Shadow of the Tomb Raider',
     description:
       "As Lara Croft races to save the world from a Maya apocalypse, she must become the Tomb Raider she is destined to be. In Shadow of the Tomb Raider Definitive Edition experience the final chapter of Lara's origin as she is forged into the Tomb Raider she is destined to be. Combining the base game, all seven DLC challenge tombs, as well as all downloadable weapons, outfits, and skills, Shadow of the Tomb Raider Definitive Edition is the ultimate way to experience Lara’s defining moment.",
     publisher: 'Square Enix',
@@ -893,7 +743,7 @@ export const products = [
       starRatings: 4.7,
   },
   {
-    _id: '39',
+    _id: '32',
     title: 'Dying Light 2 Stay Human',
     description:
       "The virus won and civilization has fallen back to the Dark Ages. The City, one of the last human settlements, is on the brink of collapse. Use your agility and combat skills to survive, and reshape the world. Your choices matter. You are a wanderer with the power to change the fate of The City. But your exceptional abilities come at a price. Haunted by memories you cannot decipher, you set out to learn the truth… and find yourself in a combat zone. Hone your skills, as to defeat your enemies and make allies, you’ll need both fists and wits. Unravel the dark secrets behind the wielders of power, choose sides and decide your destiny. But wherever your actions take you, there's one thing you can never forget—stay human.",
@@ -918,14 +768,14 @@ export const products = [
       'https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_DyingLight2StayHuman_Techland_S4_1200x1600-b3d66b4576fd6488b674710e13493435?h=854&resize=1&w=640',
       comingSoon: false,
       bestSeller:false,
-      featured:true,
+      featured:false,
       topProductSellers:false,
       specials:false,
       onSale: true,
       starRatings: 4.6,
   },
   {
-    _id: '40',
+    _id: '33',
     title: 'Sifu',
     description:
       'Sifu is the story of a young Kung Fu student on a path of revenge, hunting for the murderers of his family. One against all, he has no allies, and countless enemies. He has to rely on his unique mastery of Kung Fu as well as a mysterious pendant to prevail, and preserve his family’s legacy.',
@@ -948,7 +798,7 @@ export const products = [
       starRatings: 4.8,
   },
   {
-    _id: '41',
+    _id: '34',
     title: 'Kawaii Deathu Desu',
     description:
       "In Kawaii Deathu Desu, supernatural beings find themselves incarnated as cute japanese idols! Pick a supernatural idol and beat the hell out of - no pun intended - as many overzealous fans as you can in this addictive beat'em up! Can you claim the throne of the underworld?",
@@ -972,28 +822,9 @@ export const products = [
   },
  
 
-  // {
-  //   _id: '42',
-  //   title:'The Cullfield Ritual',
-  //   description:'Take Part In A Dangerous Ritual Game',
-  //   // price: 'COMING SOON',
-  //   publisher:'TheDollarGameStore',
-  //   discount:0,
-  //   platform: ['windows'],
-  //   releaseDate:  '05/21/23',      
-  //   categoryName: ['Horror'],
-  //   image: 'https://cdn1.epicgames.com/spt-assets/10f941dba7c24063ab704437d35a9394/the-cullfield-ritual-1acok.png?h=480&quality=medium&resize=1&w=360',
-  // comingSoon: true,
-  // bestSeller:false,
-  // featured:false,
-  // topProductSellers:false,
-  // specials:false,
-  // onSale:false,
 
-  
-  // },
   {
-    _id: '43',
+    _id: '35',
     title: 'Ghostwire: Tokyo',
     description:
       "Tokyo's population has vanished, and deadly supernatural forces prowl the streets. Use an arsenal of elemental abilities to unravel the truth behind the disappearance and save Tokyo.",
@@ -1016,7 +847,7 @@ export const products = [
       starRatings: 3.4,
   },
   {
-    _id: '44',
+    _id: '36',
     title: "Tiny Tina's Wonderlands",
     description:
       "Embark on an epic adventure full of whimsy, wonder, and high-powered weaponry! Bullets, magic, and broadswords collide across this chaotic fantasy world brought to life by the unpredictable Tiny Tina. Roll your own multiclass hero and loot, shoot, slash, and cast your way through outlandish monsters and loot-filled dungeons on a quest to stop the tyrannical Dragon Lord. Everyone's welcome, so join the party, throw on your adventuring boots, and be Chaotic Great!",
@@ -1039,7 +870,7 @@ export const products = [
       starRatings: 4.6,
   },
   {
-    _id: '45',
+    _id: '37',
     title: 'HENCHMAN STORY',
     description:
       "Being a bumbling supervillain's henchman is a thankless job. The spandex chafes, there's tons of late nights, and your boss rarely remembers your name. But maybe - just maybe - even the choices of the lowliest henchman can change everything. Find out in this narrative adventure!",
@@ -1061,4 +892,172 @@ export const products = [
       onSale: true,
       starRatings: 4.6,
   },
+// comming soon
+  {
+    _id: '38',
+    title:'RoboCop: Rogue City',
+    description:'Become the iconic part man, part machine, all cop hero as you attempt to bring justice to the dangerous, crime-ridden streets of Old Detroit.',
+    price: 'COMING SOON',
+    publisher:'Nacon',
+    discount:0,
+    platform: ['windows'],
+    releaseDate:  '09/05/23',      
+    categoryName: ['Action','Shooter'],
+    image: 'https://cdn1.epicgames.com/offer/3a5c77a536854024add2714cbd0fa865/EGS_RoboCopRogueCity_Teyon_S2_1200x1600-3e666124c2088c599e35700623bef464?h=480&quality=medium&resize=1&w=360',
+  comingSoon: true,
+  bestSeller:false,
+  featured:false,
+  topProductSellers:false,
+  specials:false,
+  onSale:false,
+
+  
+  },
+  {
+    _id: '39',
+    title:'The Cullfield Ritual',
+    description:'Take Part In A Dangerous Ritual Game',
+    price: 'COMING SOON',
+    publisher:'TheDollarGameStore',
+    discount:0,
+    platform: ['windows'],
+    releaseDate:  '05/21/23',      
+    categoryName: ['Horror'],
+    image: 'https://cdn1.epicgames.com/spt-assets/10f941dba7c24063ab704437d35a9394/the-cullfield-ritual-1acok.png?h=480&quality=medium&resize=1&w=360',
+  comingSoon: true,
+  bestSeller:false,
+  featured:false,
+  topProductSellers:false,
+  specials:false,
+  onSale:false,
+
+  
+  },
+  {
+    _id: '40',
+    title:'Last Remains',
+    description:'Last Remains is a 30-50 player zombie battle royale game where survivors compete in a PvPvE world and take risks on their journey to the extraction point by searching buildings to find food, water, and digital collectible skins such as equipment and weapons.',
+    price: 'COMING SOON',
+    publisher:'Earn Alliance',
+    discount:0,
+    platform: ['windows','mac'],
+    releaseDate:  '12/20/23',      
+    categoryName: ['Horror','Survival'],
+    image: 'https://cdn1.epicgames.com/spt-assets/da7ace5380fc4b55bfa77d04eceb982e/last-remains-1lbkv.png?h=480&quality=medium&resize=1&w=360',
+  comingSoon: true,
+  bestSeller:false,
+  featured:false,
+  topProductSellers:false,
+  specials:false,
+  onSale:false,
+
+  
+  },
+  {
+    _id: '41',
+    title:'The Lord of the Rings - Gollum',
+    description:'Play as Gollum on his quest to retrieve his Precious. You will need to climb the mountains of Mordor, sneak around Mirkwood and make difficult choices.',
+    price: 'COMING SOON',
+
+    discount:0,
+    platform: ['windows'],
+    releaseDate:  '05/25/23',
+    categoryName: ['Action', 'Adventure' ,'Stealth'],
+    image: 'https://cdn1.epicgames.com/spt-assets/d20026139e774e57ab451e2a1b94c6e2/download-the-lord-of-the-rings--gollum-offer-clg3r.png?h=480&quality=medium&resize=1&w=360',
+  comingSoon: true,
+  bestSeller:false,
+  featured:false,
+  topProductSellers:false,
+  specials:false,
+  onSale:false,
+
+  
+  }
+,
+{
+  _id: '42',
+  title:'Alliance of the Sacred Suns',
+  description:'Alliance of the Sacred Suns is a sci-fi grand-strategy RPG that begins with your coronation as the head of an interstellar Empire, and ends with your demise. Manage feuding noble houses and the schemes of would-be usurpers as you try to revive the glory of an Empire on the brink',
+  price: 'COMING SOON',
+  publisher:'Hooded Horse',
+  discount:0,
+  platform: ['windows'],
+  releaseDate:  '10/28/23',      
+  categoryName: ['Simulation','Strategy'],
+  image: 'https://cdn1.epicgames.com/spt-assets/f77dd16bbd5c49fd8b6785ddb46b22da/download-alliance-of-the-sacred-suns-offer-daid9.jpg?h=480&quality=medium&resize=1&w=360',
+comingSoon: true,
+bestSeller:false,
+featured:false,
+topProductSellers:false,
+specials:false,
+onSale:false,
+
+
+},
+
+
+
+
+{
+  _id: '43',
+  title:'Immortals of Aveum™',
+  description:'Summon your power, stop the Everwar, save the realms. Pre-purchase* Immortals of Aveum™ and get the Purified Arclight, a unique blue sigil that will unleash more power!',
+  price: 'COMING SOON',
+  publisher:'Electronic Arts',
+  discount:0,
+  platform: ['windows'],
+  releaseDate:  '07/20/23',      
+  categoryName: ['Shooter'],
+  image: 'https://cdn1.epicgames.com/offer/33a47f9b76374045b7da20af80c40aa1/EGS_ImmortalsofAveum_AscendantStudios_S2_1200x1600-14796260492bf93edbcdae1712efa64c?h=480&quality=medium&resize=1&w=360',
+comingSoon: true,
+bestSeller:false,
+featured:false,
+topProductSellers:false,
+specials:false,
+onSale:false,
+
+
+},
+{
+  _id: '44',
+  title:'Miasma Chronicles',
+  description:'From the creators of Mutant Year Zero: Road to Eden comes a beautifully crafted tactical adventure you wont forget. Embark on a quest across a post-apocalyptic wasteland torn apart by a savage force known only as the Miasma.',
+  price: 'COMING SOON',
+  publisher:'505 Games',
+  discount:10,
+  platform: ['windows'],
+  releaseDate:  '05/23/23',      
+  categoryName: ['Action', 'Adventure' ,'Strategy'],
+  image: 'https://cdn1.epicgames.com/offer/632b8c18774d480d978cb116518cd06b/Miasma_Portrait_Storefront_1200X1600_1200x1600-ffcbaca5bc9604b9c5d9db1e883f15ec?h=480&quality=medium&resize=1&w=360',
+comingSoon: true,
+bestSeller:false,
+featured:false,
+topProductSellers:false,
+specials:false,
+onSale:false,
+
+
+},
+
+{
+  _id: '45',
+  title:'Xenonauts 2',
+  description:'Wage a global war of resistance against an alien invasion. Command turn-based tactical battles, build a network of covert bases, directly control your fighter wings, and achieve strategic victory in a simulation of asymmetric warfare against a technologically superior foe.',
+  price: 'COMING SOON',
+  publisher:'Hooded Horse',
+  discount:0,
+  platform: ['windows'],
+  releaseDate:  '10/28/23',      
+  categoryName: ['Space','Strategy'],
+  image: 'https://cdn1.epicgames.com/spt-assets/839a9f6d64044fdca86536ddca222ebb/xenonauts-2-1bel4.jpg?h=480&quality=medium&resize=1&w=360',
+comingSoon: true,
+bestSeller:false,
+featured:false,
+topProductSellers:false,
+specials:false,
+onSale:false,
+
+
+},
+
 ];

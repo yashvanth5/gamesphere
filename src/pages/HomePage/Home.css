@@ -131,13 +131,28 @@
     font-weight: bolder;
     color: white;
     /* color: black; */
-  
+ cursor: pointer;
     line-height: 2.8;
     
   }
   
+  .sections-image-title{
+    padding:  20px;
+    background-color: #EDEDED;
+    /* color: white; */
+    /* font-size: large; */
+    font-size: 18px;
+    font-weight: 400;
+    /* display: flex; */
+    flex-grow: 1;
+    height: 4vh;
+  }
   
   
+  /* height: 87vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  width: 80vw; */
   
   
   
@@ -152,53 +167,57 @@
   
    .all-products-section{
     display: flex;
-  
   flex-wrap: nowrap;
   overflow-x: auto;
-  /* scrollbar-width: thin;
-  scrollbar-color: gray; */
+
+  scrollbar-width: auto ;
+  scrollbar-color: gray;
     /* border: 1px solid red; */
   /* object-fit: cover; */
-  
-  /* margin: 40px; */
-  /* margin-left: 150px; */
+
   margin-top: 20px;
-  margin: auto;
  
+  margin: auto;
   width: 80%;
+
+ 
+  /* white-space: pre-line; */
+
    }
+
+
+   
   
   
   
-   .all-products-section::-webkit-scrollbar {
-    width: 120px;
-  }
+ 
   
-  
+/*   
   .all-products-section::-webkit-scrollbar-track {
     background-color: #f1f1f1;
     border-radius: 4px;
+    
   }
   
   .all-products-section::-webkit-scrollbar-thumb {
     background-color: #888;
     border-radius: 4px;
-  }
+  } */
   
-  .all-products-section::-webkit-scrollbar-thumb:hover {
+  /* .all-products-section::-webkit-scrollbar-thumb:hover {
     background-color: #555;
   }
-  
+   */
   
   
    .sections-individual-product{
-    margin: 10px;
+    margin: 10px 20px 20px 10px;
   
   
     /* lets-check */
   
     position: relative;
-    width: 256px;
+    width: 230px;
     /* height: 298.98px; */
   height: 100%;
     
@@ -212,7 +231,7 @@
    .sections-all-images{
   
     position: relative;
-    width: 250px;
+    width: 230px;
     /* height: 116.98px; */
     height: 250.98px;
     background: #000000;

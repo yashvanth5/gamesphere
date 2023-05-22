@@ -3,8 +3,13 @@ import "./App.css";
 import logo from "./logo.png";
 import { Navbar } from "./components/Navigation/Navbar";
 import { Home } from "./pages/HomePage/Home";
-import { Footer } from "./components/Footer/Footer";
+
 import { ProductList } from "./pages/ProductListPage/ProductList";
+import { Login } from "./pages/LoginPage/Login";
+import { Signup } from "./pages/SignupPage/Signup";
+import { IndividualGame } from "./pages/IndividualGamePage/IndividualGame";
+import { MockApi } from "./pages/MockApi/MockApi";
+import { Cart } from "./pages/CartPage/Cart";
 // import {Home} from "./pages/"
 
 
@@ -17,8 +22,13 @@ function App() {
  <Routes>
   <Route  path="/" element={<Home/>}/>
   <Route path="/store" element={<ProductList/>}/>
+  <Route path="/individual/:individualGameId" element={<IndividualGame/>}/>
+  <Route path="/cart" element={<Cart/>}/>
+  <Route path="/login" element={<Login/>}/>
+  <Route path="/signup" element={<Signup/>}/>
+  <Route path='/mockman' element={<MockApi/>} />
  </Routes>
- {/* <Footer/> */}
+
     </div>
   );
 }
