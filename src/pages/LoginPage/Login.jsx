@@ -10,6 +10,12 @@ const loginInputHandler=(e)=>{
 setLoginInput({...loginInput,[name] : value})
 }
 
+const guestUserDetails = {
+    email: "adarshbalika@gmail.com",
+    password: "adarshbalika"
+};
+
+
     return(
         <>
         <div>
@@ -18,7 +24,7 @@ setLoginInput({...loginInput,[name] : value})
        <p> Get Access To Your Cart, Wishlist And Orders</p>
             </div>
             <div>
-                <form>
+                <form onSubmit={loginHandler}>
 <p>
 <label htmlFor="email"  > Enter your email </label>
                    <input onChange={loginInputHandler} type="email" value={loginInput.email}  name="email" placeholder="Email" />
@@ -29,9 +35,13 @@ setLoginInput({...loginInput,[name] : value})
 <input  onChange={loginInputHandler}  type="password" name="password" value={loginInput.password}  placeholder="Password"  />
                   </p> 
                   <Link>Forgot Password?</Link>
-                  
-                  <button onClick={loginHandler} type="submit">Sign In</button>
-                  <button type="submit">Test User</button>
+                  <div>
+                  <button type="submit">Sign In</button>
+                  </div>
+            <div>
+            <button type="submit"  onClick={()=>setLoginInput(guestUserDetails)}>Test User</button>
+            </div>
+                 
                 </form>
                 <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
 

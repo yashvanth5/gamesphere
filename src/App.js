@@ -10,6 +10,7 @@ import { Signup } from "./pages/SignupPage/Signup";
 import { IndividualGame } from "./pages/IndividualGamePage/IndividualGame";
 import { MockApi } from "./pages/MockApi/MockApi";
 import { Cart } from "./pages/CartPage/Cart";
+import { Wishlist } from "./pages/WishlistPage/Wishlist";
 // import {Home} from "./pages/"
 
 
@@ -24,6 +25,7 @@ function App() {
   <Route path="/store" element={<ProductList/>}/>
   <Route path="/individual/:individualGameId" element={<IndividualGame/>}/>
   <Route path="/cart" element={<Cart/>}/>
+  <Route path="/wishlist" element={<Wishlist/>}/>
   <Route path="/login" element={<Login/>}/>
   <Route path="/signup" element={<Signup/>}/>
   <Route path='/mockman' element={<MockApi/>} />

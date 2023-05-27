@@ -4,8 +4,10 @@ import { ProductListingContext } from "../../context/ProductListingContext/Produ
 import { Link } from "react-router-dom"
 import { CartContext } from "../../context/CartContext/CartContext"
 import { FaRegHeart} from "react-icons/fa";
-
+import { BsFillHeartFill} from "react-icons/bs";
 import {  AiFillStar} from "react-icons/ai";
+import { AuthContext } from "../../context/AuthContext/AuthContext"
+import { WishlistContext } from "../../context/WishlistContext/WishlistContext"
 
 
 
@@ -15,79 +17,81 @@ import {  AiFillStar} from "react-icons/ai";
 
 
 export const ProductList = ()=>{
-    const {getProductData,state,dispatch,allProductData} = useContext(ProductListingContext)
-    const {itemsAddHandler} = useContext(CartContext)
-    
-
+    const {getProductData,state,dispatch} = useContext(ProductListingContext)
+    const {addToCart,cartState } = useContext(CartContext)
+    const {wishlistState, addToWishlist ,removeFromWishlist} = useContext(WishlistContext)
+ 
+    // console.log(getProductData)
 
 
    
+    // products
+    const filterProductData= ()=>{
+        
 
-//     const filterProductData= ()=>{
-//         // console.log(getProductData)
+        const totalProductData = [...getProductData].filter(({comingSoon})=>!comingSoon);
+        // console.log(totalProductData)
 
-//         const totalProductData = [...getProductData].filter(({comingSoon})=>!comingSoon);
-//         // console.log(totalProductData)
+        const filterWithPriceRange = state.filterPriceRange ? totalProductData?.filter((game)=>game.price<=(state.filterPriceRange)) : totalProductData;
 
-//         const filterWithPriceRange = state.filterPriceRange ? totalProductData?.filter((game)=>game.price<=(state.filterPriceRange)) : totalProductData;
+    //  console.log(filterWithPriceRange)
 
-//     //  console.log(filterWithPriceRange)
-
-//         const sortByPrice = filterWithPriceRange?.sort((a,b)=>{
-//             if(state.sortPrice === 'HtoL') {
-//                 return b.price - a.price
-//             } 
-//             else if (state.sortPrice === 'LtoH'){
-//                  return a.price - b.price
-//               } 
-//               else {
-//                 return 0;
-//               }
+        const sortByPrice = filterWithPriceRange?.sort((a,b)=>{
+            if(state.sortPrice === 'HtoL') {
+                return b.price - a.price
+            } 
+            else if (state.sortPrice === 'LtoH'){
+                 return a.price - b.price
+              } 
+              else {
+                return 0;
+              }
           
                             
-//         })
+        })
 
-//         // console.log(sortByPrice)
+        // console.log(sortByPrice)
 
 
-// const availabilityGames = state.topSellers||state.specialGames||state.gamesOnSale ? sortByPrice.filter((game)=>(state.topSellers && game.topProductSellers)|| (state.specialGames && game.specials) || (state.gamesOnSale && game.onSale)  ) : sortByPrice;
+const availabilityGames = state.topSellers||state.specialGames||state.gamesOnSale ? sortByPrice.filter((game)=>(state.topSellers && game.topProductSellers)|| (state.specialGames && game.specials) || (state.gamesOnSale && game.onSale)  ) : sortByPrice;
 
-//         // console.log(availabilityGames)
+        // console.log(availabilityGames)
 
-          
+          const searchGame = state.searchInput.length >0  ? 
+             availabilityGames.filter(({title})=> title.toLowerCase().includes(state.searchInput.trim().toLowerCase())) : availabilityGames     
 
-//         const platformGames = state.gamePlatformWindow || state.gamePlatformMac ? availabilityGames?.filter((games)=>
+        const platformGames = state.gamePlatformWindow || state.gamePlatformMac ? searchGame?.filter((games)=>
         
-//         (state.gamePlatformWindow && games.platform.includes('windows')) ||
-//         (state.gamePlatformMac && games.platform.includes('mac')) 
+        (state.gamePlatformWindow && games.platform.includes('windows')) ||
+        (state.gamePlatformMac && games.platform.includes('mac')) 
         
-//         ) :availabilityGames
+        ) :searchGame
 
 
 
-//         const filterWthRating =   state.rating !== null ? (platformGames.filter( (game)=>   game.starRatings <= state.rating )) : platformGames
-//         // console.log(filterWthRating)
+        const filterWthRating =   state.rating !== null ? (platformGames.filter( (game)=>   game.starRatings <= state.rating )) : platformGames
+        // console.log(filterWthRating)
      
 
-//         const allCategoryGames = state.gameCategoryAction ||  state.gameCategoryHorror  || state.gameCategoryShooter || state.gameCategoryStrategy || state.gameCategoryOpenWorld || state.gameCategoryIndie || state.gameCategoryRpg ? filterWthRating?.filter(
-//             (games)=>
-//             (state.gameCategoryAction && games.categoryName.includes('Action')  ) ||
-//             (state.gameCategoryHorror && games.categoryName.includes('Horror')) ||
-//             (state.gameCategoryShooter && games.categoryName.includes('Shooter')) ||
-//             (state.gameCategoryStrategy && games.categoryName.includes('Strategy')) ||
-//             (state.gameCategoryOpenWorld && games.categoryName.includes('Open World')) ||
-//             (state.gameCategoryIndie && games.categoryName.includes('Indie')) ||
-//             (state.gameCategoryRpg && games.categoryName.includes('RPG')) 
+        const allCategoryGames = state.gameCategoryAction ||  state.gameCategoryHorror  || state.gameCategoryShooter || state.gameCategoryStrategy || state.gameCategoryOpenWorld || state.gameCategoryIndie || state.gameCategoryRpg ? filterWthRating?.filter(
+            (games)=>
+            (state.gameCategoryAction && games.categoryName.includes('Action')  ) ||
+            (state.gameCategoryHorror && games.categoryName.includes('Horror')) ||
+            (state.gameCategoryShooter && games.categoryName.includes('Shooter')) ||
+            (state.gameCategoryStrategy && games.categoryName.includes('Strategy')) ||
+            (state.gameCategoryOpenWorld && games.categoryName.includes('Open World')) ||
+            (state.gameCategoryIndie && games.categoryName.includes('Indie')) ||
+            (state.gameCategoryRpg && games.categoryName.includes('RPG')) 
             
-//             )  : filterWthRating
+            )  : filterWthRating
       
-//         return allCategoryGames
-//     }
+        return allCategoryGames
+    }
 
  
 
  
-//   const allProductData = filterProductData()
+  const allProductData = filterProductData()
 
 
     
@@ -100,7 +104,7 @@ export const ProductList = ()=>{
         dispatch({type: "Sort_By_Price" , payload : selectedValue})
     }
 
-
+// const {userToken} = useContext(AuthContext)
 
 
     return(
@@ -196,7 +200,11 @@ export const ProductList = ()=>{
     {/* <h1 className="product-title">PRODUCT CART</h1> */}
     <div className="product-show">
         {allProductData.length > 0 ?   allProductData?.map((game)=>{
-          const {title,price,image,description,_id,starRatings,discount} = game
+         
+          const {title,price,image,_id,starRatings,discountPercent,discountPrice} = game
+         
+         const isAlreadyInWishlist = wishlistState.wishlist.some((individualWishlist)=>individualWishlist._id === _id )
+         const isAlreadyInCart =  cartState.cart.some((individualCart)=>individualCart._id === _id)
           return  (
             <Link to={`/individual/${_id}`} className="individual-product-item" >
                 <img src={image} className="item-image" alt="images"/>
@@ -206,9 +214,13 @@ export const ProductList = ()=>{
                         <h3 className="item-title"  >{title}</h3>
                         </div>
  <div className="wishlist"> 
-                    <Link to="/wishlist" >
+
+ {isAlreadyInWishlist ?    <Link onClick={()=>removeFromWishlist(game)}   >
+                 <BsFillHeartFill className="wishlist-icon"/>
+                 </Link>  :   <Link onClick={()=>addToWishlist(game)}   >
                  <FaRegHeart className="wishlist-icon"/>
-                 </Link> 
+                 </Link>  }
+                   
                 </div>
                     </div>
 
@@ -220,18 +232,22 @@ export const ProductList = ()=>{
                    
                       
                        <div className="price-content">
-                       <p class="start-price">{ price===0 ? 'Free' : `Rs ${price}`}</p>
-                      {price===0 ? "" : <p class="start-price"><s class="real-p"> Rs. 490</s></p>}
-                      {/* kal */}
-                      {/* <p>{discount} off</p> */}
+                        {/* //add discountprice price-discountPrice */}
+                       <p class="discount-price ">{ price===0 ? 'Free' : `₹ ${price-discountPrice}`}</p>
+                      {price===0 ? "" : <p class="discount-price "><s class="original-price">₹ {price} </s></p>}
+
+                     
+                   {price===0? "" :  <p className="discount-percent">({discountPercent}% off)</p>}  
                        </div>
                        
-                        
+                        {isAlreadyInCart ?  <Link to="/cart" >
+                 <button className="item-go-to-cart-btn"  >Go to Cart </button>
+                 </Link>  :   <Link  >
+                 <button className="item-buy-btn" onClick={()=>addToCart(game)}>Add to Cart</button>
+                 </Link>   }
               
             
-              <Link to="/cart" >
-                 <button className="item-buy-btn" onClick={()=>itemsAddHandler(game)}>Add to Cart</button>
-                 </Link> 
+             
                  
                 </div>
 

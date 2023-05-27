@@ -19,14 +19,14 @@ confirmPassword : ""
 //  console.log(loginInput)
 
 const userToken = localStorage.getItem("token")
-console.log(userToken)
+// console.log(userToken)
 
 const loginHandler = async(e)=>{
     e.preventDefault();
 try{
     const {data} = await axios.post(`/api/auth/login`,loginInput);
     localStorage.setItem("token", JSON.stringify(data.encodedToken));
-    console.log(  data.encodedToken);
+    // console.log(  data.encodedToken);
     setLoginInput(
         {
             email : "" , 
@@ -49,8 +49,9 @@ const signupHandler = async(e)=>{
     try{
         
         const {data} = await axios.post(`/api/auth/signup` , signupInput   )
-        localStorage.setItem("token", JSON.stringify(data.encodedToken));
-        console.log(  JSON.stringify(data.encodedToken))
+        // localStorage.setItem("token", JSON.stringify(data.encodedToken));
+
+        // console.log(  JSON.stringify(data.encodedToken))
       setSignupInput(
         {
             firstName : "",
@@ -67,9 +68,11 @@ const signupHandler = async(e)=>{
     }
 } 
 
+
+
     return(
         <>
-        <AuthContext.Provider value={{  loginInput,setLoginInput, signupInput,setSignupInput, loginHandler ,signupHandler}}>
+        <AuthContext.Provider value={{  loginInput,setLoginInput, signupInput,setSignupInput, loginHandler ,signupHandler,userToken}}>
             {children}
         </AuthContext.Provider>
         </>

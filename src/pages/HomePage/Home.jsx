@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import bannerimg from "../images/gamestore.webp"
 import actionimg from "../images/category-images/action-category-photo-one.webp"
 import shooterimg from "../images/category-images/shooter-category-photo-one.jpg"
@@ -8,10 +8,17 @@ import { useContext, useState } from "react"
 import "./Home.css";
 import { ProductListingContext } from "../../context/ProductListingContext/ProductListingContext"
 import { Footer } from "../../components/Footer/Footer"
+import { CategoryContext } from "../../context/CategoryContext/CategoriesContext"
+
+export {actionimg,shooterimg,horrorimg,strategyimg};
+
 
 
 export const Home=()=>{
   const {getProductData} = useContext(ProductListingContext)
+  const {categoryState} = useContext(CategoryContext)
+  console.log(getProductData)
+  
 
 
 const featuredGames = getProductData.filter(({featured})=>featured);
@@ -38,7 +45,19 @@ const commingSoonGames = getProductData.filter(( {comingSoon})=> comingSoon)
       <p className="genres-title"> POPULAR GENRES</p>
 
       </div>
+
       <div className="genres-section" >
+
+{categoryState?.categories?.map(({_id,categoryName,image})=>(
+  <div className="single-genre-category" key={_id} >
+    <img src={image} alt="Action Image" className="all-categories-image" />
+    <p className="category-names">{categoryName}</p>
+  </div>
+))}
+
+
+
+{/* -------------------------------------------
    <div className="single-genre-category" >
    <img src={actionimg} alt="Action Image" className="all-categories-image" />
    <p className="category-names">Action</p>
@@ -68,6 +87,7 @@ const commingSoonGames = getProductData.filter(( {comingSoon})=> comingSoon)
 <p className="category-names">Strategy</p>
 </div>
 
+----------------------------------------- */}
 
       </div>
       </div>
@@ -80,13 +100,18 @@ const commingSoonGames = getProductData.filter(( {comingSoon})=> comingSoon)
     
     {/* </div> */}
     <div className="all-products-section">
-      {featuredGames?.map(({title,price,image})=>(
+      {featuredGames?.map(({title,price,image,_id})=>(
         <div className="sections-individual-product" >
             <div className="sections-all-images">
             <img src={image} className="sections-image-individual" alt="old games images"/>
          </div>
             <p className="sections-image-title">{title}</p>
             {/* <p>{price}</p> */}
+            {/* <div className="view-link-container">
+            <NavLink   to={`/individual/${_id}`}      className="view-nav-link">
+            view
+          </NavLink>
+          </div> */}
         </div>
       ))}
      </div>

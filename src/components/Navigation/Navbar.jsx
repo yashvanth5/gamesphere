@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { AiOutlineSearch} from "react-icons/ai";
 import { FaRegUserCircle } from "react-icons/fa";
 import { BsBag} from "react-icons/bs";
@@ -8,6 +8,8 @@ import { IoMdCart } from 'react-icons/io';
 import "./Navbar.css";
 import { useContext,  useState } from "react";
 import { ProductListingContext } from "../../context/ProductListingContext/ProductListingContext";
+import { CartContext } from "../../context/CartContext/CartContext";
+import { WishlistContext } from "../../context/WishlistContext/WishlistContext";
 
 
 // const reducer = (state,action) =>{
@@ -31,23 +33,26 @@ import { ProductListingContext } from "../../context/ProductListingContext/Produ
 
 export const Navbar = ()=>{
     const [searchBtn,setSearchBtn] = useState(false)
-    const [searchTxt,setSearchTxt] = useState("")
+    // const [searchTxt,setSearchTxt] = useState("")
 
-    const {dispatch} = useContext(ProductListingContext)
+    const {state,dispatch} = useContext(ProductListingContext)
     const {getProductData} = useContext(ProductListingContext)
+const {cartState : {cart}} = useContext(CartContext)
+const {wishlistState : {wishlist}} = useContext(WishlistContext)
+    const navigate = useNavigate()
 
    
    
     
-    const inputHandler=()=>{
-if(searchTxt===""){
-    dispatch({type:"Search_All" ,data : getProductData})
-} else{
-    dispatch({type:"Search_Game" , payload : searchTxt})
-}
+//     const inputHandler=()=>{
+// if(searchTxt===""){
+//     dispatch({type:"Search_All" ,data : getProductData})
+// } else{
+//     dispatch({type:"Search_Game" , payload : searchTxt})
+// }
 
        
-    }
+    // }
     return(
         <>
         <div className="navbar">
@@ -63,11 +68,12 @@ if(searchTxt===""){
            <div >
             {searchBtn && 
               
-           <input  value={searchTxt} onChange={(e)=>{
-             setSearchTxt(e.target.value);
-            inputHandler();
-        }} className="searchbar " type="text"  placeholder=" Search for any game here..."/>
-               
+           <input  value={state.searchInput} onChange={(e)=> dispatch({type:"Search_Game" , payload: e.target.value})}
+           
+           className="searchbar " type="text"  placeholder=" Search for any game here..."
+           onKeyPress={(e)=>e.which===13 && navigate("/store")}
+           />
+       
                 
                 }
 
@@ -90,11 +96,11 @@ if(searchTxt===""){
                              className=" navlinks-decoration nav-search"> <AiOutlineSearch style={{ margin: "-5px",fontSize:"26px" }} /></Link></li>
                             
                             <li> <Link to="/store"  className=" navlinks-decoration nav-store" >  <BsBag style={{ margin: "-5px",fontSize:"24px" }} /></Link></li>
-                            <li>  <Link className=" navlinks-decoration nav-wishlist">     <BiHeart style={{ margin: "-5px",fontSize:"26px" }}  /></Link></li>
+                            <li>  <Link to="/wishlist" className=" navlinks-decoration nav-wishlist">     <BiHeart style={{ margin: "-5px",fontSize:"26px" }}  /></Link></li>
                            
-                           <li>  <Link to="/cart" className=" navlinks-decoration nav-cart">  <IoMdCart style={{ margin: "-5px",fontSize:"24px" }}  /></Link></li>
+                           <li>  <Link to="/cart" className=" navlinks-decoration nav-cart">  <IoMdCart style={{ margin: "-5px",fontSize:"24px" }}  />  ({cart.length})</Link></li>
   
-                           <li>  <Link to="/login" className="navlinks-decoration nav-login" >  <FaRegUserCircle style={{margin: "-5px",fontSize:"24px" }}  /></Link></li> 
+                           <li>  <Link to="/login" className="navlinks-decoration nav-login" >  <FaRegUserCircle style={{margin: "-5px",fontSize:"24px" }}  /> ({wishlist.length})</Link></li> 
                         </ul>
                        
 

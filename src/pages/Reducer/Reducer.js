@@ -6,10 +6,12 @@ export const reducerFunction =(state,action)=>{
     //                 return {...state,allData : action.data}
     //             }
     
-    // case "Search_Game" : {
-    //      return {...state, allData: action.totalData.filter(({title})=> title.toLowerCase().includes(action.payload.trim().toLowerCase()))}
-    //                         }
-                              
+    case "Search_Game" : {
+         return {...state,searchInput:action.payload }
+                            }
+                            // allData: action.totalData.filter(({title})=> title.toLowerCase().includes(action.payload.trim().toLowerCase()))      
+
+
    
     
         // price
@@ -149,6 +151,7 @@ export const reducerFunction =(state,action)=>{
        gamePlatformWindow:false,
        gamePlatformMac:false,
 
-       allData:[] 
+    //    allData:[] 
+    searchInput:""
     
     }

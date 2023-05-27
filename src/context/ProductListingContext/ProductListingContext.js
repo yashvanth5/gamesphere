@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState,useReducer } from "react"
 // import { reducerFunction,initialState } from "../../pages/ProductListPage/Reducer/Reducer";
 import { reducerFunction,initialState } from "../../pages/Reducer/Reducer"
+import axios from "axios";
 
 
 export const ProductListingContext = createContext();
@@ -12,71 +13,73 @@ const [getProductData,setGetProductData] = useState([])
 
 const [state,dispatch] = useReducer(reducerFunction, initialState);
 
-const filterProductData= ()=>{
-    // console.log(getProductData)
 
-    const totalProductData = [...getProductData].filter(({comingSoon})=>!comingSoon);
-    // console.log(totalProductData)
 
-    const filterWithPriceRange = state.filterPriceRange ? totalProductData?.filter((game)=>game.price<=(state.filterPriceRange)) : totalProductData;
+// const filterProductData= ()=>{
+//     // console.log(getProductData)
 
-//  console.log(filterWithPriceRange)
+//     const totalProductData = [...getProductData].filter(({comingSoon})=>!comingSoon);
+//     // console.log(totalProductData)
 
-    const sortByPrice = filterWithPriceRange?.sort((a,b)=>{
-        if(state.sortPrice === 'HtoL') {
-            return b.price - a.price
-        } 
-        else if (state.sortPrice === 'LtoH'){
-             return a.price - b.price
-          } 
-          else {
-            return 0;
-          }
+//     const filterWithPriceRange = state.filterPriceRange ? totalProductData?.filter((game)=>game.price<=(state.filterPriceRange)) : totalProductData;
+
+// //  console.log(filterWithPriceRange)
+
+//     const sortByPrice = filterWithPriceRange?.sort((a,b)=>{
+//         if(state.sortPrice === 'HtoL') {
+//             return b.price - a.price
+//         } 
+//         else if (state.sortPrice === 'LtoH'){
+//              return a.price - b.price
+//           } 
+//           else {
+//             return 0;
+//           }
       
                         
-    })
+//     })
 
-    // console.log(sortByPrice)
+//     // console.log(sortByPrice)
 
 
-const availabilityGames = state.topSellers||state.specialGames||state.gamesOnSale ? sortByPrice.filter((game)=>(state.topSellers && game.topProductSellers)|| (state.specialGames && game.specials) || (state.gamesOnSale && game.onSale)  ) : sortByPrice;
+// const availabilityGames = state.topSellers||state.specialGames||state.gamesOnSale ? sortByPrice.filter((game)=>(state.topSellers && game.topProductSellers)|| (state.specialGames && game.specials) || (state.gamesOnSale && game.onSale)  ) : sortByPrice;
 
-    // console.log(availabilityGames)
+//     // console.log(availabilityGames)
 
       
 
-    const platformGames = state.gamePlatformWindow || state.gamePlatformMac ? availabilityGames?.filter((games)=>
+//     const platformGames = state.gamePlatformWindow || state.gamePlatformMac ? availabilityGames?.filter((games)=>
     
-    (state.gamePlatformWindow && games.platform.includes('windows')) ||
-    (state.gamePlatformMac && games.platform.includes('mac')) 
+//     (state.gamePlatformWindow && games.platform.includes('windows')) ||
+//     (state.gamePlatformMac && games.platform.includes('mac')) 
     
-    ) :availabilityGames
+//     ) :availabilityGames
 
 
 
-    const filterWthRating =   state.rating !== null ? (platformGames.filter( (game)=>   game.starRatings <= state.rating )) : platformGames
-    // console.log(filterWthRating)
+//     const filterWthRating =   state.rating !== null ? (platformGames.filter( (game)=>   game.starRatings <= state.rating )) : platformGames
+//     // console.log(filterWthRating)
  
 
-    const allCategoryGames = state.gameCategoryAction ||  state.gameCategoryHorror  || state.gameCategoryShooter || state.gameCategoryStrategy || state.gameCategoryOpenWorld || state.gameCategoryIndie || state.gameCategoryRpg ? filterWthRating?.filter(
-        (games)=>
-        (state.gameCategoryAction && games.categoryName.includes('Action')  ) ||
-        (state.gameCategoryHorror && games.categoryName.includes('Horror')) ||
-        (state.gameCategoryShooter && games.categoryName.includes('Shooter')) ||
-        (state.gameCategoryStrategy && games.categoryName.includes('Strategy')) ||
-        (state.gameCategoryOpenWorld && games.categoryName.includes('Open World')) ||
-        (state.gameCategoryIndie && games.categoryName.includes('Indie')) ||
-        (state.gameCategoryRpg && games.categoryName.includes('RPG')) 
+//     const allCategoryGames = state.gameCategoryAction ||  state.gameCategoryHorror  || state.gameCategoryShooter || state.gameCategoryStrategy || state.gameCategoryOpenWorld || state.gameCategoryIndie || state.gameCategoryRpg ? filterWthRating?.filter(
+//         (games)=>
+//         (state.gameCategoryAction && games.categoryName.includes('Action')  ) ||
+//         (state.gameCategoryHorror && games.categoryName.includes('Horror')) ||
+//         (state.gameCategoryShooter && games.categoryName.includes('Shooter')) ||
+//         (state.gameCategoryStrategy && games.categoryName.includes('Strategy')) ||
+//         (state.gameCategoryOpenWorld && games.categoryName.includes('Open World')) ||
+//         (state.gameCategoryIndie && games.categoryName.includes('Indie')) ||
+//         (state.gameCategoryRpg && games.categoryName.includes('RPG')) 
         
-        )  : filterWthRating
+//         )  : filterWthRating
   
-    return allCategoryGames
-}
+//     return allCategoryGames
+// }
 
 
 
 
-const allProductData = filterProductData()
+// const allProductData = filterProductData()
 
 
 
@@ -84,9 +87,13 @@ const allProductData = filterProductData()
 const productDataCall = async()=>{
     try{
 
-const response = await fetch( "/api/products" )
-const data = await response.json();
-setGetProductData(data.products)
+const response = await axios.get( "/api/products" )
+// wil do response .status === 200
+// const data = await response.json();
+if(response.status===200) {
+    setGetProductData(response.data.products)
+}
+
     }
     catch(e){
         console.error(e)
@@ -98,7 +105,7 @@ useEffect(()=>{
 },[])
 
     return(
-        <ProductListingContext.Provider value={{getProductData,state,dispatch,allProductData}}>
+        <ProductListingContext.Provider value={{getProductData,state,dispatch}}>
             {children}
         </ProductListingContext.Provider>
     )

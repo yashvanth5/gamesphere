@@ -128,6 +128,13 @@ box-sizing: border-box;
     
   }
 
+  /* .individual-product-item:hover{
+    background: white; 
+      outline: 1px solid silver;  
+       cursor: pointer; 
+         scale: 1.2;
+  } */
+
   .item-image{
     height: 270px;
     width: 100%;
@@ -181,10 +188,40 @@ height: 17vh;
     padding: 10px;
     border: none;
     border-radius: 5px;
-    margin: 25px 25px 10px 25px;
+    margin: 20px 25px 10px 25px;
     cursor: pointer;
     width: 80%;
+    font-weight: bold;
 
+
+  }
+
+  .item-go-to-cart-btn{
+    background-color:white ;
+    color: #6E1D72;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px;
+    border: 2px solid #6E1D72;
+    border-radius: 5px;
+    margin: 20px 25px 10px 25px;
+    cursor: pointer;
+    width: 80%;
+    font-weight: bolder;
+  }
+
+  .item-go-to-cart-btn:hover{
+    background-color: #6E1D72;
+    color: white;
+    font-size: 13px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin: 20px 25px 10px 25px;
+    cursor: pointer;
+    width: 80%;
+    font-weight: bold;
+  
 
 
   }
@@ -233,19 +270,27 @@ border-radius: 12px;
   
 
 
-  .start-price {
+  .discount-price {
  
     padding: 10px 0px 0px 0px;
     text-align: start;
-    font-size: medium;
+    font-size: large;
+    color: green;
   }
  
 
-  .real-p {
-    color: rgb(110, 109, 109);
+  .original-price {
+    /* color: rgb(110, 109, 109); */
+    color: red;
     padding-left: 10px;
   }
 
   .price-content{
     display: flex;
+  }
+
+  .discount-percent{
+margin-top: 10px;
+margin-left: 60px;
+
   }
