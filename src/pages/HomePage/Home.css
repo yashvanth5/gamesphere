@@ -100,6 +100,12 @@
 .single-genre-category {
   position: relative;
 }
+.single-genre-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
 
 .category-names {
   position: absolute;

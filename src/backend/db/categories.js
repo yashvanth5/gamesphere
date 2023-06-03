@@ -1,6 +1,10 @@
 import { v4 as uuid } from "uuid";
-import { actionimg ,shooterimg,horrorimg,strategyimg} from "../../pages/HomePage/Home";
-
+import {
+  actionimg,
+  shooterimg,
+  horrorimg,
+  strategyimg,
+} from "../../pages/HomePage/Home";
 
 /**
  * Category Database can be added here.
@@ -11,25 +15,25 @@ export const categories = [
   {
     _id: uuid(),
     categoryName: "Action",
-   image:
-      actionimg,
+    image: actionimg,
+    value: "gameCategoryAction",
   },
   {
     _id: uuid(),
     categoryName: "Horror",
-   image:
-      horrorimg,
+    image: horrorimg,
+    value: "gameCategoryHorror",
   },
   {
     _id: uuid(),
     categoryName: "Shooter",
-   image:
-     shooterimg,
+    image: shooterimg,
+    value: "gameCategoryShooter",
   },
   {
     _id: uuid(),
     categoryName: "Strategy",
-   image:
-      strategyimg,
+    image: strategyimg,
+    value: "gameCategoryStrategy",
   },
 ];

@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
-import { FaRegUserCircle } from "react-icons/fa";
+import { FaUserCheck, FaUserTimes } from "react-icons/fa";
 import { BsBag } from "react-icons/bs";
 import { BiHeart } from "react-icons/bi";
 import { IoMdCart } from "react-icons/io";
@@ -10,6 +10,7 @@ import { useContext, useState } from "react";
 import { ProductListingContext } from "../../context/ProductListingContext/ProductListingContext";
 import { CartContext } from "../../context/CartContext/CartContext";
 import { WishlistContext } from "../../context/WishlistContext/WishlistContext";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
 
 // const reducer = (state,action) =>{
 //     switch (action.type) {
@@ -35,6 +36,7 @@ export const Navbar = () => {
   const {
     cartState: { cart },
   } = useContext(CartContext);
+  const { userToken } = useContext(AuthContext);
   const {
     wishlistState: { wishlist },
   } = useContext(WishlistContext);
@@ -48,6 +50,12 @@ export const Navbar = () => {
   // }
 
   // }
+
+  // const [isHamMenuVisible, setIsHamMenuVisible] = useState(false);
+
+  // const handleHamMenuToggleClick = () => {
+  //   setIsHamMenuVisible((prev) => !prev);
+  // };
   return (
     <>
       <div className="navbar">
@@ -60,6 +68,9 @@ export const Navbar = () => {
             </Link>
           </nav>
         </div>
+        {/* <Link onClick={handleHamMenuToggleClick} to="/user/profile">
+          {userToken ? "Profile" : "Login"}
+        </Link> */}
 
         <div>
           {searchBtn && (
@@ -121,12 +132,16 @@ export const Navbar = () => {
               </li>
 
               <li>
-                {" "}
-                <Link to="/login" className="navlinks-decoration nav-login">
-                  {" "}
-                  <FaRegUserCircle
-                    style={{ margin: "-5px", fontSize: "24px" }}
-                  />{" "}
+                <Link
+                  to={userToken ? "/user" : "/login"}
+                  className="navlinks-decoration nav-login"
+                  // onClick={userLoginHandler}
+                >
+                  {userToken ? (
+                    <FaUserCheck style={{ margin: "-5px", fontSize: "24px" }} />
+                  ) : (
+                    <FaUserTimes style={{ margin: "-5px", fontSize: "24px" }} />
+                  )}
                 </Link>
               </li>
             </ul>

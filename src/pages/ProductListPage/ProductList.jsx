@@ -1,21 +1,26 @@
 import { useContext, useReducer } from "react";
 import "./ProductList.css";
 import { ProductListingContext } from "../../context/ProductListingContext/ProductListingContext";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/CartContext/CartContext";
 import { FaRegHeart } from "react-icons/fa";
 import { BsFillHeartFill } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { WishlistContext } from "../../context/WishlistContext/WishlistContext";
+import { Loader } from "../../components/Loader/Loader";
+import { Error } from "../../components/Error/Error";
 
 export const ProductList = () => {
-  const { getProductData, state, dispatch } = useContext(ProductListingContext);
+  const { getProductData, state, dispatch, isLoadingGames, isErrorGames } =
+    useContext(ProductListingContext);
   const { addToCart, cartState } = useContext(CartContext);
   const { wishlistState, addToWishlist, removeFromWishlist } =
     useContext(WishlistContext);
-
-  // console.log(getProductData)
+  const navigate = useNavigate();
+  const { isLoggedIn, token, currentUser } = useContext(AuthContext);
+  console.log(" Token from productllisting page", token);
+  // console.log(token);
 
   // products
   const filterProductData = () => {
@@ -116,6 +121,29 @@ export const ProductList = () => {
   };
 
   // const {userToken} = useContext(AuthContext)
+
+  const addToCartBtnHandler = (e, game, token) => {
+    e.preventDefault();
+    if (currentUser) {
+      addToCart(game, token);
+    } else {
+      navigate("/login");
+    }
+  };
+
+  const addToWishlistBtnHandler = (e, game, token) => {
+    e.preventDefault();
+    if (currentUser) {
+      addToWishlist(game, token);
+    } else {
+      navigate("/login");
+    }
+  };
+
+  const removeFromWishlistHandler = (e, game, token) => {
+    e.preventDefault();
+    removeFromWishlist(game, token);
+  };
 
   return (
     <>
@@ -348,98 +376,126 @@ export const ProductList = () => {
 
         <div className="map-style">
           {/* <h1 className="product-title">PRODUCT CART</h1> */}
-          <div className="product-show">
-            {allProductData.length > 0 ? (
-              allProductData?.map((game) => {
-                const {
-                  title,
-                  price,
-                  image,
-                  _id,
-                  starRatings,
-                  discountPercent,
-                  discountPrice,
-                } = game;
+          <div>
+            {isLoadingGames ? (
+              <Loader />
+            ) : isErrorGames ? (
+              <Error />
+            ) : (
+              <div className="product-show">
+                {allProductData.length > 0 ? (
+                  allProductData?.map((game) => {
+                    const {
+                      title,
+                      price,
+                      image,
+                      _id,
+                      starRatings,
+                      discountPercent,
+                      discountPrice,
+                    } = game;
 
-                const isAlreadyInWishlist = wishlistState.wishlist.some(
-                  (individualWishlist) => individualWishlist._id === _id
-                );
-                const isAlreadyInCart = cartState.cart.some(
-                  (individualCart) => individualCart._id === _id
-                );
-                return (
-                  <Link
-                    to={`/individual/${_id}`}
-                    className="individual-product-item"
-                  >
-                    <img src={image} className="item-image" alt="images" />
-                    <div className="item-desciptions">
-                      <div className="title-with-wishlist">
-                        <div>
-                          <h3 className="item-title">{title}</h3>
-                        </div>
-                        <div className="wishlist">
-                          {isAlreadyInWishlist ? (
-                            <Link onClick={() => removeFromWishlist(game)}>
-                              <BsFillHeartFill className="wishlist-icon" />
+                    const isAlreadyInWishlist = wishlistState.wishlist.some(
+                      (individualWishlist) => individualWishlist._id === _id
+                    );
+                    const isAlreadyInCart = cartState.cart.some(
+                      (individualCart) => individualCart._id === _id
+                    );
+                    return (
+                      <div
+                        // to={`/individual/${_id}`}
+                        className="individual-product-item"
+                      >
+                        <Link to={`/individual/${_id}`}>
+                          <img
+                            src={image}
+                            className="item-image"
+                            alt="images"
+                          />
+                        </Link>
+
+                        <div className="item-desciptions">
+                          <div className="title-with-wishlist">
+                            <div>
+                              <h3 className="item-title">{title}</h3>
+                            </div>
+                            <div className="wishlist">
+                              {isAlreadyInWishlist ? (
+                                <Link
+                                  onClick={(e) =>
+                                    removeFromWishlistHandler(e, game, token)
+                                  }
+                                >
+                                  <BsFillHeartFill className="wishlist-icon" />
+                                </Link>
+                              ) : (
+                                <button
+                                  className="wishlist-btn"
+                                  onClick={(e) =>
+                                    addToWishlistBtnHandler(e, game, token)
+                                  }
+                                >
+                                  <FaRegHeart className="wishlist-icon" />
+                                </button>
+                              )}
+                            </div>
+                          </div>
+
+                          <div className="star-rating">
+                            <p>{starRatings}</p>
+                            <AiFillStar className="games-rating" />
+                          </div>
+
+                          <div className="price-content">
+                            {/* //add discountprice price-discountPrice */}
+                            <p class="discount-price ">
+                              {price === 0
+                                ? "Free"
+                                : `₹ ${price - discountPrice}`}
+                            </p>
+                            {price === 0 ? (
+                              ""
+                            ) : (
+                              <p class="discount-price ">
+                                <s class="original-price">₹ {price} </s>
+                              </p>
+                            )}
+
+                            {price === 0 ? (
+                              ""
+                            ) : (
+                              <p className="discount-percent">
+                                ({discountPercent}% off)
+                              </p>
+                            )}
+                          </div>
+
+                          {isAlreadyInCart ? (
+                            <Link to="/cart">
+                              <button className="item-go-to-cart-btn">
+                                Go to Cart{" "}
+                              </button>
                             </Link>
                           ) : (
-                            <Link onClick={() => addToWishlist(game)}>
-                              <FaRegHeart className="wishlist-icon" />
-                            </Link>
+                            // <Link>
+                            <button
+                              className="item-buy-btn"
+                              onClick={(e) =>
+                                addToCartBtnHandler(e, game, token)
+                              }
+                            >
+                              Add to Cart
+                            </button>
+                            // </Link>
                           )}
                         </div>
                       </div>
-
-                      <div className="star-rating">
-                        <p>{starRatings}</p>
-                        <AiFillStar className="games-rating" />
-                      </div>
-
-                      <div className="price-content">
-                        {/* //add discountprice price-discountPrice */}
-                        <p class="discount-price ">
-                          {price === 0 ? "Free" : `₹ ${price - discountPrice}`}
-                        </p>
-                        {price === 0 ? (
-                          ""
-                        ) : (
-                          <p class="discount-price ">
-                            <s class="original-price">₹ {price} </s>
-                          </p>
-                        )}
-
-                        {price === 0 ? (
-                          ""
-                        ) : (
-                          <p className="discount-percent">
-                            ({discountPercent}% off)
-                          </p>
-                        )}
-                      </div>
-
-                      {isAlreadyInCart ? (
-                        <Link to="/cart">
-                          <button className="item-go-to-cart-btn">
-                            Go to Cart{" "}
-                          </button>
-                        </Link>
-                      ) : (
-                        <Link>
-                          <button
-                            className="item-buy-btn"
-                            onClick={() => addToCart(game)}
-                          >
-                            Add to Cart
-                          </button>
-                        </Link>
-                      )}
-                    </div>
-                  </Link>
-                );
-              })
-            ) : (
-              <p>No Product Found</p>
+                    );
+                  })
+                ) : (
+                  <p className="items-not-found">No Products Found!</p>
+                )}
+              </div>
             )}
           </div>
         </div>

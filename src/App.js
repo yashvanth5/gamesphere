@@ -13,6 +13,9 @@ import { Cart } from "./pages/CartPage/Cart";
 import { Wishlist } from "./pages/WishlistPage/Wishlist";
 import { useState } from "react";
 import { Address } from "./pages/AddressPage/Address";
+import { User } from "./pages/UserPage/User";
+import { RequiresAuth } from "./components/RequiresAuth";
+import { Error } from "./components/Error/Error";
 // import {Home} from "./pages/"
 
 function App() {
@@ -27,14 +30,36 @@ function App() {
           path="/individual/:individualGameId"
           element={<IndividualGame />}
         />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<Wishlist />} />
+        <Route
+          path="/cart"
+          element={
+            <RequiresAuth>
+              <Cart />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/wishlist"
+          element={
+            <RequiresAuth>
+              {" "}
+              <Wishlist />{" "}
+            </RequiresAuth>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/mockman" element={<MockApi />} />
-
-        {isLoggedIn && <Route path="/address" element={<Address />} />}
-        {!isLoggedIn && <Route path="/address" element={<Login />} />}
+        <Route
+          path="/user"
+          element={
+            <RequiresAuth>
+              {" "}
+              <User />
+            </RequiresAuth>
+          }
+        />
+        <Route path="/*" element={<Error />} />
       </Routes>
     </div>
   );

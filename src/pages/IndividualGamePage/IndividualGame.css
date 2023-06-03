@@ -122,3 +122,10 @@ body {
   top: -350px ; */
   color: #6e1d72;
 }
+
+.individual-wishlist-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}

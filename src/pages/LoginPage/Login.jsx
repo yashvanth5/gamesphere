@@ -15,6 +15,11 @@ export const Login = () => {
     password: "adarshbalika",
   };
 
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    loginHandler(loginInput);
+  };
+
   return (
     <>
       <div>
@@ -23,12 +28,13 @@ export const Login = () => {
           <p> Get Access To Your Cart, Wishlist And Orders</p>
         </div>
         <div>
-          <form onSubmit={loginHandler}>
+          <form onSubmit={handleLoginSubmit}>
             <p>
               <label htmlFor="email"> Enter your email </label>
               <input
                 onChange={loginInputHandler}
                 type="email"
+                autoComplete="on"
                 value={loginInput.email}
                 name="email"
                 placeholder="Email"
@@ -42,12 +48,12 @@ export const Login = () => {
                 type="password"
                 name="password"
                 value={loginInput.password}
-                placeholder="Password"
+                placeholder="********"
               />
             </p>
             <Link>Forgot Password?</Link>
             <div>
-              <button type="submit">Sign In</button>
+              <button type="submit">Login</button>
             </div>
             <div>
               <button onClick={() => setLoginInput(guestUserDetails)}>

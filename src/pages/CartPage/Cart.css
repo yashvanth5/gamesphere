@@ -155,6 +155,13 @@
   color: #6e1d72;
 }
 
+.wishlist-cart-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
 .cart-block-price-detail {
   width: 346px;
 
@@ -238,4 +245,44 @@ hr {
   width: 280px;
 
   text-transform: uppercase;
+}
+.cart-empty-box {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 180px 570px;
+  /* margin-left: 420px; */
+  /* margin-bottom: 100px; */
+  padding: 15px 0px;
+  border: solid 5px #858585;
+  border-radius: 20px;
+  text-transform: uppercase;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  width: 30%;
+}
+
+.cart-empty {
+  font-size: 1rem;
+  color: #6e1d72;
+}
+
+.cart-continue-shop {
+  border: none;
+  background: #6e1d72;
+  width: 40%;
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  margin-top: 20px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.cart-heading {
+  /* font-size: 1.5rem; */
+  margin-top: 20px;
+  letter-spacing: 2px;
+  line-height: 1.5;
 }
