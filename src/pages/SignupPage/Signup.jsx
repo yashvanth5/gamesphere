@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
+import "./Signup.css";
+import { Footer } from "../../components/Footer/Footer";
 
 export const Signup = () => {
   const { signupInput, setSignupInput, signupHandler } =
@@ -18,13 +20,9 @@ export const Signup = () => {
 
   return (
     <>
-      <div>
-        <div>
-          <h1>Sign Up</h1>
-          <p>
-            Looks like you're new here! Sign up with your email to get started
-          </p>
-        </div>
+      <div className="signup-page">
+        <h2 className="signup-heading">Sign Up</h2>
+
         <div>
           <form onSubmit={handleSignupSubmit}>
             <p>
@@ -32,6 +30,7 @@ export const Signup = () => {
               <input
                 onChange={signupInputHandler}
                 type="email"
+                className="signup-input"
                 value={signupInput.email}
                 name="email"
                 placeholder="Email"
@@ -43,6 +42,7 @@ export const Signup = () => {
               <input
                 type="text"
                 onChange={signupInputHandler}
+                className="signup-input"
                 value={signupInput.firstName}
                 name="firstName"
                 placeholder="First Name"
@@ -54,6 +54,7 @@ export const Signup = () => {
               <input
                 type="text"
                 onChange={signupInputHandler}
+                className="signup-input"
                 value={signupInput.lastName}
                 name="lastName"
                 placeholder="Last Name"
@@ -66,6 +67,7 @@ export const Signup = () => {
                 type="password"
                 onChange={signupInputHandler}
                 value={signupInput.password}
+                className="signup-input"
                 name="password"
                 placeholder="New Password"
               />
@@ -76,18 +78,29 @@ export const Signup = () => {
                 type="password"
                 onChange={signupInputHandler}
                 value={signupInput.confirmPassword}
+                className="signup-input"
                 name="confirmPassword"
                 placeholder="Confirm Password"
               />
             </p>
+            <label className="signUp-label-accept">
+              <input type="checkbox" required />
+              <h4>I accept terms and conditions</h4>
+            </label>
 
-            <button type="submit">Sign Up</button>
+            <button type="submit" className="signup-btn signup-btn-login">
+              Sign Up
+            </button>
+            <p className="signin-btn-have-acc">
+              Already have an account?{" "}
+              <Link className="login-link" to="/login">
+                Login
+              </Link>
+            </p>
           </form>
-          <p>
-            Already have an account? <Link to="/login">Sign In</Link>
-          </p>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

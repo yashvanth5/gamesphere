@@ -18,6 +18,7 @@ const addressReducer = (state, action) => {
     case "SHOW_DUMMY_ADDRESS": {
       return { ...state, addressFormData: action.payload };
     }
+
     case "SET_ADDRESS_DETAILS": {
       return {
         ...state,
@@ -28,7 +29,18 @@ const addressReducer = (state, action) => {
       };
     }
     case "ADD_TO_ADDRESS": {
-      return { ...state, address: [...state.address, action.payload] };
+      return {
+        ...state,
+        address: state.address.find(
+          (singleadd) => singleadd._id === action.payload._id
+        )
+          ? state.address.map((checkadd) =>
+              checkadd._id === action.payload._id
+                ? (checkadd = action.payload)
+                : checkadd
+            )
+          : [...state.address, action.payload],
+      };
     }
 
     case "DELETE_ADDRESS": {
@@ -40,28 +52,15 @@ const addressReducer = (state, action) => {
       };
     }
 
-    // case "EDIT_ADDRESS": {
-    //   return {
-    //     ...state,
-    //     address: state.address.map((el) => {
-    //       return el._id === action.payload._id ? action.payload : el;
-    //       console.log(action.payload);
-    //     }),
-    //   };
-    // }
-
-    case "EDIT_ADDRESS": {
-      const updatedAddress = state.address.map((el) => {
-        return el._id === action.payload.editAddress._id
-          ? action.payload.editAddress
-          : el;
-      });
-
+    case "EDIT_ADDRESS":
+      const updatedAddress = action.payload.editAddress;
+      const updatedAddressList = state.address.map((address) =>
+        address._id === updatedAddress._id ? updatedAddress : address
+      );
       return {
         ...state,
-        addressFormData: updatedAddress,
+        address: updatedAddressList,
       };
-    }
 
     case "RESET_ADDRESS_DETAILS": {
       return {
@@ -97,19 +96,19 @@ export const AddressProvider = ({ children }) => {
       {
         _id: uuid(),
         name: "Kim Tommy",
-        area: "Gangnam-gu",
-        city: "Seoul",
-        state: "Seoul",
-        pincode: "106040",
+        area: "7B, Spring Valley Colony, Sector 12",
+        city: "Gurugram",
+        state: "Haryana",
+        pincode: "122001",
         phoneNumber: "1234567890",
       },
       {
         _id: uuid(),
         name: "angle unyca",
-        area: "0B-09 & G-10 Ground Floor, Mourya House, Andheri West",
-        city: "Mumbai",
-        state: "Maharashtra",
-        pincode: "400053",
+        area: "25A-14, Silver Heights Apartments, Park Street",
+        city: "Kolkata",
+        state: "West Bengal",
+        pincode: "700016",
         phoneNumber: "1987654321",
       },
     ],
@@ -152,26 +151,42 @@ export const AddressProvider = ({ children }) => {
   //     }
   //   );
 
-  const addToAddress = async (newAddress, token) => {
-    try {
-      const response = await axios.post(
-        "/api/user/address/add",
-        { address: newAddress },
-        {
-          headers: { authorization: token },
-        }
-      );
-      const {
-        status,
-        data: { address },
-      } = response;
-      if (status === 201) {
-        addressDispatch({ type: "ADD_TO_ADDRESS", payload: address });
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  // const addToAddress = async (newAddress, token) => {
+  //   try {
+  //     const response = await axios.post(
+  //       "/api/user/address/add",
+  //       { address: newAddress },
+  //       {
+  //         headers: { authorization: token },
+  //       }
+  //     );
+  //     const {
+  //       status,
+  //       data: { address },
+  //     } = response;
+  //     if (status === 201) {
+  //       addressDispatch({ type: "ADD_TO_ADDRESS", payload: address });
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+
+  // const editAddress = (add) => {
+  //   const editedAddress = addressState.address?.find(
+  //     (singleAdd) => singleAdd._id === add._id
+  //   );
+
+  // const isAddressPresent = address?.find(
+  //   (singleAdd) => singleAdd._id === addressFormData._id
+  // );
+
+  // addressDispatch({ type: "SET_SHOW_EDIT_ADDRESS", payload: true });
+  // addressDispatch({
+  //   type: "EDIT_ADDRESS",
+  //   payload: { editAddress: address },
+  // });
+  // };
 
   return (
     <AddressContext.Provider
@@ -179,7 +194,6 @@ export const AddressProvider = ({ children }) => {
         addressState,
         addressDispatch,
         initialAddressFormData,
-        addToAddress,
       }}
     >
       {children}

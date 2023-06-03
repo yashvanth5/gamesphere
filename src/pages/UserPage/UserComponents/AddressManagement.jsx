@@ -34,13 +34,13 @@ export const AddressManagement = () => {
   //   });
   // };
 
-  const editAddress = (address) => {
-    addressDispatch({ type: "SET_SHOW_NEW_ADDRESS", payload: true });
-    addressDispatch({
-      type: "EDIT_ADDRESS",
-      payload: { editAddress: address },
-    });
-  };
+  // const editAddress = (address) => {
+  //   addressDispatch({ type: "SET_SHOW_NEW_ADDRESS", payload: true });
+  //   addressDispatch({
+  //     type: "EDIT_ADDRESS",
+  //     payload: { editAddress: address },
+  //   });
+  // };
 
   return (
     <>
@@ -68,7 +68,16 @@ export const AddressManagement = () => {
                 <div>
                   <button
                     className="profile-edit-btn"
-                    onClick={() => editAddress(add)}
+                    onClick={() => {
+                      addressDispatch({
+                        type: "SET_SHOW_NEW_ADDRESS",
+                        payload: true,
+                      });
+                      addressDispatch({
+                        type: "SHOW_DUMMY_ADDRESS",
+                        payload: add,
+                      });
+                    }}
                   >
                     Edit
                   </button>
@@ -86,7 +95,7 @@ export const AddressManagement = () => {
         </ul>
 
         {addNewAddress && (
-          <div className="profileAddress_form">
+          <div className="profileAddress-form">
             <AddressForm />
           </div>
         )}

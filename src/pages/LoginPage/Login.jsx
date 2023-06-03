@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { useContext } from "react";
+import "./Login.css";
+import { Footer } from "../../components/Footer/Footer";
 
 export const Login = () => {
   const { loginInput, setLoginInput, loginHandler } = useContext(AuthContext);
@@ -22,16 +24,15 @@ export const Login = () => {
 
   return (
     <>
-      <div>
-        <div>
-          <h1>Sign In</h1>
-          <p> Get Access To Your Cart, Wishlist And Orders</p>
-        </div>
+      <div className="login-page">
+        <h2 className="login-heading">Login</h2>
+
         <div>
           <form onSubmit={handleLoginSubmit}>
             <p>
               <label htmlFor="email"> Enter your email </label>
               <input
+                className="login-input"
                 onChange={loginInputHandler}
                 type="email"
                 autoComplete="on"
@@ -44,6 +45,7 @@ export const Login = () => {
             <p>
               <label htmlFor="password">Enter your password</label>
               <input
+                className="login-input"
                 onChange={loginInputHandler}
                 type="password"
                 name="password"
@@ -51,21 +53,31 @@ export const Login = () => {
                 placeholder="********"
               />
             </p>
-            <Link>Forgot Password?</Link>
+            {/* <Link>Forgot Password?</Link> */}
             <div>
-              <button type="submit">Login</button>
-            </div>
-            <div>
-              <button onClick={() => setLoginInput(guestUserDetails)}>
-                Test User
+              <button type="submit" className="login-btn login-btn-login">
+                Login
               </button>
             </div>
+            <div>
+              <button
+                type="submit"
+                className="login-btn login-btn-test"
+                onClick={() => setLoginInput(guestUserDetails)}
+              >
+                Login with Test Credentials
+              </button>
+            </div>
+            <p className="login-btn-new-acc">
+              Don't have an account?{" "}
+              <Link className="signup-link" to="/signup">
+                Sign Up
+              </Link>
+            </p>
           </form>
-          <p>
-            Don't have an account? <Link to="/signup">Sign Up</Link>
-          </p>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

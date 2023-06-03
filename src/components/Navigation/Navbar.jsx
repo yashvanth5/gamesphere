@@ -63,7 +63,11 @@ export const Navbar = () => {
 
         <div className="left-side-nav">
           <nav>
-            <Link to="/" className="nav-brand">
+            <Link
+              to="/"
+              onClick={() => dispatch({ type: "Games_Reset" })}
+              className="nav-brand"
+            >
               GAMESPHERE
             </Link>
           </nav>

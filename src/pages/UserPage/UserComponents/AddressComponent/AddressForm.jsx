@@ -30,33 +30,21 @@ export const AddressForm = () => {
   };
   const handleAddressSubmit = (e) => {
     e.preventDefault();
-    const isAddressPresent = address?.find(
-      (singleAdd) => singleAdd._id === addressFormData._id
-    );
-    if (isAddressPresent) {
-      addressDispatch({
-        type: "EDIT_ADDRESS",
-        payload: {
-          editAddress: { id: isAddressPresent._id, ...addressFormData },
-        },
-      });
-    } else {
-      addressDispatch({
-        type: "ADD_TO_ADDRESS",
-        payload: { id: uuid(), ...addressFormData },
-      });
-    }
-
+    // const isAddressPresent = address?.find(
+    //   (singleAdd) => singleAdd._id === addressFormData._id
+    // );
     // if (isAddressPresent) {
     //   addressDispatch({
     //     type: "EDIT_ADDRESS",
-    //     payload: (isAddressPresent._id, addressFormData),
+    //     payload: {
+    //       editAddress: { id: isAddressPresent._id, ...addressFormData },
+    //     },
     //   });
     // } else {
-    //   addressDispatch({
-    //     type: "ADD_TO_ADDRESS",
-    //     payload: { id: uuid(), ...addressFormData },
-    //   });
+    addressDispatch({
+      type: "ADD_TO_ADDRESS",
+      payload: { id: uuid(), ...addressFormData },
+    });
     // }
 
     addressDispatch({ type: "SET_SHOW_NEW_ADDRESS", payload: false });
@@ -153,7 +141,14 @@ export const AddressForm = () => {
             />
           </label>
           <div>
-            <button type="submit"> Add</button>
+            <button type="submit">
+              {" "}
+              {address.find(
+                (singleAdd) => singleAdd._id === addressFormData._id
+              )
+                ? `Update`
+                : `Add`}{" "}
+            </button>
             <button
               onClick={() =>
                 addressDispatch({
@@ -165,17 +160,23 @@ export const AddressForm = () => {
               Cancel
             </button>
           </div>
-          <button
-            type="button"
-            onClick={() =>
-              addressDispatch({
-                type: "SHOW_DUMMY_ADDRESS",
-                payload: dummyAddress,
-              })
-            }
-          >
-            <p>Fill with Dummy Address</p>
-          </button>
+          {address.find(
+            (singleAdd) => singleAdd._id === addressFormData._id
+          ) ? (
+            ""
+          ) : (
+            <button
+              type="button"
+              onClick={() =>
+                addressDispatch({
+                  type: "SHOW_DUMMY_ADDRESS",
+                  payload: dummyAddress,
+                })
+              }
+            >
+              <p>Fill with Dummy Address</p>
+            </button>
+          )}
         </form>
       </div>
     </>
