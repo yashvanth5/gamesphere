@@ -21,8 +21,6 @@ export const AuthProvider = ({ children }) => {
     signUpConfirm: false,
   });
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -61,7 +59,6 @@ export const AuthProvider = ({ children }) => {
       // console.log("toekn from foundUser ", foundUser);
       // console.log("toekn from aaa ", encodedToken);
 
-      // setIsLoggedIn(true);
       toast.success("Successfully signed in!");
 
       navigate(location?.state?.from?.pathname ?? "/");
@@ -126,7 +123,6 @@ export const AuthProvider = ({ children }) => {
         setToken(encodedToken);
         setCurrentUser(createdUser);
 
-        // setIsLoggedIn(true);
         toast.success("Successfully signed up! Kindly login to continue!");
         navigate(location?.state?.from?.pathname ?? "/login");
       } catch (error) {
@@ -150,10 +146,6 @@ export const AuthProvider = ({ children }) => {
     navigate(location?.state?.from?.pathname ?? "/");
     toast.success("Logged out successfully!");
   };
-  // const userLoginHandler = () => {
-  //   setIsLoggedIn(!isLoggedIn);
-  //   navigate(location?.state?.from?.pathname);
-  // };
 
   return (
     <>
@@ -172,7 +164,7 @@ export const AuthProvider = ({ children }) => {
           toggleSignUpPassword,
           toggleSignUpConfirmPassword,
           currentUser,
-          isLoggedIn,
+
           token,
           logoutHandler,
         }}

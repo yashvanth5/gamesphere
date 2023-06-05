@@ -32,7 +32,7 @@ export const Navbar = () => {
   // const [searchTxt,setSearchTxt] = useState("")
 
   const { state, dispatch } = useContext(ProductListingContext);
-  const { getProductData } = useContext(ProductListingContext);
+
   const {
     cartState: { cart },
   } = useContext(CartContext);
@@ -42,20 +42,7 @@ export const Navbar = () => {
   } = useContext(WishlistContext);
   const navigate = useNavigate();
 
-  //     const inputHandler=()=>{
-  // if(searchTxt===""){
-  //     dispatch({type:"Search_All" ,data : getProductData})
-  // } else{
-  //     dispatch({type:"Search_Game" , payload : searchTxt})
-  // }
-
-  // }
-
-  // const [isHamMenuVisible, setIsHamMenuVisible] = useState(false);
-
-  // const handleHamMenuToggleClick = () => {
-  //   setIsHamMenuVisible((prev) => !prev);
-  // };
+  //
   return (
     <>
       <div className="navbar">

@@ -25,7 +25,7 @@ export const Cart = () => {
     useContext(WishlistContext);
 
   const navigate = useNavigate();
-  const { userToken, isLoggedIn, currentUser, token } = useContext(AuthContext);
+  const { currentUser, token } = useContext(AuthContext);
 
   return (
     <>
@@ -47,7 +47,6 @@ export const Cart = () => {
                       price,
                       image,
                       _id,
-                      starRatings,
                       discountPercent,
                       qty,
                       discountPrice,
@@ -95,7 +94,11 @@ export const Cart = () => {
                             to={`/individual/${_id}`}
                             className="cart-img-box"
                           >
-                            <img src={image} className="cart-image" />
+                            <img
+                              src={image}
+                              alt="game images"
+                              className="cart-image"
+                            />
                           </Link>
                           <div className="cart-all-description">
                             <h2 className="cart-title"> {title} </h2>

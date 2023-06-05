@@ -1,10 +1,10 @@
-import { Link, NavLink, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import bannerimg from "../images/gamestore.webp";
 import actionimg from "../images/category-images/action-category-photo-one.webp";
 import shooterimg from "../images/category-images/shooter-category-photo-one.jpg";
 import horrorimg from "../images/category-images/horror-category-photo-one.avif";
 import strategyimg from "../images/category-images/strategy-category-photo-one.avif";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import "./Home.css";
 import { ProductListingContext } from "../../context/ProductListingContext/ProductListingContext";
 import { Footer } from "../../components/Footer/Footer";
@@ -70,7 +70,7 @@ export const Home = () => {
                   >
                     <img
                       src={image}
-                      alt="Action Image"
+                      alt="Action"
                       className="all-categories-image"
                     />
                     <p className="category-names">{categoryName}</p>

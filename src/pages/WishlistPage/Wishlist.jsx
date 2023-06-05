@@ -25,7 +25,7 @@ export const Wishlist = () => {
   console.log(wishlistState);
 
   const navigate = useNavigate();
-  const { userToken, isLoggedIn, token, currentUser } = useContext(AuthContext);
+  const { token, currentUser } = useContext(AuthContext);
 
   return (
     <>

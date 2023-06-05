@@ -17,7 +17,7 @@ export const IndividualGame = () => {
   const { addToWishlist, removeFromWishlist, wishlistState } =
     useContext(WishlistContext);
   const navigate = useNavigate();
-  const { token, currentUser, userToken, isLoggedIn } = useContext(AuthContext);
+  const { token, currentUser } = useContext(AuthContext);
   const selectedGame = getProductData.find(
     (game) => game._id === String(individualGameId)
   );
@@ -61,7 +61,7 @@ export const IndividualGame = () => {
       <div className="product-detail-section">
         <div className="main-game-card">
           <div className="game-img-main">
-            <img className="game-image" src={selectedGame.image} />
+            <img className="game-image" alt="game" src={selectedGame.image} />
           </div>
 
           <div className="img-description">

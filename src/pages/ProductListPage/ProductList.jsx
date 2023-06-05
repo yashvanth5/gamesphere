@@ -1,7 +1,7 @@
-import { useContext, useReducer } from "react";
+import { useContext } from "react";
 import "./ProductList.css";
 import { ProductListingContext } from "../../context/ProductListingContext/ProductListingContext";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/CartContext/CartContext";
 import { FaRegHeart } from "react-icons/fa";
 import { BsFillHeartFill } from "react-icons/bs";
@@ -19,7 +19,7 @@ export const ProductList = () => {
   const { wishlistState, addToWishlist, removeFromWishlist } =
     useContext(WishlistContext);
   const navigate = useNavigate();
-  const { isLoggedIn, token, currentUser } = useContext(AuthContext);
+  const { token, currentUser } = useContext(AuthContext);
   console.log(" Token from productllisting page", token);
   // console.log(token);
 

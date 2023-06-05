@@ -8,11 +8,9 @@ export const AddressForm = () => {
   const {
     addressState: { address, addressFormData },
     addressDispatch,
-    addToAddress,
   } = useContext(AddressContext);
 
-  const { _id, name, area, city, state, pincode, phoneNumber } =
-    addressFormData;
+  const { name, area, city, state, pincode, phoneNumber } = addressFormData;
 
   const dummyAddress = {
     name: "Yashvanth Kumar",
@@ -50,10 +48,10 @@ export const AddressForm = () => {
 
     addressDispatch({ type: "SET_SHOW_NEW_ADDRESS", payload: false });
 
-    {
-      address.find((singleAdd) => singleAdd._id === addressFormData._id)
-        ? toast.success("Updated address successfully!")
-        : toast.success("Added new address successfully!");
+    if (address.find((singleAdd) => singleAdd._id === addressFormData._id)) {
+      toast.success("Updated address successfully!");
+    } else {
+      toast.success("Added new address successfully!");
     }
   };
 

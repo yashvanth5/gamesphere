@@ -1,9 +1,6 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useReducer } from "react";
 import { v4 as uuid } from "uuid";
-
-import axios from "axios";
 import { AuthContext } from "../AuthContext/AuthContext";
-import { v4 } from "uuid";
 
 const addressReducer = (state, action) => {
   switch (action.type) {
@@ -80,13 +77,10 @@ const addressReducer = (state, action) => {
   }
 };
 
-// const { userToken } = useContext(AuthContext);
-
 export const AddressContext = createContext();
 
 export const AddressProvider = ({ children }) => {
-  const { token } = useContext(AuthContext);
-  // const encodedToken = token;
+  // const { token } = useContext(AuthContext);
 
   const initialAddressFormData = {
     _id: "",
@@ -128,57 +122,6 @@ export const AddressProvider = ({ children }) => {
     addressReducer,
     initialAddressState
   );
-
-  console.log(addressState);
-  // const getAllAddress = async () => {
-  //   try {
-  //     const response = await axios.get("/api/user/addresses", {
-  //       headers: { authorization: encodedToken },
-  //     });
-  //     if (response.status === 200) {
-  //       addressDispatch({
-  //         type: "DISPLAY_ADDRESSES",
-  //         payload: response.data.address,
-  //       });
-  //     }
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getAllAddress();
-  // }, []);
-
-  // async (newAddress, encodedToken) =>
-  //   await axios.post(
-  //     "/api/user/address/add",
-  //     { address: newAddress },
-  //     {
-  //       headers: { authorization: encodedToken },
-  //     }
-  //   );
-
-  // const addToAddress = async (newAddress, token) => {
-  //   try {
-  //     const response = await axios.post(
-  //       "/api/user/address/add",
-  //       { address: newAddress },
-  //       {
-  //         headers: { authorization: token },
-  //       }
-  //     );
-  //     const {
-  //       status,
-  //       data: { address },
-  //     } = response;
-  //     if (status === 201) {
-  //       addressDispatch({ type: "ADD_TO_ADDRESS", payload: address });
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
 
   // const editAddress = (add) => {
   //   const editedAddress = addressState.address?.find(

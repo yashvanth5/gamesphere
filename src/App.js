@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router";
 import "./App.css";
-import logo from "./logo.png";
+
 import { Navbar } from "./components/Navigation/Navbar";
 import { Home } from "./pages/HomePage/Home";
 import { ProductList } from "./pages/ProductListPage/ProductList";
@@ -11,7 +11,7 @@ import { MockApi } from "./pages/MockApi/MockApi";
 import { Cart } from "./pages/CartPage/Cart";
 import { Wishlist } from "./pages/WishlistPage/Wishlist";
 import { useState } from "react";
-import { Address } from "./pages/AddressPage/Address";
+
 import { User } from "./pages/UserPage/User";
 import { RequiresAuth } from "./components/RequiresAuth";
 import { Error } from "./components/Error/Error";
@@ -20,7 +20,6 @@ import { Checkout } from "./pages/Checkout/Checkout";
 import { Toaster } from "react-hot-toast";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div className="App">
       <Navbar />
