@@ -10,7 +10,6 @@ import { IndividualGame } from "./pages/IndividualGamePage/IndividualGame";
 import { MockApi } from "./pages/MockApi/MockApi";
 import { Cart } from "./pages/CartPage/Cart";
 import { Wishlist } from "./pages/WishlistPage/Wishlist";
-import { useState } from "react";
 
 import { User } from "./pages/UserPage/User";
 import { RequiresAuth } from "./components/RequiresAuth";

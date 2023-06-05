@@ -1,6 +1,5 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useReducer } from "react";
 import { v4 as uuid } from "uuid";
-import { AuthContext } from "../AuthContext/AuthContext";
 
 const addressReducer = (state, action) => {
   switch (action.type) {
