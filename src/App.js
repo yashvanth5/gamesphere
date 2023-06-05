@@ -3,7 +3,6 @@ import "./App.css";
 import logo from "./logo.png";
 import { Navbar } from "./components/Navigation/Navbar";
 import { Home } from "./pages/HomePage/Home";
-
 import { ProductList } from "./pages/ProductListPage/ProductList";
 import { Login } from "./pages/LoginPage/Login";
 import { Signup } from "./pages/SignupPage/Signup";
@@ -16,13 +15,21 @@ import { Address } from "./pages/AddressPage/Address";
 import { User } from "./pages/UserPage/User";
 import { RequiresAuth } from "./components/RequiresAuth";
 import { Error } from "./components/Error/Error";
+import { Checkout } from "./pages/Checkout/Checkout";
 // import {Home} from "./pages/"
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div className="App">
       <Navbar />
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        containerStyle={{ top: "11%" }}
+        toastOptions={{ style: { maxWidth: 500 } }}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/store" element={<ProductList />} />
@@ -56,6 +63,14 @@ function App() {
             <RequiresAuth>
               {" "}
               <User />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <RequiresAuth>
+              <Checkout />
             </RequiresAuth>
           }
         />

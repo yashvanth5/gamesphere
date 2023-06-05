@@ -4,11 +4,11 @@ import { ProductListingContext } from "../../context/ProductListingContext/Produ
 import { Link } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import { BsFillHeartFill } from "react-icons/bs";
-
 import "./IndividualGame.css";
 import { CartContext } from "../../context/CartContext/CartContext";
 import { WishlistContext } from "../../context/WishlistContext/WishlistContext";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
+import { toast } from "react-hot-toast";
 
 export const IndividualGame = () => {
   const { getProductData } = useContext(ProductListingContext);
@@ -38,6 +38,7 @@ export const IndividualGame = () => {
       addToCart(game, token);
     } else {
       navigate("/login");
+      toast.error("Please login to continue adding to  cart!");
     }
   };
 
@@ -47,6 +48,7 @@ export const IndividualGame = () => {
       addToWishlist(game, token);
     } else {
       navigate("/login");
+      toast.error("Please login to continue adding to  wishlist!");
     }
   };
 

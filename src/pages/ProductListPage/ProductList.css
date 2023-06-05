@@ -280,3 +280,36 @@ body {
   line-height: 1.5;
   letter-spacing: 2px;
 }
+
+.all-filters-aside {
+  width: 30vw;
+  /* min-width: 38%; this should set in media queries */
+  height: 87vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  /* background-color: #777373; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 32px;
+  margin-right: -20px;
+}
+
+@media screen and (max-width: 768px) {
+  .all-filters-aside {
+    width: 30vw;
+    /* min-width: 38%; this should set in media queries */
+    height: 87vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    /* background-color: #777373; */
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 32px;
+    margin-right: -20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+}

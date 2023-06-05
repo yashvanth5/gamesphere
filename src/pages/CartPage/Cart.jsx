@@ -8,6 +8,8 @@ import { WishlistContext } from "../../context/WishlistContext/WishlistContext";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { Loader } from "../../components/Loader/Loader";
 import { Error } from "../../components/Error/Error";
+import { toast } from "react-hot-toast";
+
 export const Cart = () => {
   const {
     cartState,
@@ -65,6 +67,9 @@ export const Cart = () => {
                         addToWishlist(game, token);
                       } else {
                         navigate("/login");
+                        toast.error(
+                          "Please login to continue adding to  wishlist!"
+                        );
                       }
                     };
 
@@ -222,11 +227,12 @@ export const Cart = () => {
                       <h3>₹ {totalPrice - discountedPrice}</h3>
                     </div>
                   </div>
-
-                  <button className="card-block-price-details-final-btn">
-                    {" "}
-                    <h2>Checkout</h2>
-                  </button>
+                  <NavLink to="/checkout">
+                    <button className="card-block-price-details-final-btn">
+                      {" "}
+                      <h2>Checkout</h2>
+                    </button>
+                  </NavLink>
                 </div>
               </div>
             ) : (

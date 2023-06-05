@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useState } from "react";
+import { toast } from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router";
 
 export const AuthContext = createContext();
@@ -14,7 +15,14 @@ export const AuthProvider = ({ children }) => {
     confirmPassword: "",
   });
 
+  const [showPassword, setShowPassword] = useState({
+    login: false,
+    signUp: false,
+    signUpConfirm: false,
+  });
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -26,6 +34,10 @@ export const AuthProvider = ({ children }) => {
     userToken?.user
     //  || {}
   );
+
+  const toggleLoginPassword = () => {
+    setShowPassword({ ...showPassword, login: !showPassword.login });
+  };
 
   const loginHandler = async ({ email, password }) => {
     try {
@@ -50,15 +62,34 @@ export const AuthProvider = ({ children }) => {
       // console.log("toekn from aaa ", encodedToken);
 
       // setIsLoggedIn(true);
+      toast.success("Successfully signed in!");
 
-      navigate(location?.state?.from?.pathname ?? "/store");
+      navigate(location?.state?.from?.pathname ?? "/");
       // setLoginInput({
       //   email: "",
       //   password: "",
       // });
     } catch (error) {
-      console.error(error);
+      const { response } = error;
+      if (response.status === 401) {
+        toast.error("Invalid password! Please try again!");
+      } else if (response.status === 404) {
+        toast.error("Credentials not found! Please signup before logging in!");
+      } else {
+        console.error(error);
+        toast.error("Unable to sign in!");
+      }
     }
+  };
+
+  const toggleSignUpPassword = () => {
+    setShowPassword({ ...showPassword, signUp: !showPassword.signUp });
+  };
+  const toggleSignUpConfirmPassword = () => {
+    setShowPassword({
+      ...showPassword,
+      signUpConfirm: !showPassword.signUpConfirm,
+    });
   };
 
   const signupHandler = async ({
@@ -68,34 +99,47 @@ export const AuthProvider = ({ children }) => {
     firstName,
     lastName,
   }) => {
-    try {
-      const response = await axios.post(`/api/auth/signup`, {
-        email: email,
-        password: password,
-        confirmPassword: confirmPassword,
-        firstName: firstName,
-        lastName: lastName,
-      });
-      console.log(response);
-      const {
-        data: { createdUser, encodedToken },
-      } = response;
+    if (password !== confirmPassword) {
+      toast.error("Password fields are not matching!");
+      navigate("/signup");
+    } else {
+      try {
+        const response = await axios.post(`/api/auth/signup`, {
+          email: email,
+          password: password,
+          confirmPassword: confirmPassword,
+          firstName: firstName,
+          lastName: lastName,
+        });
+        // console.log(response);
+        const {
+          data: { createdUser, encodedToken },
+        } = response;
 
-      if (response.status === 201) {
-        localStorage.setItem(
-          "token",
-          JSON.stringify({ user: createdUser, token: encodedToken })
-        );
+        if (response.status === 201) {
+          localStorage.setItem(
+            "token",
+            JSON.stringify({ user: createdUser, token: encodedToken })
+          );
+        }
+
+        setToken(encodedToken);
+        setCurrentUser(createdUser);
+
+        // setIsLoggedIn(true);
+        toast.success("Successfully signed up! Kindly login to continue!");
+        navigate(location?.state?.from?.pathname ?? "/login");
+      } catch (error) {
+        const { response } = error;
+        if (response.status === 422) {
+          toast.error(
+            "User email already exists! Please try signing up with another email!"
+          );
+        } else {
+          console.error(error);
+          toast.error("Unable to sign up!");
+        }
       }
-
-      setToken(encodedToken);
-      setCurrentUser(createdUser);
-
-      // setIsLoggedIn(true);
-
-      navigate(location?.state?.from?.pathname ?? "/store");
-    } catch (error) {
-      console.error(error);
     }
   };
 
@@ -104,6 +148,7 @@ export const AuthProvider = ({ children }) => {
     setCurrentUser(null);
     localStorage.removeItem("token");
     navigate(location?.state?.from?.pathname ?? "/");
+    toast.success("Logged out successfully!");
   };
   // const userLoginHandler = () => {
   //   setIsLoggedIn(!isLoggedIn);
@@ -122,6 +167,10 @@ export const AuthProvider = ({ children }) => {
           signupHandler,
           userToken,
           // userLoginHandler,
+          showPassword,
+          toggleLoginPassword,
+          toggleSignUpPassword,
+          toggleSignUpConfirmPassword,
           currentUser,
           isLoggedIn,
           token,

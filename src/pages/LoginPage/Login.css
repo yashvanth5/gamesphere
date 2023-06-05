@@ -39,7 +39,7 @@
   border-radius: 5px;
 }
 
-/* .login-page .login-btn-pwd {
+.login-page .login-btn-pwd {
   margin-top: -2.35rem;
   padding-right: 0.25rem;
   flex-direction: row;
@@ -47,7 +47,7 @@
   scale: 0.7;
   border: none;
   background: none;
-} */
+}
 
 /* .login-page .login-label-remember {
   display: flex;

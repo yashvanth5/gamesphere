@@ -10,6 +10,7 @@ import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { WishlistContext } from "../../context/WishlistContext/WishlistContext";
 import { Loader } from "../../components/Loader/Loader";
 import { Error } from "../../components/Error/Error";
+import { toast } from "react-hot-toast";
 
 export const ProductList = () => {
   const { getProductData, state, dispatch, isLoadingGames, isErrorGames } =
@@ -128,6 +129,7 @@ export const ProductList = () => {
       addToCart(game, token);
     } else {
       navigate("/login");
+      toast.error("Please login to continue adding to  cart!");
     }
   };
 
@@ -137,6 +139,7 @@ export const ProductList = () => {
       addToWishlist(game, token);
     } else {
       navigate("/login");
+      toast.error("Please login to continue adding to  wishlist!");
     }
   };
 

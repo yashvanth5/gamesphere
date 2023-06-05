@@ -7,6 +7,7 @@ import {
 } from "react";
 import { AuthContext } from "../AuthContext/AuthContext";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 // import { ProductListingContext } from "../ProductListingContext/ProductListingContext";
 
 const cartReducer = (state, action) => {
@@ -80,9 +81,11 @@ export const CartProvider = ({ children }) => {
       if (response.status === 201) {
         // console.log(response.data.cart)
         cartDispatch({ type: "Add_To_Cart", payload: response.data.cart });
+        toast.success("Added to cart successfully");
       }
     } catch (e) {
       console.error(e);
+      toast.error("Unable to add to cart!");
     }
   };
 
@@ -95,9 +98,11 @@ export const CartProvider = ({ children }) => {
       if (response.status === 200) {
         // console.log(response.data.cart)
         cartDispatch({ type: "Delete_From_Cart", payload: response.data.cart });
+        toast.success("Removed from cart successfully!");
       }
     } catch (e) {
       console.error(e);
+      // toast.error("Unable to remove from cart!");
     }
   };
 
@@ -115,11 +120,31 @@ export const CartProvider = ({ children }) => {
           type: "Updata_Quantity_Handler",
           payload: response.data.cart,
         });
+        toast.success(
+          `${
+            actionType === "increment" ? "Increased" : "Reduced"
+          } quantity in cart successfully!`
+        );
       }
     } catch (e) {
       console.error(e);
+      toast.error(
+        `unable to ${
+          actionType === "increment" ? "add" : "reduce"
+        } quantity in cart`
+      );
     }
   };
+
+  // const removeAllFromCart = async () => {
+  //   try {
+  //     for (let i = 0; i < cartState?.cart?.length; i++) {
+  //       removeFromCart(cartState?.cart[i], true, token);
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
   const totalPrice = cartState?.cart?.reduce(
     (total, { price, qty }) => total + price * qty,
@@ -142,6 +167,7 @@ export const CartProvider = ({ children }) => {
           discountedPrice,
           isErrorGamesCart,
           isLoadingGamesCart,
+          // removeAllFromCart,
         }}
       >
         {children}

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AddressContext } from "../../../../context/AddressContext/AddressContext";
 import "./AddressForm.css";
 import { v4 as uuid } from "uuid";
+import { toast } from "react-hot-toast";
 
 export const AddressForm = () => {
   const {
@@ -48,6 +49,12 @@ export const AddressForm = () => {
     // }
 
     addressDispatch({ type: "SET_SHOW_NEW_ADDRESS", payload: false });
+
+    {
+      address.find((singleAdd) => singleAdd._id === addressFormData._id)
+        ? toast.success("Updated address successfully!")
+        : toast.success("Added new address successfully!");
+    }
   };
 
   // const handleAddressSubmit = (e) => {

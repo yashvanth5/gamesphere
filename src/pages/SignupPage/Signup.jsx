@@ -3,10 +3,18 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import "./Signup.css";
 import { Footer } from "../../components/Footer/Footer";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 export const Signup = () => {
-  const { signupInput, setSignupInput, signupHandler } =
-    useContext(AuthContext);
+  const {
+    signupInput,
+    setSignupInput,
+    signupHandler,
+    showPassword: { signUp, signUpConfirm },
+    toggleSignUpPassword,
+    toggleSignUpConfirmPassword,
+  } = useContext(AuthContext);
 
   const signupInputHandler = (e) => {
     const { name, value } = e.target;
@@ -62,26 +70,43 @@ export const Signup = () => {
             </p>
 
             <p>
-              <label htmlFor="password">Enter your new password *</label>
-              <input
-                type="password"
-                onChange={signupInputHandler}
-                value={signupInput.password}
-                className="signup-input"
-                name="password"
-                placeholder="New Password"
-              />
+              <label htmlFor="password">
+                <p> Enter your new password *</p>
+                <input
+                  type={signUp ? "text" : "password"}
+                  onChange={signupInputHandler}
+                  value={signupInput.password}
+                  className="signup-input"
+                  name="password"
+                  placeholder="New Password"
+                />
+                <div
+                  className="signUp-btn-pwd"
+                  onClick={() => toggleSignUpPassword()}
+                >
+                  {signUp ? <VisibilityOffIcon /> : <VisibilityIcon />}{" "}
+                </div>
+              </label>
             </p>
+
             <p>
-              <label htmlFor="password">Re-enter your new password *</label>
-              <input
-                type="password"
-                onChange={signupInputHandler}
-                value={signupInput.confirmPassword}
-                className="signup-input"
-                name="confirmPassword"
-                placeholder="Confirm Password"
-              />
+              <label htmlFor="password">
+                <p>Re-enter your new password *</p>
+                <input
+                  type={signUpConfirm ? "text" : "password"}
+                  onChange={signupInputHandler}
+                  value={signupInput.confirmPassword}
+                  className="signup-input"
+                  name="confirmPassword"
+                  placeholder="Confirm Password"
+                />
+                <div
+                  className="signUp-btn-pwd"
+                  onClick={() => toggleSignUpConfirmPassword()}
+                >
+                  {signUpConfirm ? <VisibilityOffIcon /> : <VisibilityIcon />}{" "}
+                </div>
+              </label>
             </p>
             <label className="signUp-label-accept">
               <input type="checkbox" required />

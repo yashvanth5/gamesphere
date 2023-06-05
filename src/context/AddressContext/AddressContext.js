@@ -52,20 +52,27 @@ const addressReducer = (state, action) => {
       };
     }
 
-    case "EDIT_ADDRESS":
-      const updatedAddress = action.payload.editAddress;
-      const updatedAddressList = state.address.map((address) =>
-        address._id === updatedAddress._id ? updatedAddress : address
-      );
-      return {
-        ...state,
-        address: updatedAddressList,
-      };
+    // case "EDIT_ADDRESS":
+    //   const updatedAddress = action.payload.editAddress;
+    //   const updatedAddressList = state.address.map((address) =>
+    //     address._id === updatedAddress._id ? updatedAddress : address
+    //   );
+    //   return {
+    //     ...state,
+    //     address: updatedAddressList,
+    //   };
 
     case "RESET_ADDRESS_DETAILS": {
       return {
         ...state,
         addressFormData: action.payload,
+      };
+    }
+
+    case "CHECKOUT_ADDRESS_ID": {
+      return {
+        ...state,
+        selectedAddressId: action.payload,
       };
     }
     default:
@@ -114,6 +121,7 @@ export const AddressProvider = ({ children }) => {
     ],
     addNewAddress: false,
     addressFormData: initialAddressFormData,
+    selectedAddressId: null,
   };
 
   const [addressState, addressDispatch] = useReducer(

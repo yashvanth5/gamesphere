@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AddressContext } from "../../../context/AddressContext/AddressContext";
 import { AddressForm } from "./AddressComponent/AddressForm";
 import { v4 as uuid } from "uuid";
+import { toast } from "react-hot-toast";
 
 export const AddressManagement = () => {
   // const {
@@ -25,6 +26,7 @@ export const AddressManagement = () => {
   console.log(address);
   const removeAddress = (_id) => {
     addressDispatch({ type: "DELETE_ADDRESS", payload: { _id } });
+    toast.success("Removed address successfully!");
   };
   // const editAddress = (editAddress) => {
   //   addressDispatch({ type: "SET_SHOW_NEW_ADDRESS", payload: true });

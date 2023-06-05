@@ -7,6 +7,7 @@ import {
   useState,
 } from "react";
 import { AuthContext } from "../AuthContext/AuthContext";
+import { toast } from "react-hot-toast";
 
 export const WishlistContext = createContext();
 
@@ -80,9 +81,11 @@ export const WishlistProvider = ({ children }) => {
           type: "Add_To_Wishlist",
           payload: response.data.wishlist,
         });
+        toast.success("Added to wishlist successfully!");
       }
     } catch (e) {
       console.error(e);
+      toast.error("Unable to add to wishlist!");
     }
   };
 
@@ -97,9 +100,11 @@ export const WishlistProvider = ({ children }) => {
           type: "Remove_From_Wishlist",
           payload: response.data.wishlist,
         });
+        toast.success("Deleted from wishlist successfully!");
       }
     } catch (e) {
       console.error(e);
+      toast.error("Unable to delete from wishlist!");
     }
   };
   return (
