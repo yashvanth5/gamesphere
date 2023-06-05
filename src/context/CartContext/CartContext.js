@@ -28,6 +28,9 @@ const cartReducer = (state, action) => {
       return { ...state, cart: action.payload };
     }
 
+    case "Clear_Cart": {
+      return { ...state, cart: action.payload };
+    }
     default:
       return state;
   }
@@ -136,15 +139,9 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  // const removeAllFromCart = async () => {
-  //   try {
-  //     for (let i = 0; i < cartState?.cart?.length; i++) {
-  //       removeFromCart(cartState?.cart[i], true, token);
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+  const removeAllFromCart = () => {
+    cartDispatch({ type: "Clear_Cart", payload: [] });
+  };
 
   const totalPrice = cartState?.cart?.reduce(
     (total, { price, qty }) => total + price * qty,
@@ -167,7 +164,7 @@ export const CartProvider = ({ children }) => {
           discountedPrice,
           isErrorGamesCart,
           isLoadingGamesCart,
-          // removeAllFromCart,
+          removeAllFromCart,
         }}
       >
         {children}

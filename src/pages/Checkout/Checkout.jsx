@@ -12,7 +12,7 @@ export const Checkout = () => {
     cartState: { cart },
     totalPrice,
     discountedPrice,
-    // removeAllFromCart,
+    removeAllFromCart,
   } = useContext(CartContext);
   const {
     addressState: { address, addNewAddress, selectedAddressId },
@@ -35,9 +35,11 @@ export const Checkout = () => {
     if (cart?.length === 0) {
       toast.error("Please add something to cart for checking out!");
       navigate("/cart");
+    } else if (selectedAddressId === null) {
+      toast.error("Please select an address for checking out!");
     } else {
       toast.success("Order successfully placed!");
-      // removeAllFromCart();
+      removeAllFromCart();
       navigate("/");
     }
   };
