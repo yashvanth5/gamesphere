@@ -9,6 +9,7 @@ import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { Loader } from "../../components/Loader/Loader";
 import { Error } from "../../components/Error/Error";
 import { toast } from "react-hot-toast";
+import { ProductListingContext } from "../../context/ProductListingContext/ProductListingContext";
 
 export const Cart = () => {
   const {
@@ -23,6 +24,7 @@ export const Cart = () => {
   // console.log(cartState.cart)
   const { wishlistState, addToWishlist, removeFromWishlist } =
     useContext(WishlistContext);
+  const { getGameById } = useContext(ProductListingContext);
 
   const navigate = useNavigate();
   const { currentUser, token } = useContext(AuthContext);

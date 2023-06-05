@@ -88,9 +88,32 @@ export const ProductDataProvider = ({ children }) => {
     productDataCall();
   }, []);
 
+  const getGameById = async (gameId, setGetIndividualProduct) => {
+    setIsLoadingGames(true);
+    try {
+      const response = await axios.get(`/api/products/${gameId}`);
+      if (response.status === 200) {
+        setGetIndividualProduct(response.data.product);
+        setIsLoadingGames(false);
+      }
+    } catch (e) {
+      console.error(e);
+      setIsErrorGames(true);
+    } finally {
+      setIsLoadingGames(false);
+    }
+  };
   return (
     <ProductListingContext.Provider
-      value={{ getProductData, state, dispatch, isLoadingGames, isErrorGames }}
+      value={{
+        getProductData,
+        state,
+        dispatch,
+        isLoadingGames,
+        isErrorGames,
+        getGameById,
+        // getIndividualProduct,
+      }}
     >
       {children}
     </ProductListingContext.Provider>

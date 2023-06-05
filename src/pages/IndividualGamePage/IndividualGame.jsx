@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { ProductListingContext } from "../../context/ProductListingContext/ProductListingContext";
 import { Link } from "react-router-dom";
@@ -9,27 +9,34 @@ import { CartContext } from "../../context/CartContext/CartContext";
 import { WishlistContext } from "../../context/WishlistContext/WishlistContext";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { toast } from "react-hot-toast";
+import { Loader } from "../../components/Loader/Loader";
+import { Error } from "../../components/Error/Error";
 
 export const IndividualGame = () => {
-  const { getProductData } = useContext(ProductListingContext);
+  const [getIndividualProduct, setGetIndividualProduct] = useState({});
+  const { getGameById, isLoadingGames, isErrorGames } = useContext(
+    ProductListingContext
+  );
   const { individualGameId } = useParams();
   const { addToCart, cartState } = useContext(CartContext);
   const { addToWishlist, removeFromWishlist, wishlistState } =
     useContext(WishlistContext);
   const navigate = useNavigate();
   const { token, currentUser } = useContext(AuthContext);
-  const selectedGame = getProductData.find(
-    (game) => game._id === String(individualGameId)
-  );
-
-  const showAddToCartButton = !selectedGame.comingSoon;
+  // const getIndividualProduct = getGameById(individualGameId);
+  useEffect(() => {
+    getGameById(individualGameId, setGetIndividualProduct);
+  }, []);
+  // getIndividualProduct(individualGameId);
+  // console.log(getIndividualProduct);
+  const showAddToCartButton = !getIndividualProduct.comingSoon;
 
   const checkAlreadyInCart = cartState.cart.some(
-    (individualGame) => individualGame._id === selectedGame._id
+    (individualGame) => individualGame._id === getIndividualProduct._id
   );
 
   const checkAlreadyInWishlist = wishlistState.wishlist.some(
-    (individualGame) => individualGame._id === selectedGame._id
+    (individualGame) => individualGame._id === getIndividualProduct._id
   );
 
   const addToCartBtnHandler = (e, game, token) => {
@@ -58,93 +65,108 @@ export const IndividualGame = () => {
   };
   return (
     <>
-      <div className="product-detail-section">
-        <div className="main-game-card">
-          <div className="game-img-main">
-            <img className="game-image" alt="game" src={selectedGame.image} />
-          </div>
-
-          <div className="img-description">
-            {/* here information about imagae */}
-            <h1 className="product-detail-title"> {selectedGame.title}</h1>
-            <div className="wishlist">
-              {checkAlreadyInWishlist ? (
-                <Link
-                  onClick={(e) =>
-                    removeFromWishlistHandler(e, selectedGame, token)
-                  }
-                >
-                  <BsFillHeartFill className="individual-wishlist-icon" />
-                </Link>
-              ) : (
-                <button
-                  className="individual-wishlist-btn"
-                  onClick={(e) =>
-                    addToWishlistBtnHandler(e, selectedGame, token)
-                  }
-                >
-                  <FaRegHeart className="individual-wishlist-icon" />
-                </button>
-              )}
+      {isLoadingGames ? (
+        <Loader />
+      ) : isErrorGames ? (
+        <Error />
+      ) : (
+        <div className="product-detail-section">
+          <div className="main-game-card">
+            <div className="game-img-main">
+              <img
+                className="game-image"
+                alt="game"
+                src={getIndividualProduct.image}
+              />
             </div>
-            {/* we will see late to use or not */}
-            <p>
-              {" "}
-              <p className="product-detail-headings">Category :</p>{" "}
-              {selectedGame.categoryName.map((item) => (
-                <div className="product-detail-categories">{item}</div>
-              ))}
-            </p>
-            <p>
-              {" "}
-              <p className="product-detail-headings">Publisher :</p>{" "}
-              {selectedGame.publisher}
-            </p>
-            <p>
-              {" "}
-              <p className="product-detail-headings">Release Date : </p>
-              {selectedGame.releaseDate}
-            </p>
-            <p>
-              {" "}
-              <p className="product-detail-headings">Price :</p>{" "}
-              {selectedGame.price}
-            </p>
-            <p>
-              {" "}
-              <p className="product-detail-headings">Platform : </p>
-              {selectedGame.platform}
-            </p>
-            <p>
-              <p className="product-detail-headings">Description :</p>{" "}
-              {selectedGame.description}
-            </p>
 
-            <div>
-              {checkAlreadyInCart ? (
-                <Link to="/cart">
-                  <button className="individual-item-go-to-cart-btn">
-                    Go to Cart{" "}
-                  </button>
-                </Link>
-              ) : (
-                showAddToCartButton && (
-                  <button
-                    className="individual-item-buy-btn"
-                    onClick={(e) => addToCartBtnHandler(e, selectedGame, token)}
+            <div className="img-description">
+              {/* here information about imagae */}
+              <h1 className="product-detail-title">
+                {" "}
+                {getIndividualProduct.title}
+              </h1>
+              <div className="wishlist">
+                {checkAlreadyInWishlist ? (
+                  <Link
+                    onClick={(e) =>
+                      removeFromWishlistHandler(e, getIndividualProduct, token)
+                    }
                   >
-                    Add to Cart
+                    <BsFillHeartFill className="individual-wishlist-icon" />
+                  </Link>
+                ) : (
+                  <button
+                    className="individual-wishlist-btn"
+                    onClick={(e) =>
+                      addToWishlistBtnHandler(e, getIndividualProduct, token)
+                    }
+                  >
+                    <FaRegHeart className="individual-wishlist-icon" />
                   </button>
-                )
-              )}
+                )}
+              </div>
+              {/* we will see late to use or not */}
+              <p>
+                {" "}
+                <p className="product-detail-headings">Category :</p>{" "}
+                {getIndividualProduct?.categoryName?.map((item) => (
+                  <div className="product-detail-categories">{item}</div>
+                ))}
+              </p>
+              <p>
+                {" "}
+                <p className="product-detail-headings">Publisher :</p>{" "}
+                {getIndividualProduct?.publisher}
+              </p>
+              <p>
+                {" "}
+                <p className="product-detail-headings">Release Date : </p>
+                {getIndividualProduct?.releaseDate}
+              </p>
+              <p>
+                {" "}
+                <p className="product-detail-headings">Price :</p>{" "}
+                {getIndividualProduct?.price}
+              </p>
+              <p>
+                {" "}
+                <p className="product-detail-headings">Platform : </p>
+                {getIndividualProduct?.platform}
+              </p>
+              <p>
+                <p className="product-detail-headings">Description :</p>{" "}
+                {getIndividualProduct?.description}
+              </p>
+
+              <div>
+                {checkAlreadyInCart ? (
+                  <Link to="/cart">
+                    <button className="individual-item-go-to-cart-btn">
+                      Go to Cart{" "}
+                    </button>
+                  </Link>
+                ) : (
+                  showAddToCartButton && (
+                    <button
+                      className="individual-item-buy-btn"
+                      onClick={(e) =>
+                        addToCartBtnHandler(e, getIndividualProduct, token)
+                      }
+                    >
+                      Add to Cart
+                    </button>
+                  )
+                )}
+              </div>
+              {/* // ) : ( // "" // ) } */}
             </div>
-            {/* // ) : ( // "" // ) } */}
+            <Link className="product-detail--go-back" to="/store">
+              Go Back
+            </Link>
           </div>
-          <Link className="product-detail--go-back" to="/store">
-            Go Back
-          </Link>
         </div>
-      </div>
+      )}
     </>
   );
 };

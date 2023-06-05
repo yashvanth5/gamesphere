@@ -20,9 +20,9 @@ export const Wishlist = () => {
     isLoadingGamesWishlist,
   } = useContext(WishlistContext);
   const { addToCart, cartState } = useContext(CartContext);
-  const { getProductData } = useContext(ProductListingContext);
+  const { getProductData, getGameById } = useContext(ProductListingContext);
 
-  console.log(wishlistState);
+  // console.log(wishlistState);
 
   const navigate = useNavigate();
   const { token, currentUser } = useContext(AuthContext);

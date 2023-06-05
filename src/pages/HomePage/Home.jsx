@@ -20,6 +20,7 @@ export const Home = () => {
     categoryState,
     getCategoryByID,
     isErrorGamesCategory,
+    getGameById,
     isLoadingGamesCategory,
   } = useContext(CategoryContext);
   console.log(getProductData);
@@ -145,7 +146,7 @@ export const Home = () => {
             <p className="section-title">Coming Soon</p>
             {/* </div> */}
             <div className="all-products-section">
-              {commingSoonGames?.map(({ title, price, image, _id }) => (
+              {commingSoonGames?.map(({ title, image, _id }) => (
                 <Link
                   to={`/individual/${_id}`}
                   className="sections-individual-product"

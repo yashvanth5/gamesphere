@@ -13,8 +13,14 @@ import { Error } from "../../components/Error/Error";
 import { toast } from "react-hot-toast";
 
 export const ProductList = () => {
-  const { getProductData, state, dispatch, isLoadingGames, isErrorGames } =
-    useContext(ProductListingContext);
+  const {
+    getProductData,
+    state,
+    dispatch,
+    isLoadingGames,
+    isErrorGames,
+    getGameById,
+  } = useContext(ProductListingContext);
   const { addToCart, cartState } = useContext(CartContext);
   const { wishlistState, addToWishlist, removeFromWishlist } =
     useContext(WishlistContext);
@@ -405,10 +411,7 @@ export const ProductList = () => {
                       (individualCart) => individualCart._id === _id
                     );
                     return (
-                      <div
-                        // to={`/individual/${_id}`}
-                        className="individual-product-item"
-                      >
+                      <div className="individual-product-item">
                         <Link to={`/individual/${_id}`}>
                           <img
                             src={image}
