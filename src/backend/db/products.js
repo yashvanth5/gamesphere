@@ -985,7 +985,7 @@ export const products = [
   },
   {
     _id: "41",
-    title: "The Lord of the Rings - Gollum",
+    title: "The Lord of the Rings ",
     description:
       "Play as Gollum on his quest to retrieve his Precious. You will need to climb the mountains of Mordor, sneak around Mirkwood and make difficult choices.",
     price: "COMING SOON",
@@ -1006,7 +1006,7 @@ export const products = [
   },
   {
     _id: "42",
-    title: "Alliance of the Sacred Suns",
+    title: "Alliance of Suns",
     description:
       "Alliance of the Sacred Suns is a sci-fi grand-strategy RPG that begins with your coronation as the head of an interstellar Empire, and ends with your demise. Manage feuding noble houses and the schemes of would-be usurpers as you try to revive the glory of an Empire on the brink",
     price: "COMING SOON",
