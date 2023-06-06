@@ -9,64 +9,84 @@ export const ProductDataProvider = ({ children }) => {
   const [getProductData, setGetProductData] = useState([]);
   const [isLoadingGames, setIsLoadingGames] = useState(false);
   const [isErrorGames, setIsErrorGames] = useState(false);
-
+  const [displayFilters, setDisplayFilters] = useState(false);
   const [state, dispatch] = useReducer(reducerFunction, initialState);
 
-  // const filterProductData= ()=>{
-  //     // console.log(getProductData)
+  // const filterProductData = () => {
 
-  //     const totalProductData = [...getProductData].filter(({comingSoon})=>!comingSoon);
-  //     // console.log(totalProductData)
+  //   const totalProductData = [...getProductData].filter(
+  //     ({ comingSoon }) => !comingSoon
+  //   );
 
-  //     const filterWithPriceRange = state.filterPriceRange ? totalProductData?.filter((game)=>game.price<=(state.filterPriceRange)) : totalProductData;
+  //   const filterWithPriceRange = state.filterPriceRange
+  //     ? totalProductData?.filter((game) => game.price <= state.filterPriceRange)
+  //     : totalProductData;
 
-  // //  console.log(filterWithPriceRange)
+  //   const sortByPrice = filterWithPriceRange?.sort((a, b) => {
+  //     if (state.sortPrice === "HtoL") {
+  //       return b.price - b.discountPrice - a.price + a.discountPrice;
+  //     } else if (state.sortPrice === "LtoH") {
+  //       return a.price - a.discountPrice - b.price + b.discountPrice;
+  //     } else {
+  //       return 0;
+  //     }
+  //   });
 
-  //     const sortByPrice = filterWithPriceRange?.sort((a,b)=>{
-  //         if(state.sortPrice === 'HtoL') {
-  //             return b.price - a.price
-  //         }
-  //         else if (state.sortPrice === 'LtoH'){
-  //              return a.price - b.price
-  //           }
-  //           else {
-  //             return 0;
-  //           }
+  //   const availabilityGames =
+  //     state.topSellers || state.specialGames || state.gamesOnSale
+  //       ? sortByPrice.filter(
+  //           (game) =>
+  //             (state.topSellers && game.topProductSellers) ||
+  //             (state.specialGames && game.specials) ||
+  //             (state.gamesOnSale && game.onSale)
+  //         )
+  //       : sortByPrice;
 
-  //     })
+  //   const platformGames =
+  //     state.gamePlatformWindow || state.gamePlatformMac
+  //       ? availabilityGames?.filter(
+  //           (games) =>
+  //             (state.gamePlatformWindow &&
+  //               games.platform.includes("windows")) ||
+  //             (state.gamePlatformMac && games.platform.includes("mac"))
+  //         )
+  //       : availabilityGames;
 
-  //     // console.log(sortByPrice)
+  //   const filterWthRating =
+  //     state.rating !== null
+  //       ? platformGames.filter((game) => game.starRatings <= state.rating)
+  //       : platformGames;
 
-  // const availabilityGames = state.topSellers||state.specialGames||state.gamesOnSale ? sortByPrice.filter((game)=>(state.topSellers && game.topProductSellers)|| (state.specialGames && game.specials) || (state.gamesOnSale && game.onSale)  ) : sortByPrice;
+  //   const allCategoryGames =
+  //     state.gameCategoryAction ||
+  //     state.gameCategoryHorror ||
+  //     state.gameCategoryShooter ||
+  //     state.gameCategoryStrategy ||
+  //     state.gameCategoryOpenWorld ||
+  //     state.gameCategoryIndie ||
+  //     state.gameCategoryRpg
+  // ? filterWthRating?.filter(
+  //           (games) =>
+  //             (state.gameCategoryAction &&
+  //               games.categoryName.includes("Action")) ||
+  //             (state.gameCategoryHorror &&
+  //               games.categoryName.includes("Horror")) ||
+  //             (state.gameCategoryShooter &&
+  //               games.categoryName.includes("Shooter")) ||
+  //             (state.gameCategoryStrategy &&
+  //               games.categoryName.includes("Strategy")) ||
+  //             (state.gameCategoryOpenWorld &&
+  //               games.categoryName.includes("Open World")) ||
+  //             (state.gameCategoryIndie &&
+  //               games.categoryName.includes("Indie")) ||
+  //             (state.gameCategoryRpg && games.categoryName.includes("RPG"))
+  //         )
+  //       : filterWthRating;
 
-  //     // console.log(availabilityGames)
+  //   return allCategoryGames;
+  // };
 
-  //     const platformGames = state.gamePlatformWindow || state.gamePlatformMac ? availabilityGames?.filter((games)=>
-
-  //     (state.gamePlatformWindow && games.platform.includes('windows')) ||
-  //     (state.gamePlatformMac && games.platform.includes('mac'))
-
-  //     ) :availabilityGames
-
-  //     const filterWthRating =   state.rating !== null ? (platformGames.filter( (game)=>   game.starRatings <= state.rating )) : platformGames
-  //     // console.log(filterWthRating)
-
-  //     const allCategoryGames = state.gameCategoryAction ||  state.gameCategoryHorror  || state.gameCategoryShooter || state.gameCategoryStrategy || state.gameCategoryOpenWorld || state.gameCategoryIndie || state.gameCategoryRpg ? filterWthRating?.filter(
-  //         (games)=>
-  //         (state.gameCategoryAction && games.categoryName.includes('Action')  ) ||
-  //         (state.gameCategoryHorror && games.categoryName.includes('Horror')) ||
-  //         (state.gameCategoryShooter && games.categoryName.includes('Shooter')) ||
-  //         (state.gameCategoryStrategy && games.categoryName.includes('Strategy')) ||
-  //         (state.gameCategoryOpenWorld && games.categoryName.includes('Open World')) ||
-  //         (state.gameCategoryIndie && games.categoryName.includes('Indie')) ||
-  //         (state.gameCategoryRpg && games.categoryName.includes('RPG'))
-
-  //         )  : filterWthRating
-
-  //     return allCategoryGames
-  // }
-
-  // const allProductData = filterProductData()
+  // const allProductData = filterProductData();
 
   const productDataCall = async () => {
     setIsLoadingGames(true);
@@ -113,6 +133,8 @@ export const ProductDataProvider = ({ children }) => {
         isErrorGames,
         getGameById,
         // getIndividualProduct,
+        displayFilters,
+        setDisplayFilters,
       }}
     >
       {children}

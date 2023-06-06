@@ -104,8 +104,8 @@ export const Cart = () => {
                           </Link>
                           <div className="cart-all-description">
                             <h2 className="cart-title"> {title} </h2>
-                            <div className="price-content">
-                              <p class="discount-price ">
+                            <div className="cart-price-content">
+                              <p class="cart-discount-price">
                                 {price === 0
                                   ? "Free"
                                   : `₹ ${price - discountPrice}`}
@@ -113,8 +113,8 @@ export const Cart = () => {
                               {price === 0 ? (
                                 ""
                               ) : (
-                                <p class="discount-price ">
-                                  <s class="original-price">₹ {price} </s>
+                                <p class="cart-discount-price">
+                                  <s class="cart-original-price">₹ {price} </s>
                                 </p>
                               )}
 

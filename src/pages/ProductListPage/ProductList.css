@@ -47,7 +47,7 @@ body {
   font-size: 13px;
   font-weight: bold;
   padding: 6px;
-  border: 1px solid #6e1d72;
+  border: 2px solid #6e1d72;
   border-radius: 5px;
 }
 
@@ -295,21 +295,75 @@ body {
   margin-right: -20px;
 }
 
+/* .input[type="radio"] {
+  accent-color: green;
+} */
+
+.show-filters {
+  display: none;
+}
+.close-filters {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .all-filters-aside {
-    width: 30vw;
-    /* min-width: 38%; this should set in media queries */
+    width: 18vw;
     height: 87vh;
     overflow: scroll;
     overflow-x: hidden;
-    /* background-color: #777373; */
     display: none;
     flex-direction: column;
     align-items: flex-start;
     padding-left: 32px;
     margin-right: -20px;
   }
+
+  .show-filters {
+    display: block;
+    margin-left: 70%;
+    margin-top: 1rem;
+  }
+
+  .close-filters {
+    display: block;
+    margin-left: 28px;
+    margin-top: 28px;
+  }
+
+  .tune-icon {
+    cursor: pointer;
+    scale: 1.2;
+  }
+
+  .cancel-btn {
+    cursor: pointer;
+  }
+
+  .all-the-filters {
+    width: 50vw;
+    /* margin: 10px; */
+  }
+
+  .reset-title {
+    margin: 28px 0px 20px 20px;
+    padding: 4px;
+  }
+
+  .filter-lists {
+    margin: 8px;
+  }
+
+  .individual-filter-lists {
+    padding: 6px;
+  }
+  .price-range {
+    margin-right: 200px;
+  }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 768px) {
+  .all-the-filters {
+    display: none;
+  }
 }

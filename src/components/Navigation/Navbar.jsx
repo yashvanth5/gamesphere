@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
-import { AiOutlineSearch } from "react-icons/ai";
+// import { AiOutlineSearch } from "react-icons/ai";
 import { FaUserCheck, FaUserTimes } from "react-icons/fa";
-import { BsBag } from "react-icons/bs";
+import { AiOutlineShopping } from "react-icons/ai";
 import { BiHeart } from "react-icons/bi";
 import { IoMdCart } from "react-icons/io";
 
@@ -28,7 +28,7 @@ import { AuthContext } from "../../context/AuthContext/AuthContext";
 // }
 
 export const Navbar = () => {
-  const [searchBtn, setSearchBtn] = useState(false);
+  // const [searchBtn, setSearchBtn] = useState(false);
   // const [searchTxt,setSearchTxt] = useState("")
 
   const { state, dispatch } = useContext(ProductListingContext);
@@ -64,41 +64,53 @@ export const Navbar = () => {
         </Link> */}
 
         <div>
-          {searchBtn && (
+          {
+            // searchBtn &&
             <input
               value={state.searchInput}
               onChange={(e) =>
                 dispatch({ type: "Search_Game", payload: e.target.value })
               }
-              className="searchbar "
+              className="searchbar"
               type="text"
               placeholder=" Search for any game here..."
               onKeyPress={(e) => e.which === 13 && navigate("/store")}
             />
-          )}
+          }
         </div>
 
         <div className="right-side-nav">
           <nav>
             <ul className="right-nav-links">
-              <li onClick={() => setSearchBtn(!searchBtn)}>
+              {/* <li
+              onClick={() => setSearchBtn((searchBtn) => searchBtn === true)}
+              >
                 {" "}
                 <Link
-                  // to="/search"
+                
                   className=" navlinks-decoration nav-search"
                 >
                   {" "}
                   <AiOutlineSearch
-                    style={{ margin: "-5px", fontSize: "26px" }}
+                    style={{
+                      // margin: "-5px",
+                      fontSize: "28px",
+                    }}
                   />
                 </Link>
-              </li>
+              </li> */}
 
               <li>
                 {" "}
                 <Link to="/store" className=" navlinks-decoration nav-store">
                   {" "}
-                  <BsBag style={{ margin: "-5px", fontSize: "24px" }} />
+                  <AiOutlineShopping
+                    style={{
+                      margin: "-5px",
+                      fontSize: "32px",
+                      fontWeight: "bolder",
+                    }}
+                  />
                 </Link>
               </li>
               <li>
@@ -108,8 +120,10 @@ export const Navbar = () => {
                   className=" navlinks-decoration nav-wishlist"
                 >
                   {" "}
-                  <BiHeart style={{ margin: "-5px", fontSize: "26px" }} /> (
-                  {wishlist.length})
+                  <BiHeart style={{ margin: "-5px", fontSize: "30px" }} />
+                  <div className="wishlist-length">
+                    {userToken ? wishlist.length : 0}{" "}
+                  </div>
                 </Link>
               </li>
 
@@ -117,8 +131,16 @@ export const Navbar = () => {
                 {" "}
                 <Link to="/cart" className=" navlinks-decoration nav-cart">
                   {" "}
-                  <IoMdCart style={{ margin: "-5px", fontSize: "24px" }} /> (
-                  {cart.length})
+                  <IoMdCart
+                    style={{
+                      margin: "-5px",
+                      fontSize: "30px",
+                      // position: "relative",
+                    }}
+                  />
+                  <div className="cart-length">
+                    {userToken ? cart.length : 0}{" "}
+                  </div>
                 </Link>
               </li>
 
@@ -129,9 +151,11 @@ export const Navbar = () => {
                   // onClick={userLoginHandler}
                 >
                   {userToken ? (
-                    <FaUserCheck style={{ margin: "-5px", fontSize: "24px" }} />
+                    <FaUserCheck
+                      style={{ marginTop: "-5px", fontSize: "28px" }}
+                    />
                   ) : (
-                    <FaUserTimes style={{ margin: "-5px", fontSize: "24px" }} />
+                    <FaUserTimes style={{ margin: "-5px", fontSize: "28px" }} />
                   )}
                 </Link>
               </li>

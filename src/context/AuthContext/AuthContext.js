@@ -145,6 +145,10 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("token");
     navigate(location?.state?.from?.pathname ?? "/");
     toast.success("Logged out successfully!");
+    setLoginInput({
+      email: "",
+      password: "",
+    });
   };
 
   return (

@@ -54,3 +54,22 @@
   text-transform: uppercase;
   margin-right: 50px;
 }
+
+@media only screen and (max-width: 768px) {
+  .wishlist-empty-box {
+    margin: 150px 100px 0px 10px;
+
+    padding: 15px 30px;
+    width: 500px;
+    height: 80px;
+  }
+
+  .wishlist-empty {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .wishlist-empty-box {
+    height: 120px;
+  }
+}

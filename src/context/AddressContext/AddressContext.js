@@ -96,7 +96,7 @@ export const AddressProvider = ({ children }) => {
       {
         _id: uuid(),
         name: "Kim Tommy",
-        area: "7B, Spring Valley Colony, Sector 12",
+        area: " Spring Valley Colony,7B, Sector 12",
         city: "Gurugram",
         state: "Haryana",
         pincode: "122001",
@@ -105,7 +105,7 @@ export const AddressProvider = ({ children }) => {
       {
         _id: uuid(),
         name: "angle unyca",
-        area: "25A-14, Silver Heights Apartments, Park Street",
+        area: " Silver Heights Apartments,25A-1, Park Street",
         city: "Kolkata",
         state: "West Bengal",
         pincode: "700016",

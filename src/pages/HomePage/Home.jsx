@@ -49,7 +49,7 @@ export const Home = () => {
           <button className="banner-btn">
             {" "}
             <Link className="banner-btn-link" to="/store">
-              Browse deals{" "}
+              Browse Deals{" "}
             </Link>
           </button>
 

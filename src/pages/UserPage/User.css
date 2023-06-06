@@ -163,3 +163,75 @@ body {
   color: #6e1d72;
   border-radius: 5px;
 }
+
+@media screen and (max-width: 768px) {
+  .profile-outer-container {
+    width: 70%;
+    margin-left: 6rem;
+  }
+
+  .profile-address-page-header {
+    margin: 30px 40px 10px 40px;
+  }
+  .profile-address-page .profile-address-page-list li {
+    padding-top: 0.6rem;
+    margin-left: 30px;
+    row-gap: 0.5rem;
+    width: 50%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .profile-outer-container {
+    width: 20%;
+
+    margin-left: 12rem;
+  }
+
+  .profile-container {
+    height: 480px;
+    width: 400px;
+    margin: 2px;
+  }
+
+  .profile-nav {
+    gap: 15px;
+  }
+
+  .profile-nav-item {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .profile-detail-page-item {
+    display: flex;
+    justify-content: flex-start;
+
+    gap: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .profile-detail-page-footer {
+    padding: 10px;
+    font-size: 14px;
+    margin: 20px 0px 0px 220px;
+  }
+
+  .profile-address-page-header {
+    margin: 20px 20px 10px 10px;
+    font-size: 13px;
+  }
+
+  .profile-address-page-list-container {
+    max-height: 400px;
+  }
+
+  .profile-address-page .profile-address-page-list li {
+    padding-top: 0.6rem;
+    margin-left: 20px;
+    row-gap: 0.4rem;
+    width: 70%;
+    /* height: 120px; */
+  }
+}

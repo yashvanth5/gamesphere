@@ -50,6 +50,7 @@ body {
   color: #6e1d72;
   margin-left: 20px;
   /* align-self: center; */
+  text-transform: uppercase;
 }
 
 .product-detail-categories {
@@ -128,4 +129,104 @@ body {
   border: none;
   padding: 0;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .product-detail-section {
+    height: 90vh;
+  }
+  .main-game-card {
+    display: flex;
+    flex-direction: column;
+
+    top: 65%;
+    left: 50%;
+    padding: 0rem;
+
+    gap: 0rem;
+  }
+  .img-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* width: 50%; */
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 10px;
+    margin-top: 30px;
+    width: 500px;
+    height: 400px;
+  }
+
+  .game-image {
+    height: 300px;
+    width: 240px;
+  }
+
+  .product-detail-title {
+    align-self: center;
+  }
+
+  .product-detail-headings {
+    margin-left: 50px;
+    font-size: 19px;
+  }
+
+  .individual-item-buy-btn {
+    font-size: 12px;
+    padding: 9px;
+
+    margin: 20px 25px 10px 50px;
+
+    width: 200px;
+  }
+
+  .individual-item-go-to-cart-btn {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 9px;
+
+    margin: 20px 25px 10px 50px;
+
+    width: 200px;
+    font-weight: bolder;
+  }
+  .individual-item-go-to-cart-btn:hover {
+    font-size: 12px;
+    padding: 9px;
+
+    margin: 20px 25px 10px 50px;
+    cursor: pointer;
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .img-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* width: 50%; */
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 10px;
+    /* margin-top: 30px; */
+    width: 370px;
+    height: 500px;
+  }
+
+  .game-image {
+    height: 200px;
+    width: 180px;
+  }
+
+  .product-detail-title {
+    align-self: center;
+    font-size: 26px;
+  }
+
+  .product-detail-headings {
+    margin-left: 30px;
+    font-size: 17px;
+  }
 }
