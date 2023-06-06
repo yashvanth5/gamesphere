@@ -1,3 +1,7 @@
 export const Orders = () => {
-  return <>this is third page thats orders</>;
+  return (
+    <>
+      <h1 style={{ marginTop: "80px" }}> No order to display</h1>
+    </>
+  );
 };

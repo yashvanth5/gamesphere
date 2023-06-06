@@ -111,7 +111,7 @@ export const IndividualGame = () => {
                 {" "}
                 <p className="product-detail-headings">Category :</p>{" "}
                 {getIndividualProduct?.categoryName?.map((item) => (
-                  <div className="product-detail-categories">{item}</div>
+                  <div className="product-detail-categories">| {item} |</div>
                 ))}
               </p>
               <p>
