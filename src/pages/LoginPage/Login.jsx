@@ -21,8 +21,8 @@ export const Login = () => {
   };
 
   const guestUserDetails = {
-    email: "adarshbalika@gmail.com",
-    password: "adarshbalika",
+    email: "yashvanth@gmail.com",
+    password: "lifeisawesome",
   };
 
   const handleLoginSubmit = (e) => {
