@@ -22,22 +22,11 @@ export const Wishlist = () => {
   const { addToCart, cartState } = useContext(CartContext);
   const { getProductData, getGameById } = useContext(ProductListingContext);
 
-  // console.log(wishlistState);
-
   const navigate = useNavigate();
   const { token, currentUser } = useContext(AuthContext);
 
   return (
     <>
-      {/* {wishlistState.wishlist.map((game)=>{
-   const {title,price,image,_id,starRatings,discountPercent,discountPrice} = game
-   return(
-    <>
-     <img src={image} className="item-image" alt="images"/>
-    </>
-   )
-
-        } )} */}
       <div className="map-style">
         <h1 className="wishlist-heading">Wishlist</h1>
 
@@ -58,7 +47,7 @@ export const Wishlist = () => {
                   discountPercent,
                   discountPrice,
                 } = game;
-                // once ask for clartity to take getproductdata here or wishilliststate.wishliist
+
                 const isAlreadyInWishlist = getProductData.some(
                   (individualWishlist) => individualWishlist._id === _id
                 );
@@ -126,7 +115,6 @@ export const Wishlist = () => {
                       </div>
 
                       <div className="price-content">
-                        {/* //add discountprice price-discountPrice */}
                         <p class="discount-price ">
                           {price === 0 ? "Free" : `₹ ${price - discountPrice}`}
                         </p>

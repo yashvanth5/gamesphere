@@ -48,16 +48,6 @@ const addressReducer = (state, action) => {
       };
     }
 
-    // case "EDIT_ADDRESS":
-    //   const updatedAddress = action.payload.editAddress;
-    //   const updatedAddressList = state.address.map((address) =>
-    //     address._id === updatedAddress._id ? updatedAddress : address
-    //   );
-    //   return {
-    //     ...state,
-    //     address: updatedAddressList,
-    //   };
-
     case "RESET_ADDRESS_DETAILS": {
       return {
         ...state,
@@ -79,8 +69,6 @@ const addressReducer = (state, action) => {
 export const AddressContext = createContext();
 
 export const AddressProvider = ({ children }) => {
-  // const { token } = useContext(AuthContext);
-
   const initialAddressFormData = {
     _id: "",
     name: "",
@@ -122,22 +110,6 @@ export const AddressProvider = ({ children }) => {
     initialAddressState
   );
 
-  // const editAddress = (add) => {
-  //   const editedAddress = addressState.address?.find(
-  //     (singleAdd) => singleAdd._id === add._id
-  //   );
-
-  // const isAddressPresent = address?.find(
-  //   (singleAdd) => singleAdd._id === addressFormData._id
-  // );
-
-  // addressDispatch({ type: "SET_SHOW_EDIT_ADDRESS", payload: true });
-  // addressDispatch({
-  //   type: "EDIT_ADDRESS",
-  //   payload: { editAddress: address },
-  // });
-  // };
-
   return (
     <AddressContext.Provider
       value={{
@@ -150,13 +122,3 @@ export const AddressProvider = ({ children }) => {
     </AddressContext.Provider>
   );
 };
-
-// cosnt [addressData,setAddressData] = useState([
-//   {id:"",
-// name: "",
-// street: "",
-// city: "",
-// state: "",
-// country: "",
-// postalCode: "",
-// MobileNum: ""}   ])

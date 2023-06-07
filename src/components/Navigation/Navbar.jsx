@@ -1,36 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
-// import { AiOutlineSearch } from "react-icons/ai";
 import { FaUserCheck, FaUserTimes } from "react-icons/fa";
 import { AiOutlineShopping } from "react-icons/ai";
 import { BiHeart } from "react-icons/bi";
 import { IoMdCart } from "react-icons/io";
-
 import "./Navbar.css";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ProductListingContext } from "../../context/ProductListingContext/ProductListingContext";
 import { CartContext } from "../../context/CartContext/CartContext";
 import { WishlistContext } from "../../context/WishlistContext/WishlistContext";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 
-// const reducer = (state,action) =>{
-//     switch (action.type) {
-//         case "Search_All" : {
-//             return {...state,allData : action.data}
-//         }
-
-//         case "Search_Game" : {
-//             return {...state, allData : state.allData.filter(({title})=> title.toLowerCase().includes(action.payload.trim().toLowerCase()))}
-//         }
-
-//         default :
-//         return state;
-//     }
-// }
-
 export const Navbar = () => {
-  // const [searchBtn, setSearchBtn] = useState(false);
-  // const [searchTxt,setSearchTxt] = useState("")
-
   const { state, dispatch } = useContext(ProductListingContext);
 
   const {
@@ -46,8 +26,6 @@ export const Navbar = () => {
   return (
     <>
       <div className="navbar">
-        {/* <div className="nav-links"> */}
-
         <div className="left-side-nav">
           <nav>
             <Link
@@ -59,13 +37,9 @@ export const Navbar = () => {
             </Link>
           </nav>
         </div>
-        {/* <Link onClick={handleHamMenuToggleClick} to="/user/profile">
-          {userToken ? "Profile" : "Login"}
-        </Link> */}
 
         <div>
           {
-            // searchBtn &&
             <input
               value={state.searchInput}
               onChange={(e) =>
@@ -82,24 +56,6 @@ export const Navbar = () => {
         <div className="right-side-nav">
           <nav>
             <ul className="right-nav-links">
-              {/* <li
-              onClick={() => setSearchBtn((searchBtn) => searchBtn === true)}
-              >
-                {" "}
-                <Link
-                
-                  className=" navlinks-decoration nav-search"
-                >
-                  {" "}
-                  <AiOutlineSearch
-                    style={{
-                      // margin: "-5px",
-                      fontSize: "28px",
-                    }}
-                  />
-                </Link>
-              </li> */}
-
               <li>
                 {" "}
                 <Link to="/store" className=" navlinks-decoration nav-store">
@@ -135,7 +91,6 @@ export const Navbar = () => {
                     style={{
                       margin: "-5px",
                       fontSize: "30px",
-                      // position: "relative",
                     }}
                   />
                   <div className="cart-length">
@@ -148,7 +103,6 @@ export const Navbar = () => {
                 <Link
                   to={userToken ? "/user" : "/login"}
                   className="navlinks-decoration nav-login"
-                  // onClick={userLoginHandler}
                 >
                   {userToken ? (
                     <FaUserCheck
@@ -162,8 +116,6 @@ export const Navbar = () => {
             </ul>
           </nav>
         </div>
-
-        {/* </div> */}
       </div>
     </>
   );

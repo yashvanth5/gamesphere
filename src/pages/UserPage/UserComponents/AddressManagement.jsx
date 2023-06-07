@@ -5,11 +5,6 @@ import { AddressForm } from "./AddressComponent/AddressForm";
 import { toast } from "react-hot-toast";
 
 export const AddressManagement = () => {
-  // const {
-  //   addressState: { address },
-  // } = useContext(AddressContext);
-
-  // console.log(address);
   const {
     addressState: { address, addNewAddress },
     addressDispatch,

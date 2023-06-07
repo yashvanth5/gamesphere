@@ -8,7 +8,6 @@ import {
 import { AuthContext } from "../AuthContext/AuthContext";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-// import { ProductListingContext } from "../ProductListingContext/ProductListingContext";
 
 const cartReducer = (state, action) => {
   switch (action.type) {
@@ -70,7 +69,6 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     getCart();
   }, []);
-  // console.log(cartState)
 
   const addToCart = async (game, token) => {
     try {
@@ -79,10 +77,8 @@ export const CartProvider = ({ children }) => {
         { product: game },
         { headers: { authorization: token } }
       );
-      // console.log(response)
 
       if (response.status === 201) {
-        // console.log(response.data.cart)
         cartDispatch({ type: "Add_To_Cart", payload: response.data.cart });
         toast.success("Added to cart successfully");
       }
@@ -92,24 +88,23 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  const removeFromCart = async (game, token) => {
+  const removeFromCart = async (game, checkoutMsgRemove) => {
     try {
       const response = await axios.delete(`/api/user/cart/${game._id}`, {
         headers: { authorization: token },
       });
 
       if (response.status === 200) {
-        // console.log(response.data.cart)
         cartDispatch({ type: "Delete_From_Cart", payload: response.data.cart });
-        toast.success("Removed from cart successfully!");
+        !checkoutMsgRemove && toast.success("Removed from cart successfully!");
       }
     } catch (e) {
       console.error(e);
-      // toast.error("Unable to remove from cart!");
+      !checkoutMsgRemove && toast.error("Unable to remove from cart!");
     }
   };
 
-  const updateQuantityHandler = async (game, actionType, token) => {
+  const updateQuantityHandler = async (game, actionType) => {
     try {
       const response = await axios.post(
         `/api/user/cart/${game._id}`,
@@ -140,6 +135,13 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeAllFromCart = () => {
+    try {
+      for (let i = 0; i < cartState?.cart?.length; i++) {
+        removeFromCart(cartState?.cart[i], true);
+      }
+    } catch (e) {
+      console.error(e);
+    }
     cartDispatch({ type: "Clear_Cart", payload: [] });
   };
 

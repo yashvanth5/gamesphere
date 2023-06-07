@@ -15,26 +15,6 @@ export const users = [
     password: "lifeisawesome",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    // address: [
-    //   {
-    //     _id: uuid(),
-    //     name: "Kim Tommy",
-    //     area: "Gangnam-gu",
-    //     city: "Seoul",
-    //     state: "Seoul",
-    //     pincode: "106040",
-    //     phoneNumber: "1234567890",
-    //   },
-    //   {
-    //     _id: uuid(),
-    //     name: "angle unyca",
-    //     area: "0B-09 & G-10 Ground Floor, Mourya House, Next to VIP Plaza, New Link Road, Andheri West",
-    //     city: "Mumbai",
-    //     state: "Maharashtra",
-    //     pincode: "400053",
-    //     phoneNumber: "1987654321",
-    //   },
-    // ],
   },
 ];
 

@@ -50,7 +50,6 @@ export const Login = () => {
               />
             </p>
 
-            {/* <p> */}
             <label htmlFor="password">
               <p>Enter your password</p>
               <input
@@ -68,7 +67,6 @@ export const Login = () => {
                 {login ? <VisibilityOffIcon /> : <VisibilityIcon />}
               </div>
             </label>
-            {/* </p> */}
 
             <div>
               <button type="submit" className="login-btn login-btn-login">

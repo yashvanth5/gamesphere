@@ -15,7 +15,7 @@ import { User } from "./pages/UserPage/User";
 import { RequiresAuth } from "./components/RequiresAuth";
 import { Error } from "./components/Error/Error";
 import { Checkout } from "./pages/Checkout/Checkout";
-// import {Home} from "./pages/"
+
 import { Toaster } from "react-hot-toast";
 
 function App() {

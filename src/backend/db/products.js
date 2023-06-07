@@ -13,8 +13,6 @@ export const products = [
     price: 3339,
     discountPercent: 20,
     discountPrice: 668,
-    // 2671
-    // do price - discount price and take that value in disount price and updata that in cart and checkout page
     stock: 10,
     platform: ["windows"],
     releaseDate: "12/02/22",

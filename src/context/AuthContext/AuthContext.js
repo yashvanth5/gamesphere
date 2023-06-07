@@ -26,7 +26,6 @@ export const AuthProvider = ({ children }) => {
 
   const userToken = JSON.parse(localStorage.getItem("token"));
 
-  // console.log(userToken)
   const [token, setToken] = useState(userToken?.token);
   const [currentUser, setCurrentUser] = useState(
     userToken?.user
@@ -56,16 +55,10 @@ export const AuthProvider = ({ children }) => {
 
       setToken(encodedToken);
       setCurrentUser(foundUser);
-      // console.log("toekn from foundUser ", foundUser);
-      // console.log("toekn from aaa ", encodedToken);
 
       toast.success("Successfully signed in!");
 
       navigate(location?.state?.from?.pathname ?? "/");
-      // setLoginInput({
-      //   email: "",
-      //   password: "",
-      // });
     } catch (error) {
       const { response } = error;
       if (response.status === 401) {
@@ -108,7 +101,7 @@ export const AuthProvider = ({ children }) => {
           firstName: firstName,
           lastName: lastName,
         });
-        // console.log(response);
+
         const {
           data: { createdUser, encodedToken },
         } = response;
@@ -162,7 +155,7 @@ export const AuthProvider = ({ children }) => {
           loginHandler,
           signupHandler,
           userToken,
-          // userLoginHandler,
+
           showPassword,
           toggleLoginPassword,
           toggleSignUpPassword,

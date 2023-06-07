@@ -21,7 +21,7 @@ export const Cart = () => {
     isErrorGamesCart,
     isLoadingGamesCart,
   } = useContext(CartContext);
-  // console.log(cartState.cart)
+
   const { wishlistState, addToWishlist, removeFromWishlist } =
     useContext(WishlistContext);
   const { getGameById } = useContext(ProductListingContext);
@@ -128,7 +128,6 @@ export const Cart = () => {
                             </div>
 
                             <div className="cart-quantity">
-                              {/* <p className="cart-quanitty-title">Quantity :</p> */}
                               <button
                                 className="cart-quantity-decrease"
                                 disabled={qty < 2}

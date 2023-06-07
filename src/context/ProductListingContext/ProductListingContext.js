@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState, useReducer } from "react";
-// import { reducerFunction,initialState } from "../../pages/ProductListPage/Reducer/Reducer";
+
 import { reducerFunction, initialState } from "../../pages/Reducer/Reducer";
 import axios from "axios";
 
@@ -12,81 +12,89 @@ export const ProductDataProvider = ({ children }) => {
   const [displayFilters, setDisplayFilters] = useState(false);
   const [state, dispatch] = useReducer(reducerFunction, initialState);
 
-  // const filterProductData = () => {
+  const filterProductData = () => {
+    const totalProductData = [...getProductData].filter(
+      ({ comingSoon }) => !comingSoon
+    );
 
-  //   const totalProductData = [...getProductData].filter(
-  //     ({ comingSoon }) => !comingSoon
-  //   );
+    const filterWithPriceRange = state.filterPriceRange
+      ? totalProductData?.filter(
+          (game) => game.price - game.discountPrice <= state.filterPriceRange
+        )
+      : totalProductData;
 
-  //   const filterWithPriceRange = state.filterPriceRange
-  //     ? totalProductData?.filter((game) => game.price <= state.filterPriceRange)
-  //     : totalProductData;
+    const sortByPrice = filterWithPriceRange?.sort((a, b) => {
+      if (state.sortPrice === "HtoL") {
+        return b.price - b.discountPrice - a.price + a.discountPrice;
+      } else if (state.sortPrice === "LtoH") {
+        return a.price - a.discountPrice - b.price + b.discountPrice;
+      } else {
+        return 0;
+      }
+    });
 
-  //   const sortByPrice = filterWithPriceRange?.sort((a, b) => {
-  //     if (state.sortPrice === "HtoL") {
-  //       return b.price - b.discountPrice - a.price + a.discountPrice;
-  //     } else if (state.sortPrice === "LtoH") {
-  //       return a.price - a.discountPrice - b.price + b.discountPrice;
-  //     } else {
-  //       return 0;
-  //     }
-  //   });
+    const availabilityGames =
+      state.topSellers || state.specialGames || state.gamesOnSale
+        ? sortByPrice.filter(
+            (game) =>
+              (state.topSellers && game.topProductSellers) ||
+              (state.specialGames && game.specials) ||
+              (state.gamesOnSale && game.onSale)
+          )
+        : sortByPrice;
 
-  //   const availabilityGames =
-  //     state.topSellers || state.specialGames || state.gamesOnSale
-  //       ? sortByPrice.filter(
-  //           (game) =>
-  //             (state.topSellers && game.topProductSellers) ||
-  //             (state.specialGames && game.specials) ||
-  //             (state.gamesOnSale && game.onSale)
-  //         )
-  //       : sortByPrice;
+    const searchGame =
+      state.searchInput.length > 0
+        ? availabilityGames.filter(({ title }) =>
+            title.toLowerCase().includes(state.searchInput.trim().toLowerCase())
+          )
+        : availabilityGames;
 
-  //   const platformGames =
-  //     state.gamePlatformWindow || state.gamePlatformMac
-  //       ? availabilityGames?.filter(
-  //           (games) =>
-  //             (state.gamePlatformWindow &&
-  //               games.platform.includes("windows")) ||
-  //             (state.gamePlatformMac && games.platform.includes("mac"))
-  //         )
-  //       : availabilityGames;
+    const platformGames =
+      state.gamePlatformWindow || state.gamePlatformMac
+        ? searchGame?.filter(
+            (games) =>
+              (state.gamePlatformWindow &&
+                games.platform.includes("windows")) ||
+              (state.gamePlatformMac && games.platform.includes("mac"))
+          )
+        : searchGame;
 
-  //   const filterWthRating =
-  //     state.rating !== null
-  //       ? platformGames.filter((game) => game.starRatings <= state.rating)
-  //       : platformGames;
+    const filterWthRating =
+      state.rating !== null
+        ? platformGames.filter((game) => game.starRatings <= state.rating)
+        : platformGames;
 
-  //   const allCategoryGames =
-  //     state.gameCategoryAction ||
-  //     state.gameCategoryHorror ||
-  //     state.gameCategoryShooter ||
-  //     state.gameCategoryStrategy ||
-  //     state.gameCategoryOpenWorld ||
-  //     state.gameCategoryIndie ||
-  //     state.gameCategoryRpg
-  // ? filterWthRating?.filter(
-  //           (games) =>
-  //             (state.gameCategoryAction &&
-  //               games.categoryName.includes("Action")) ||
-  //             (state.gameCategoryHorror &&
-  //               games.categoryName.includes("Horror")) ||
-  //             (state.gameCategoryShooter &&
-  //               games.categoryName.includes("Shooter")) ||
-  //             (state.gameCategoryStrategy &&
-  //               games.categoryName.includes("Strategy")) ||
-  //             (state.gameCategoryOpenWorld &&
-  //               games.categoryName.includes("Open World")) ||
-  //             (state.gameCategoryIndie &&
-  //               games.categoryName.includes("Indie")) ||
-  //             (state.gameCategoryRpg && games.categoryName.includes("RPG"))
-  //         )
-  //       : filterWthRating;
+    const allCategoryGames =
+      state.gameCategoryAction ||
+      state.gameCategoryHorror ||
+      state.gameCategoryShooter ||
+      state.gameCategoryStrategy ||
+      state.gameCategoryOpenWorld ||
+      state.gameCategoryIndie ||
+      state.gameCategoryRpg
+        ? filterWthRating?.filter(
+            (games) =>
+              (state.gameCategoryAction &&
+                games.categoryName.includes("Action")) ||
+              (state.gameCategoryHorror &&
+                games.categoryName.includes("Horror")) ||
+              (state.gameCategoryShooter &&
+                games.categoryName.includes("Shooter")) ||
+              (state.gameCategoryStrategy &&
+                games.categoryName.includes("Strategy")) ||
+              (state.gameCategoryOpenWorld &&
+                games.categoryName.includes("Open World")) ||
+              (state.gameCategoryIndie &&
+                games.categoryName.includes("Indie")) ||
+              (state.gameCategoryRpg && games.categoryName.includes("RPG"))
+          )
+        : filterWthRating;
 
-  //   return allCategoryGames;
-  // };
+    return allCategoryGames;
+  };
 
-  // const allProductData = filterProductData();
+  const allProductData = filterProductData();
 
   const productDataCall = async () => {
     setIsLoadingGames(true);
@@ -132,9 +140,10 @@ export const ProductDataProvider = ({ children }) => {
         isLoadingGames,
         isErrorGames,
         getGameById,
-        // getIndividualProduct,
+
         displayFilters,
         setDisplayFilters,
+        allProductData,
       }}
     >
       {children}

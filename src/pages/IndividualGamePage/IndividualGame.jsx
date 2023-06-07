@@ -23,12 +23,11 @@ export const IndividualGame = () => {
     useContext(WishlistContext);
   const navigate = useNavigate();
   const { token, currentUser } = useContext(AuthContext);
-  // const getIndividualProduct = getGameById(individualGameId);
+
   useEffect(() => {
     getGameById(individualGameId, setGetIndividualProduct);
   }, []);
-  // getIndividualProduct(individualGameId);
-  // console.log(getIndividualProduct);
+
   const showAddToCartButton = !getIndividualProduct.comingSoon;
 
   const checkAlreadyInCart = cartState.cart.some(
@@ -81,7 +80,6 @@ export const IndividualGame = () => {
             </div>
 
             <div className="img-description">
-              {/* here information about imagae */}
               <h1 className="product-detail-title">
                 {" "}
                 {getIndividualProduct.title}
@@ -106,7 +104,7 @@ export const IndividualGame = () => {
                   </button>
                 )}
               </div>
-              {/* we will see late to use or not */}
+
               <p>
                 {" "}
                 <p className="product-detail-headings">Category :</p>{" "}
@@ -159,7 +157,6 @@ export const IndividualGame = () => {
                   )
                 )}
               </div>
-              {/* // ) : ( // "" // ) } */}
             </div>
             <Link className="product-detail--go-back" to="/store">
               Go Back

@@ -1,27 +1,16 @@
 export const reducerFunction = (state, action) => {
   switch (action.type) {
-    // search
-    // case "Search_All" : {
-    //                 return {...state,allData : action.data}
-    //             }
-
     case "Search_Game": {
       return { ...state, searchInput: action.payload };
     }
-    // allData: action.totalData.filter(({title})=> title.toLowerCase().includes(action.payload.trim().toLowerCase()))
-
-    // price
 
     case "Sort_By_Price": {
       return { ...state, sortPrice: action.payload };
     }
 
-    // price range
     case "Filter_By_Price": {
       return { ...state, filterPriceRange: action.payload };
     }
-
-    //availability
 
     case "Top_Sellers": {
       return { ...state, topSellers: !state.topSellers };
@@ -34,8 +23,6 @@ export const reducerFunction = (state, action) => {
     case "Games_On_Sale": {
       return { ...state, gamesOnSale: !state.gamesOnSale };
     }
-
-    // categories
 
     // for all this we can even use nullish coescalting and state false intially
 
@@ -67,24 +54,9 @@ export const reducerFunction = (state, action) => {
         [action.payload]: true,
       };
 
-    // case "Category_Filter":
-    //   const newState = {};
-
-    //   Object.keys(state).forEach((category) => {
-    //     newState[category] = category === action.payload ? true : false;
-    //   });
-
-    //   return {
-    //     ...newState,
-    //   };
-
-    // ratings
-
     case "Games_Rating": {
       return { ...state, rating: action.payload };
     }
-
-    // platforms
 
     case "Windows_Platform": {
       return { ...state, gamePlatformWindow: !state.gamePlatformWindow };
@@ -143,6 +115,5 @@ export const initialState = {
   gamePlatformWindow: false,
   gamePlatformMac: false,
 
-  //    allData:[]
   searchInput: "",
 };

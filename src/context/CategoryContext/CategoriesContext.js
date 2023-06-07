@@ -77,10 +77,7 @@ export const CategoryProvider = ({ children }) => {
           type: "Category_Filter",
           payload: response.data.category.value,
         });
-        // dispatch({ type: "Games_Reset" });
-        // if (location.pathname !== "/store") {
-        //   dispatch({ type: "Games_Reset" });
-        // }
+
         setIsLoadingGamesCategory(false);
       }
     } catch (e) {

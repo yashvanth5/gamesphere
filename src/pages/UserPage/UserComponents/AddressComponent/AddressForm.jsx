@@ -29,22 +29,11 @@ export const AddressForm = () => {
   };
   const handleAddressSubmit = (e) => {
     e.preventDefault();
-    // const isAddressPresent = address?.find(
-    //   (singleAdd) => singleAdd._id === addressFormData._id
-    // );
-    // if (isAddressPresent) {
-    //   addressDispatch({
-    //     type: "EDIT_ADDRESS",
-    //     payload: {
-    //       editAddress: { id: isAddressPresent._id, ...addressFormData },
-    //     },
-    //   });
-    // } else {
+
     addressDispatch({
       type: "ADD_TO_ADDRESS",
       payload: { id: uuid(), ...addressFormData },
     });
-    // }
 
     addressDispatch({ type: "SET_SHOW_NEW_ADDRESS", payload: false });
 
@@ -54,21 +43,6 @@ export const AddressForm = () => {
       toast.success("Added new address successfully!");
     }
   };
-
-  // const handleAddressSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (editAddress) {
-  //     addressDispatch({
-  //       type: "EDIT_ADDRESS",
-  //       payload: { editAddress: { id: editAddress._id, ...addressFormData } },
-  //     });
-  //   } else {
-  //     addressDispatch({
-  //       type: "ADD_TO_ADDRESS",
-  //       payload: { id: uuid(), ...addressFormData },
-  //     });
-  //   }
-  // };
 
   return (
     <>

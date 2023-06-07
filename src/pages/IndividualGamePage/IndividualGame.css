@@ -6,8 +6,6 @@ body {
   position: relative;
   height: 90vh;
   margin: auto;
-  /* margin-top: 10vh; */
-  /* margin-left: 10vh; */
 }
 
 .main-game-card {
@@ -34,7 +32,6 @@ body {
   margin-top: 30px;
   width: 600px;
   height: 400px;
-  /* background-color: #eee7e7; */
 }
 
 .game-img-main {
@@ -49,7 +46,7 @@ body {
 .product-detail-title {
   color: #6e1d72;
   margin-left: 20px;
-  /* align-self: center; */
+
   text-transform: uppercase;
 }
 
@@ -114,13 +111,11 @@ body {
 }
 
 .individual-wishlist-icon {
-  /* margin: -5px; */
   position: absolute;
   right: 30px;
   top: 25px;
   font-size: 30px;
-  /* position: relative;
-  top: -350px ; */
+
   color: #6e1d72;
 }
 
@@ -149,7 +144,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /* width: 50%; */
+
     flex-wrap: wrap;
     align-items: flex-start;
     margin: 10px;
@@ -206,11 +201,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /* width: 50%; */
+
     flex-wrap: wrap;
     align-items: flex-start;
     margin: 10px;
-    /* margin-top: 30px; */
+
     width: 370px;
     height: 500px;
   }
