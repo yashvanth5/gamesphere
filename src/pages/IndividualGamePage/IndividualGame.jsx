@@ -158,7 +158,7 @@ export const IndividualGame = () => {
                 )}
               </div>
             </div>
-            <Link className="product-detail--go-back" to="/store">
+            <Link className="product-detail--go-back" to="/">
               Go Back
             </Link>
           </div>
